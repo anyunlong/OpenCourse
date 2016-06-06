@@ -15,13 +15,15 @@
 // m
 #import "OFCourse.h"
 #import "OFCourseFrame.h"
+#import "OFCourseToolParam.h"
+#import "OFCourseToolResult.h"
 // category
 #import "UIImage+Extension.h"
 #import "UIColor+Extension.h"
 #import "UIView+Extension.h"
+// tool
+#import "OFCourseTool.h"
 // framework
-#import <AFNetworking.h>
-#import <MJExtension.h>
 #import <MJRefresh.h>
 
 extern const CGFloat kUINavigationBarExtensionSystemNavBarHeight;
@@ -115,66 +117,47 @@ static const int kAnimationPullImagesEndCount = 58;
 }
 
 - (void)loadMoreData {
-    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
-    mgr.responseSerializer = [AFJSONResponseSerializer serializer];
-    
-    __weak typeof(self) selfVc = self;
-    NSString *urlStr = [NSString stringWithFormat:@"http://c.open.163.com/mob/home/list.do?cursor=%ld", _courseFrames.count];
-    [mgr GET:urlStr parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        for (NSDictionary *courseDict in responseObject[@"data"]) {
-            [OFCourse mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
-                return @{
-                         @"desc" : @"description"
-                         };
-            }];
-            OFCourse *course = [OFCourse mj_objectWithKeyValues:courseDict];
-            
-            OFCourseFrame *courseFrame = [[OFCourseFrame alloc] init];
-            courseFrame.course = course;
-            
-            [selfVc.courseFrames addObject:courseFrame];
-        }
-        [selfVc.tableView reloadData];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        OFLog(@"%@", error);
-    }];
+    // 网络请求参数model
+    OFCourseToolParam *param = [[OFCourseToolParam alloc] init];
+    param.cursor = _courseFrames.count;
+    // 发送请求
+    [self loadCourseWithParam:param];
+    // 处理响应后停止上拉刷新
     [self.tableView.mj_footer endRefreshing];
 }
 
 - (void)loadNewData {
-    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
-    mgr.responseSerializer = [AFJSONResponseSerializer serializer];
-    
+    self.courseFrames = nil; // 清空数据源
+    [self loadCourseWithParam:nil];
+    [self.tableView.mj_header endRefreshing];
+}
+
+// 像服务器请求course数据并对其处理
+- (void)loadCourseWithParam:(OFCourseToolParam *)param {
     __weak typeof(self) selfVc = self;
-    [mgr GET:@"http://c.open.163.com/mob/home/list.do?cursor=" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        selfVc.courseFrames = nil;
-        for (NSDictionary *courseDict in responseObject[@"data"]) {
-            [OFCourse mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
-                return @{
-                         @"desc" : @"description"
-                         };
-            }];
-            OFCourse *course = [OFCourse mj_objectWithKeyValues:courseDict];
-            
+    [OFCourseTool coursesWithParameters:param progress:nil success:^(OFCourseToolResult *result) {
+        // 初始化数据源
+        for (OFCourse *course in result.courses) {
             OFCourseFrame *courseFrame = [[OFCourseFrame alloc] init];
             courseFrame.course = course;
             
             [selfVc.courseFrames addObject:courseFrame];
         }
+        // 刷新tableView
         [selfVc.tableView reloadData];
-        [selfVc showRefreshResultViewWithResult:YES];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [selfVc showRefreshResultViewWithResult:NO];
+        // 显示刷新结果view
+        if (!param) [selfVc showRefreshResultViewWithCourseFrames:_courseFrames];
+    } failure:^(NSError *error) {
+        if (!param) [selfVc showRefreshResultViewWithCourseFrames:_courseFrames];
     }];
-    [self.tableView.mj_header endRefreshing];
 }
 
-- (void)showRefreshResultViewWithResult:(BOOL)isSuccess;
+- (void)showRefreshResultViewWithCourseFrames:(NSArray<OFCourseFrame *> *)courseFrames;
 {
     UIButton *btn = [[UIButton alloc] init];
     btn.userInteractionEnabled = NO;
     NSString *title = @"刷新成功";
-    if (!isSuccess)
+    if (!courseFrames)
         title = @"网络不给力，请稍后重试";
     [btn setTitle:title forState:UIControlStateNormal];
     btn.titleLabel.font = [UIFont systemFontOfSize:kOFCourseCellOthersFontSize];
