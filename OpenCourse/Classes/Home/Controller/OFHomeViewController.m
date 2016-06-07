@@ -33,19 +33,16 @@ static const int kAnimationPullImagesEndCount = 58;
 
 @interface OFHomeViewController ()
 
+// dataSource
 @property (nonatomic, strong) NSMutableArray *courseFrames;
+// view
+@property (nonatomic, strong) UIImageView *homeIconView;
 
 @end
 
 @implementation OFHomeViewController
 
-- (NSMutableArray *)courseFrames {
-    if (!_courseFrames) {
-        _courseFrames = [NSMutableArray array];
-    }
-    return _courseFrames;
-}
-
+#pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -53,13 +50,13 @@ static const int kAnimationPullImagesEndCount = 58;
     self.tableView.backgroundColor = [UIColor systemTableViewBackgroundColor];
     
     // homeIconView
-    CGFloat homeIconHeight = [self setupHomeIconView];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.homeIconView];
     
     // navBarTitleView
-    [self setupNavBarTitleViewWithHeight:homeIconHeight];
+    self.navigationItem.titleView = self.searchView;;
     
     // rightBarButtonItem
-    [self setupRightBarButtonItem];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.buttonsView];
     
     // 初始化上下拉刷新
     [self setupRefresh];
@@ -68,28 +65,24 @@ static const int kAnimationPullImagesEndCount = 58;
     [self.tableView.mj_header beginRefreshing];
 }
 
-- (CGFloat)setupHomeIconView {
-    UIImage *homeIcon = [UIImage imageNamed:@"home_logo"];
-    CGSize homeIconSize = CGSizeMake(homeIcon.size.width, homeIcon.size.height);
-    UIImageView *homeIconView = [[UIImageView alloc] init];
-    homeIconView.size = CGSizeMake(homeIconSize.width, homeIconSize.height);
-    homeIconView.image = homeIcon;
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:homeIconView];
+#pragma mark - UITableViewDelegate
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.courseFrames.count;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    OFCourseCell *courseCell = [OFCourseCell cellWithTableView:tableView];
     
-    return homeIconSize.height;
+    courseCell.courseFrame = _courseFrames[indexPath.row];
+    
+    return courseCell;
 }
 
-- (void)setupNavBarTitleViewWithHeight:(CGFloat)height {
-    OFSearchView *searchView = [OFSearchView searchView];
-    searchView.size = CGSizeMake(kMainScreenBounds.size.width, height);
-    self.navigationItem.titleView = searchView;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [_courseFrames[indexPath.row] cellHeight];
 }
 
-- (void)setupRightBarButtonItem {
-    OFButtonsView *rightButtonsView = [OFButtonsView buttonsViewWithImgNames:@[@"home_history", @"home_download"] height:kUINavigationBarExtensionSystemNavBarHeight];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightButtonsView];
-}
-
+#pragma mark - private methods
+#pragma mark setup refresh
 - (void)setupRefresh {
     // -- 下拉刷新
     // 设置回调(一旦进入刷新状态,就调用target的action,也就是调用self的loadNewData方法)
@@ -116,6 +109,7 @@ static const int kAnimationPullImagesEndCount = 58;
     self.tableView.mj_footer = [MJRefreshAutoGifFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
 }
 
+#pragma mark refresh event response
 - (void)loadNewData {
     self.courseFrames = nil; // 清空数据源
     [self loadCourseWithParam:nil];
@@ -132,7 +126,7 @@ static const int kAnimationPullImagesEndCount = 58;
     [self.tableView.mj_footer endRefreshing];
 }
 
-// 像服务器请求course数据并对其处理
+// 向服务器请求course数据并对其处理
 - (void)loadCourseWithParam:(OFCourseToolParam *)param {
     __weak typeof(self) selfVc = self;
     [OFCourseTool coursesWithParameters:param progress:nil success:^(OFCourseToolResult *result) {
@@ -152,6 +146,7 @@ static const int kAnimationPullImagesEndCount = 58;
     }];
 }
 
+#pragma mark show refresh result
 - (void)showRefreshResultViewWithCourseFrames:(NSArray<OFCourseFrame *> *)courseFrames;
 {
     UIButton *btn = [[UIButton alloc] init];
@@ -181,20 +176,36 @@ static const int kAnimationPullImagesEndCount = 58;
     }];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.courseFrames.count;
+#pragma mark - getters and setters
+- (NSMutableArray *)courseFrames {
+    if (!_courseFrames) {
+        _courseFrames = [NSMutableArray array];
+    }
+    return _courseFrames;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    OFCourseCell *courseCell = [OFCourseCell cellWithTableView:tableView];
+- (UIImageView *)homeIconView {
+    UIImageView *homeIconView = [[UIImageView alloc] init];
+    UIImage *homeIconImg = [UIImage imageNamed:@"home_logo"];
+    homeIconView.image = homeIconImg;
+    self.homeIconView = homeIconView;
     
-    courseCell.courseFrame = _courseFrames[indexPath.row];
+    CGSize homeIconImgSize = CGSizeMake(homeIconImg.size.width, homeIconImg.size.height);
+    homeIconView.size = CGSizeMake(homeIconImgSize.width, homeIconImgSize.height);
     
-    return courseCell;
+    return homeIconView;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [_courseFrames[indexPath.row] cellHeight];
+- (OFSearchView *)searchView {
+    OFSearchView *searchView = [OFSearchView searchView];
+    
+    searchView.size = CGSizeMake(kMainScreenBounds.size.width, _homeIconView.height);
+    
+    return searchView;
+}
+
+- (OFButtonsView *)buttonsView {
+    return [OFButtonsView buttonsViewWithImgNames:@[@"home_history", @"home_download"] height:kUINavigationBarExtensionSystemNavBarHeight];
 }
 
 @end
