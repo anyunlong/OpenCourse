@@ -116,6 +116,12 @@ static const int kAnimationPullImagesEndCount = 58;
     self.tableView.mj_footer = [MJRefreshAutoGifFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
 }
 
+- (void)loadNewData {
+    self.courseFrames = nil; // 清空数据源
+    [self loadCourseWithParam:nil];
+    [self.tableView.mj_header endRefreshing];
+}
+
 - (void)loadMoreData {
     // 网络请求参数model
     OFCourseToolParam *param = [[OFCourseToolParam alloc] init];
@@ -124,12 +130,6 @@ static const int kAnimationPullImagesEndCount = 58;
     [self loadCourseWithParam:param];
     // 处理响应后停止上拉刷新
     [self.tableView.mj_footer endRefreshing];
-}
-
-- (void)loadNewData {
-    self.courseFrames = nil; // 清空数据源
-    [self loadCourseWithParam:nil];
-    [self.tableView.mj_header endRefreshing];
 }
 
 // 像服务器请求course数据并对其处理

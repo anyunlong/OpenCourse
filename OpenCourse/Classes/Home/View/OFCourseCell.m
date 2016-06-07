@@ -145,15 +145,18 @@ extern const CGFloat kUIViewExtensionViewMargin;
     [self.picView sd_setImageWithURL:[NSURL URLWithString:course.picUrl] placeholderImage:nil];
     self.picView.frame = courseFrame.picViewF;
     // rtypeView
-    NSString *imgName = @"home_video";
-    NSString *bgImgName = @"home_video_b";
+    NSString *imgName;
+    NSString *bgImgName;
     switch (course.rtype) {
         case OFCourseRtypeVideo:
+            imgName = @"home_video";
+            bgImgName = @"home_video_b";
             [self.rtypeView setTitle:course.quantity forState:UIControlStateNormal];
             break;
         case OFCourseRtypeH5:
             imgName = @"home_h5";
             bgImgName = @"home_article_b";
+            [self.rtypeView setTitle:nil forState:UIControlStateNormal];
             break;
     }
     [self.rtypeView setImage:[UIImage imageNamed:imgName] forState:UIControlStateNormal];
