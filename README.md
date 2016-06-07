@@ -8,4 +8,4 @@
 
 ![Home_Show](https://github.com/One-self/OpenCourse/blob/master/README/home_show.gif)
 
-3> doing：整理home架构
+3> doing：展示cell二级界面
