@@ -6,6 +6,6 @@
 
 2> 图示：
 
-![Home_Show](https://github.com/One-self/OpenCourse/blob/master/README/home_show.gif)
+![Current_Gif](https://github.com/One-self/OpenCourse/blob/master/README/current.gif)
 
-3> doing：展示cell二级界面
+3> doing：完善webViewController
