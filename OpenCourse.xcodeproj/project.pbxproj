@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		727CF9E84C02C87884BDCCB2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A4DCB175D280237EC84D674 /* libPods.a */; };
+		A159F0791D07C1DB00F5487E /* OFWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A159F0781D07C1DB00F5487E /* OFWebViewController.m */; };
 		A1CEF9F71D042E4500496A8F /* NSData+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEF9E21D042E4500496A8F /* NSData+Extension.m */; };
 		A1CEF9F81D042E4500496A8F /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEF9E41D042E4500496A8F /* UIColor+Extension.m */; };
 		A1CEF9F91D042E4500496A8F /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEF9E61D042E4500496A8F /* UIImage+Extension.m */; };
@@ -36,6 +37,8 @@
 /* Begin PBXFileReference section */
 		1A4DCB175D280237EC84D674 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		774C43ACFD70BBC892E55A4E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		A159F0771D07C1DB00F5487E /* OFWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OFWebViewController.h; sourceTree = "<group>"; };
+		A159F0781D07C1DB00F5487E /* OFWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OFWebViewController.m; sourceTree = "<group>"; };
 		A1B89C6D1CFD8D34006B91D6 /* OpenCourse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenCourse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1CEF9E11D042E4500496A8F /* NSData+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Extension.h"; sourceTree = "<group>"; };
 		A1CEF9E21D042E4500496A8F /* NSData+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Extension.m"; sourceTree = "<group>"; };
@@ -239,6 +242,8 @@
 			children = (
 				A1CF9E5D1CFD9C360042BCD7 /* OFHomeViewController.h */,
 				A1CF9E5E1CFD9C360042BCD7 /* OFHomeViewController.m */,
+				A159F0771D07C1DB00F5487E /* OFWebViewController.h */,
+				A159F0781D07C1DB00F5487E /* OFWebViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -468,6 +473,7 @@
 			files = (
 				A1CF9E8F1CFEF2E20042BCD7 /* OFCourseFrame.m in Sources */,
 				A1CEFA0B1D04434E00496A8F /* OFCourseToolParam.m in Sources */,
+				A159F0791D07C1DB00F5487E /* OFWebViewController.m in Sources */,
 				A1CEFA081D04396A00496A8F /* OFCourseTool.m in Sources */,
 				A1CF9E7D1CFDC4B90042BCD7 /* OFSearchView.m in Sources */,
 				A1CEF9FB1D042E4500496A8F /* UIView+Extension.m in Sources */,

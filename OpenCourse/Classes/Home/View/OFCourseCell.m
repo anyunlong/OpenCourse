@@ -69,6 +69,7 @@ extern const CGFloat kUIViewExtensionViewMargin;
         UIButton *listBtn = [[UIButton alloc] init];
         [listBtn setBackgroundImage:[UIImage resizedImageWithName:@"course_grid_bg"] forState:UIControlStateNormal];
         [listBtn setBackgroundImage:[UIImage resizedImageWithName:@"course_grid_bg_pressed"] forState:UIControlStateHighlighted];
+        [listBtn addTarget:self action:@selector(listBtnDidClicked) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:listBtn];
         self.listBtn = listBtn;
         
@@ -184,6 +185,12 @@ extern const CGFloat kUIViewExtensionViewMargin;
     self.divider.frame = courseFrame.dividerF;
     // likeView
     self.likeView.frame = courseFrame.likeViewF;
+}
+
+- (void)listBtnDidClicked {
+    if ([_delegate respondsToSelector:@selector(courseCell:didClickedButtonAtIndex:)]) {
+        [_delegate courseCell:self didClickedButtonAtIndex:self.tag];
+    }
 }
 
 - (NSString *)viewcountFormattedWithOriginalViewcount:(NSString *)originalViewcount {

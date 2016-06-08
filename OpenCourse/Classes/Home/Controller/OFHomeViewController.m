@@ -8,6 +8,8 @@
 
 // c
 #import "OFHomeViewController.h"
+#import "OFWebViewController.h"
+#import "OFNavigationController.h"
 // v
 #import "OFButtonsView.h"
 #import "OFSearchView.h"
@@ -31,12 +33,14 @@ extern const CGFloat kOFCourseCellOthersFontSize;
 static const int kAnimationPullImagesStartCount = 32;
 static const int kAnimationPullImagesEndCount = 58;
 
-@interface OFHomeViewController ()
+@interface OFHomeViewController () <OFCourseCellDelegate>
 
 // dataSource
 @property (nonatomic, strong) NSMutableArray *courseFrames;
 // view
 @property (nonatomic, strong) UIImageView *homeIconView;
+@property (nonatomic, strong) OFSearchView *searchView;
+@property (nonatomic, strong) OFButtonsView *buttonsView;
 
 @end
 
@@ -49,14 +53,16 @@ static const int kAnimationPullImagesEndCount = 58;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = [UIColor systemTableViewBackgroundColor];
     
+    UINavigationItem *navigationItem = self.navigationItem;
+    
     // homeIconView
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.homeIconView];
+    navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.homeIconView];
     
     // navBarTitleView
-    self.navigationItem.titleView = self.searchView;;
+    navigationItem.titleView = self.searchView;;
     
     // rightBarButtonItem
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.buttonsView];
+    navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.buttonsView];
     
     // 初始化上下拉刷新
     [self setupRefresh];
@@ -65,20 +71,43 @@ static const int kAnimationPullImagesEndCount = 58;
     [self.tableView.mj_header beginRefreshing];
 }
 
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    // homeIconView
+    self.homeIconView.size = _homeIconView.image.size;
+    
+    // searchView
+    self.searchView.size = CGSizeMake(kMainScreenBounds.size.width, _homeIconView.height);
+}
+
 #pragma mark - UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.courseFrames.count;
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     OFCourseCell *courseCell = [OFCourseCell cellWithTableView:tableView];
+    courseCell.delegate = self;
     
-    courseCell.courseFrame = _courseFrames[indexPath.row];
+    NSInteger row = indexPath.row;
+    courseCell.courseFrame = _courseFrames[row];
+    courseCell.tag = row;
     
     return courseCell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [_courseFrames[indexPath.row] cellHeight];
+}
+
+#pragma mark - CustomDelegate
+- (void)courseCell:(OFCourseCell *)courseCell didClickedButtonAtIndex:(NSInteger)index {
+    OFWebViewController *wc = [[OFWebViewController alloc] init];
+    wc.course = [_courseFrames[index] course];
+    OFNavigationController *nc = [[OFNavigationController alloc] initWithRootViewController:wc];
+    
+    [self presentViewController:nc animated:YES completion:nil];
 }
 
 #pragma mark - private methods
@@ -185,27 +214,26 @@ static const int kAnimationPullImagesEndCount = 58;
 }
 
 - (UIImageView *)homeIconView {
-    UIImageView *homeIconView = [[UIImageView alloc] init];
-    UIImage *homeIconImg = [UIImage imageNamed:@"home_logo"];
-    homeIconView.image = homeIconImg;
-    self.homeIconView = homeIconView;
-    
-    CGSize homeIconImgSize = CGSizeMake(homeIconImg.size.width, homeIconImg.size.height);
-    homeIconView.size = CGSizeMake(homeIconImgSize.width, homeIconImgSize.height);
-    
-    return homeIconView;
+    if (!_homeIconView) {
+        _homeIconView = [[UIImageView alloc] init];
+        UIImage *homeIconImg = [UIImage imageNamed:@"home_logo"];
+        _homeIconView.image = homeIconImg;
+    }
+    return _homeIconView;
 }
 
 - (OFSearchView *)searchView {
-    OFSearchView *searchView = [OFSearchView searchView];
-    
-    searchView.size = CGSizeMake(kMainScreenBounds.size.width, _homeIconView.height);
-    
-    return searchView;
+    if (!_searchView) {
+        _searchView = [OFSearchView searchView];
+    }
+    return _searchView;
 }
 
 - (OFButtonsView *)buttonsView {
-    return [OFButtonsView buttonsViewWithImgNames:@[@"home_history", @"home_download"] height:kUINavigationBarExtensionSystemNavBarHeight];
+    if (!_buttonsView) {
+        _buttonsView = [OFButtonsView buttonsViewWithImgNames:@[@"home_history", @"home_download"] height:kUINavigationBarExtensionSystemNavBarHeight];
+    }
+    return _buttonsView;
 }
 
 @end

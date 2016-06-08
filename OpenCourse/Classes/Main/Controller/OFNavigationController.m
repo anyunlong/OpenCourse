@@ -18,10 +18,13 @@
 @implementation OFNavigationController
 
 + (void)initialize {
+    // 1.设置导航栏主题
     [self setupNavBarTheme];
+    
+    // 2.设置导航栏按钮主题
+    [self setupBarButtonItemTheme];
 }
 
-// 设置导航栏主题
 + (void)setupNavBarTheme
 {
     UINavigationBar *navBar = [UINavigationBar appearance];
@@ -31,6 +34,12 @@
     [navBar setTitleTextAttributes:attrs];
     // 背景颜色
     [navBar setBarTintColor:[UIColor appColor]];
+}
+
++ (void)setupBarButtonItemTheme {
+    UIBarButtonItem *item = [UIBarButtonItem appearance];
+    // barButtonItem颜色
+    item.tintColor = [UIColor whiteColor];
 }
 
 @end
