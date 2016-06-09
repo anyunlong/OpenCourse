@@ -177,7 +177,7 @@ extern const CGFloat kUIViewExtensionViewMargin;
     self.descView.text = course.desc;
     self.descView.frame = courseFrame.descViewF;
     // viewcountView
-    self.viewcountView.text = [NSString stringWithFormat:@"%@人观看", [self viewcountFormattedWithOriginalViewcount:course.viewcount]];
+    self.viewcountView.text = course.viewcount;
     self.viewcountView.frame = courseFrame.viewconutViewF;
     // shareView
     self.shareView.frame = courseFrame.shareViewF;
@@ -191,20 +191,6 @@ extern const CGFloat kUIViewExtensionViewMargin;
     if ([_delegate respondsToSelector:@selector(courseCell:didClickedButtonAtIndex:)]) {
         [_delegate courseCell:self didClickedButtonAtIndex:self.tag];
     }
-}
-
-- (NSString *)viewcountFormattedWithOriginalViewcount:(NSString *)originalViewcount {
-    NSString *viewcountFormatted;
-    if (originalViewcount.length < 5) {
-        viewcountFormatted = originalViewcount;
-    } else if (originalViewcount.length == 5) {
-        viewcountFormatted = [NSString stringWithFormat:@"%c.%c万", [originalViewcount characterAtIndex:0], [originalViewcount characterAtIndex:1]];
-    } else if (originalViewcount.length > 5) {
-        viewcountFormatted = [NSString stringWithFormat:@"%@万", [originalViewcount substringToIndex:originalViewcount.length - 4]];
-    } else
-        OFLog(@"%@", @"viewcountFormattedWithOriginalViewcount");
-    
-    return viewcountFormatted;
 }
 
 @end

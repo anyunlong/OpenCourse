@@ -32,6 +32,7 @@
 		A1CF9E891CFEC9D10042BCD7 /* OFCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CF9E881CFEC9D10042BCD7 /* OFCourse.m */; };
 		A1CF9E8C1CFEE31F0042BCD7 /* OFCourseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CF9E8B1CFEE31F0042BCD7 /* OFCourseCell.m */; };
 		A1CF9E8F1CFEF2E20042BCD7 /* OFCourseFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CF9E8E1CFEF2E20042BCD7 /* OFCourseFrame.m */; };
+		A1D37E441D091943007613C8 /* UITableViewController+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D37E431D091943007613C8 /* UITableViewController+Extension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,8 @@
 		A1CF9E8B1CFEE31F0042BCD7 /* OFCourseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OFCourseCell.m; sourceTree = "<group>"; };
 		A1CF9E8D1CFEF2E20042BCD7 /* OFCourseFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OFCourseFrame.h; sourceTree = "<group>"; };
 		A1CF9E8E1CFEF2E20042BCD7 /* OFCourseFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OFCourseFrame.m; sourceTree = "<group>"; };
+		A1D37E421D091943007613C8 /* UITableViewController+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewController+Extension.h"; sourceTree = "<group>"; };
+		A1D37E431D091943007613C8 /* UITableViewController+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewController+Extension.m"; sourceTree = "<group>"; };
 		AAFDD98DB4FED8729DE13A6F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,6 +152,8 @@
 				A1CEF9E81D042E4500496A8F /* UINavigationBar+Extension.m */,
 				A1CEF9E91D042E4500496A8F /* UIView+Extension.h */,
 				A1CEF9EA1D042E4500496A8F /* UIView+Extension.m */,
+				A1D37E421D091943007613C8 /* UITableViewController+Extension.h */,
+				A1D37E431D091943007613C8 /* UITableViewController+Extension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -482,6 +487,7 @@
 				A1CEF9FC1D042E4500496A8F /* OFNavigationController.m in Sources */,
 				A1CF9E861CFE78040042BCD7 /* OFButtonsView.m in Sources */,
 				A1CF9E5F1CFD9C360042BCD7 /* OFHomeViewController.m in Sources */,
+				A1D37E441D091943007613C8 /* UITableViewController+Extension.m in Sources */,
 				A1CF9E6D1CFD9DA40042BCD7 /* OFMeViewController.m in Sources */,
 				A1CF9E661CFD9D7A0042BCD7 /* OFCategoryViewController.m in Sources */,
 				A1CEF9F81D042E4500496A8F /* UIColor+Extension.m in Sources */,

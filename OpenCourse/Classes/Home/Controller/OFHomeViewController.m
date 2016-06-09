@@ -20,7 +20,7 @@
 #import "OFCourseToolParam.h"
 #import "OFCourseToolResult.h"
 // category
-#import "UIImage+Extension.h"
+#import "UITableViewController+Extension.h"
 #import "UIColor+Extension.h"
 #import "UIView+Extension.h"
 // tool
@@ -28,10 +28,9 @@
 // framework
 #import <MJRefresh.h>
 
-extern const CGFloat kUINavigationBarExtensionSystemNavBarHeight;
-extern const CGFloat kOFCourseCellOthersFontSize;
 static const int kAnimationPullImagesStartCount = 32;
 static const int kAnimationPullImagesEndCount = 58;
+extern const CGFloat kUINavigationBarExtensionSystemNavBarHeight;
 
 @interface OFHomeViewController () <OFCourseCellDelegate>
 
@@ -169,39 +168,9 @@ static const int kAnimationPullImagesEndCount = 58;
         // 刷新tableView
         [selfVc.tableView reloadData];
         // 显示刷新结果view
-        if (!param) [selfVc showRefreshResultViewWithCourseFrames:_courseFrames];
+        if (!param) [selfVc showRefreshResultViewWithObject:_courseFrames];
     } failure:^(NSError *error) {
-        if (!param) [selfVc showRefreshResultViewWithCourseFrames:_courseFrames];
-    }];
-}
-
-#pragma mark show refresh result
-- (void)showRefreshResultViewWithCourseFrames:(NSArray<OFCourseFrame *> *)courseFrames;
-{
-    UIButton *btn = [[UIButton alloc] init];
-    btn.userInteractionEnabled = NO;
-    NSString *title = @"刷新成功";
-    if (!courseFrames)
-        title = @"网络不给力，请稍后重试";
-    [btn setTitle:title forState:UIControlStateNormal];
-    btn.titleLabel.font = [UIFont systemFontOfSize:kOFCourseCellOthersFontSize];
-    [btn setBackgroundImage:[UIImage resizedImageWithName:@"home_refresh_bg"] forState:UIControlStateNormal];
-    [self.navigationController.view insertSubview:btn belowSubview:self.navigationController.navigationBar];
-    
-    CGFloat btnX = 0;
-    CGFloat btnH = 30;
-    CGFloat btnY = [UIApplication sharedApplication].statusBarFrame.size.height + kUINavigationBarExtensionSystemNavBarHeight  - btnH;
-    CGFloat btnW = kMainScreenBounds.size.width;
-    btn.frame = CGRectMake(btnX, btnY, btnW, btnH);
-    
-    [UIView animateWithDuration:0.5 animations:^{
-        btn.transform = CGAffineTransformMakeTranslation(0, btnH);
-    } completion:^(BOOL finished) {
-        [UIView animateWithDuration:0.5 delay:1.0 options:UIViewAnimationOptionCurveLinear animations:^{
-            btn.transform = CGAffineTransformIdentity;
-        } completion:^(BOOL finished) {
-            [btn removeFromSuperview];
-        }];
+        if (!param) [selfVc showRefreshResultViewWithObject:_courseFrames];
     }];
 }
 

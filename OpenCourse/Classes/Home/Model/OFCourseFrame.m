@@ -70,8 +70,9 @@ extern const CGFloat kOFCourseCellOthersFontSize;
     // titleViewF
     CGFloat titleViewX = courseTypeViewX;
     CGFloat titleViewY = CGRectGetMaxY(_courseTypeViewF) + courseTypeViewX;
+    CGFloat titleViewW = picViewW - 2 * titleViewX;
     CGSize titleViewSize = [course.title sizeWithAttributes:courseCellTitleFontAttr];
-    _titleViewF = CGRectMake(titleViewX, titleViewY, titleViewSize.width, titleViewSize.height);
+    _titleViewF = CGRectMake(titleViewX, titleViewY, titleViewW, titleViewSize.height);
     
     // descViewF
     CGFloat descViewX = courseTypeViewX;
