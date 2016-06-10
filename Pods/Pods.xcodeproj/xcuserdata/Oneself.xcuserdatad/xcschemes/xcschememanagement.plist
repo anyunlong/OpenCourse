@@ -34,11 +34,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>libwebp.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -47,7 +42,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>43FE871D4590DE54D05DE127CD6BBA2D</key>
+		<key>32EA2ECFAC280266A9A30B42E64BC71B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3BE2F0B471B5B1A4E07F34A5C79405BF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -63,16 +63,6 @@
 			<true/>
 		</dict>
 		<key>9EAB3E42EF957541E6C3C76D35FD008E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B9B0A9DAE0F0A543CBCA3DB56A376FEF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F2CCB8344E60CDE0309E65EEDCB7C6E0</key>
 		<dict>
 			<key>primary</key>
 			<true/>

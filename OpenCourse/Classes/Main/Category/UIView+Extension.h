@@ -26,5 +26,6 @@ extern const CGFloat kUIViewExtensionViewMargin;
 @property (nonatomic, assign) CGSize size;
 
 - (void)circleView;
+- (void)circularBeadViewWithRadius:(CGFloat)radius;
 
 @end

@@ -46,7 +46,7 @@
     OFLog(@"%@", @"shareBtnDidClicked");
 }
 
-#pragma mark - setter and getter
+#pragma mark - getters and setters
 - (UIWebView *)webView {
     if (!_webView) {
         _webView = [[UIWebView alloc] init];

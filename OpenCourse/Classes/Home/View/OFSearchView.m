@@ -9,9 +9,10 @@
 #import "OFSearchView.h"
 // category
 #import "UIImage+Extension.h"
+#import "UIView+Extension.h"
 
-extern const CGFloat kUIViewExtensionViewMargin;
 static const CGFloat kTitleLableFontSize = 13;
+extern const CGFloat kUIViewExtensionViewMargin;
 
 @interface OFSearchView()
 
@@ -25,29 +26,42 @@ static const CGFloat kTitleLableFontSize = 13;
 
 - (instancetype)init {
     if (self = [super init]) {
-        // 背景图片
-        [self setBackgroundImage:[UIImage resizedImageWithName:@"search_list_bg"] forState:UIControlStateNormal];
-        // 放大镜图片
-        [self setImage:[UIImage imageNamed:@"search_fdj"] forState:UIControlStateNormal];
-        self.imageView.contentMode = UIViewContentModeCenter;
-        // 文字
-        [self setTitle:@"农村学子哈佛毕业演讲" forState:UIControlStateNormal];
-        self.titleLabel.font = [UIFont systemFontOfSize:kTitleLableFontSize];
         // 圆角边缘
-        [self.layer setMasksToBounds:YES];
-        [self.layer setCornerRadius:5]; //设置矩形四个圆角半径
+        [self circularBeadViewWithRadius:5];
+        
+        // 背景图片
+        self.background = [UIImage resizedImageWithName:@"search_list_bg"];
+        
+        // 左边的放大镜图标
+        UIImage *iconImg = [UIImage imageNamed:@"search_fdj"];
+        UIImageView *iconView = [[UIImageView alloc] initWithImage:iconImg];
+        iconView.contentMode = UIViewContentModeCenter;
+        self.leftView = iconView;
+        self.leftViewMode = UITextFieldViewModeAlways;
+        
+        // 右边的清除按钮
+        self.clearButtonMode = UITextFieldViewModeAlways;
+        
+        // 字体
+        self.font = [UIFont systemFontOfSize:kTitleLableFontSize];
+        
+        // 光标颜色
+        self.tintColor = [UIColor whiteColor];
+        
+        // 设置提醒文字
+        NSMutableDictionary *attr = [NSMutableDictionary dictionary];
+        attr[NSForegroundColorAttributeName] = [UIColor whiteColor];
+        self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"拖延症怎么治" attributes:attr];
+        
+        // 文字颜色
+        self.textColor = [UIColor whiteColor];
+        
+        // 设置左边图标的frame
+        CGSize iconImgSize = iconImg.size;
+        self.leftView.size = CGSizeMake(iconImgSize.width + 2 * kUIViewExtensionViewMargin, self.height);
     }
     
     return self;
-}
-
-- (CGRect)imageRectForContentRect:(CGRect)contentRect {
-    return CGRectMake(0, 0, [UIImage imageNamed:@"search_fdj"].size.width + 2 * kUIViewExtensionViewMargin, contentRect.size.height);
-}
-
-- (CGRect)titleRectForContentRect:(CGRect)contentRect {
-    CGFloat imageViewW = self.imageView.frame.size.width;
-    return CGRectMake(imageViewW, 0, contentRect.size.width - imageViewW - kUIViewExtensionViewMargin, contentRect.size.height);
 }
 
 @end

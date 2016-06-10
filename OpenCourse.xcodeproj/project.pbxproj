@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		727CF9E84C02C87884BDCCB2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A4DCB175D280237EC84D674 /* libPods.a */; };
+		A124129D1D099BB7004DFDAF /* OFSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A124129C1D099BB7004DFDAF /* OFSearchViewController.m */; };
 		A159F0791D07C1DB00F5487E /* OFWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A159F0781D07C1DB00F5487E /* OFWebViewController.m */; };
 		A1CEF9F71D042E4500496A8F /* NSData+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEF9E21D042E4500496A8F /* NSData+Extension.m */; };
 		A1CEF9F81D042E4500496A8F /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEF9E41D042E4500496A8F /* UIColor+Extension.m */; };
@@ -38,6 +39,8 @@
 /* Begin PBXFileReference section */
 		1A4DCB175D280237EC84D674 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		774C43ACFD70BBC892E55A4E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		A124129B1D099BB7004DFDAF /* OFSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OFSearchViewController.h; sourceTree = "<group>"; };
+		A124129C1D099BB7004DFDAF /* OFSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OFSearchViewController.m; sourceTree = "<group>"; };
 		A159F0771D07C1DB00F5487E /* OFWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OFWebViewController.h; sourceTree = "<group>"; };
 		A159F0781D07C1DB00F5487E /* OFWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OFWebViewController.m; sourceTree = "<group>"; };
 		A1B89C6D1CFD8D34006B91D6 /* OpenCourse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenCourse.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -249,6 +252,8 @@
 				A1CF9E5E1CFD9C360042BCD7 /* OFHomeViewController.m */,
 				A159F0771D07C1DB00F5487E /* OFWebViewController.h */,
 				A159F0781D07C1DB00F5487E /* OFWebViewController.m */,
+				A124129B1D099BB7004DFDAF /* OFSearchViewController.h */,
+				A124129C1D099BB7004DFDAF /* OFSearchViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -496,6 +501,7 @@
 				A1CEF9FA1D042E4500496A8F /* UINavigationBar+Extension.m in Sources */,
 				A1CEF9F91D042E4500496A8F /* UIImage+Extension.m in Sources */,
 				A1CEF9FF1D042E4500496A8F /* AppDelegate.m in Sources */,
+				A124129D1D099BB7004DFDAF /* OFSearchViewController.m in Sources */,
 				A1CEFA0E1D04436400496A8F /* OFCourseToolResult.m in Sources */,
 				A1CEF9FE1D042E4500496A8F /* OFTableViewController.m in Sources */,
 				A1CEFA001D042E4500496A8F /* main.m in Sources */,

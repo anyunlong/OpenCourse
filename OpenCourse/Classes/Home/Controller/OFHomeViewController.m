@@ -10,6 +10,7 @@
 #import "OFHomeViewController.h"
 #import "OFWebViewController.h"
 #import "OFNavigationController.h"
+#import "OFSearchViewController.h"
 // v
 #import "OFButtonsView.h"
 #import "OFSearchView.h"
@@ -32,7 +33,7 @@ static const int kAnimationPullImagesStartCount = 32;
 static const int kAnimationPullImagesEndCount = 58;
 extern const CGFloat kUINavigationBarExtensionSystemNavBarHeight;
 
-@interface OFHomeViewController () <OFCourseCellDelegate>
+@interface OFHomeViewController () <OFCourseCellDelegate, UITextFieldDelegate>
 
 // dataSource
 @property (nonatomic, strong) NSMutableArray *courseFrames;
@@ -70,16 +71,6 @@ extern const CGFloat kUINavigationBarExtensionSystemNavBarHeight;
     [self.tableView.mj_header beginRefreshing];
 }
 
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
-    
-    // homeIconView
-    self.homeIconView.size = _homeIconView.image.size;
-    
-    // searchView
-    self.searchView.size = CGSizeMake(kMainScreenBounds.size.width, _homeIconView.height);
-}
-
 #pragma mark - UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.courseFrames.count;
@@ -98,6 +89,12 @@ extern const CGFloat kUINavigationBarExtensionSystemNavBarHeight;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [_courseFrames[indexPath.row] cellHeight];
+}
+
+#pragma mark - UITextFieldDelegate
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    OFSearchViewController *svc = [[OFSearchViewController alloc] init];
+    [self.navigationController pushViewController:svc animated:YES];
 }
 
 #pragma mark - CustomDelegate
@@ -187,6 +184,8 @@ extern const CGFloat kUINavigationBarExtensionSystemNavBarHeight;
         _homeIconView = [[UIImageView alloc] init];
         UIImage *homeIconImg = [UIImage imageNamed:@"home_logo"];
         _homeIconView.image = homeIconImg;
+        
+        _homeIconView.size = homeIconImg.size;
     }
     return _homeIconView;
 }
@@ -194,6 +193,9 @@ extern const CGFloat kUINavigationBarExtensionSystemNavBarHeight;
 - (OFSearchView *)searchView {
     if (!_searchView) {
         _searchView = [OFSearchView searchView];
+        _searchView.delegate = self;
+        
+        _searchView.size = CGSizeMake(kMainScreenBounds.size.width, _homeIconView.height);
     }
     return _searchView;
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2016年 CCUT. All rights reserved.
 //
 
-@interface OFSearchView : UIButton
+@interface OFSearchView : UITextField
 
 + (instancetype)searchView;
 

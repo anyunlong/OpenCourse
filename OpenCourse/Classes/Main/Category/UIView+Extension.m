@@ -109,7 +109,11 @@ const CGFloat kUIViewExtensionViewMargin = 5;
 
 // *************************
 - (void)circleView {
-    self.layer.cornerRadius = self.width / 2;
+    [self circularBeadViewWithRadius:self.width / 2];
+}
+
+- (void)circularBeadViewWithRadius:(CGFloat)radius {
+    self.layer.cornerRadius = radius;
     self.layer.masksToBounds = YES;
 }
 
