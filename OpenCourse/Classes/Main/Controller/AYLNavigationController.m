@@ -18,13 +18,13 @@
 
 + (void)initialize {
     // 1.设置导航栏主题
-    [self ayl_setupNavBarTheme];
+    [self setupNavBarTheme];
     
     // 2.设置导航栏按钮主题
-    [self ayl_setupBarButtonItemTheme];
+    [self setupBarButtonItemTheme];
 }
 
-+ (void)ayl_setupNavBarTheme
++ (void)setupNavBarTheme
 {
     UINavigationBar *navBar = [UINavigationBar appearance];
     // 标题文字颜色
@@ -35,7 +35,7 @@
     [navBar setBarTintColor:[UIColor ayl_appColor]];
 }
 
-+ (void)ayl_setupBarButtonItemTheme {
++ (void)setupBarButtonItemTheme {
     UIBarButtonItem *item = [UIBarButtonItem appearance];
     // barButtonItem颜色
     item.tintColor = [UIColor whiteColor];

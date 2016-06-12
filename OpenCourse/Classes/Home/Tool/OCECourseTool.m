@@ -19,7 +19,7 @@
 @implementation OCECourseTool
 
 + (void)coursesWithParameters:(OCECourseToolParam *)param progress:(void (^)(NSProgress *downloadProgress))progress success:(void (^)(OCECourseToolResult *result))success failure:(void (^)(NSError *error))failure {
-    [AYLHttpTool ayl_getWithURL:@"http://c.open.163.com/mob/home/list.do" parameters:param.mj_keyValues progress:^(NSProgress *downloadProgress) {
+    [AYLHttpTool getWithURL:@"http://c.open.163.com/mob/home/list.do" parameters:param.mj_keyValues progress:^(NSProgress *downloadProgress) {
         AYLLog(@"%@", @"progress");
     } success:^(id responseObject) {
         if (success) {

@@ -8,6 +8,6 @@
 @interface AYLHttpTool : NSObject
 
 // 封装AFN-GET方法
-+ (void)ayl_getWithURL:(NSString *)url parameters:(NSDictionary *)parameters progress:(void (^)(NSProgress *downloadProgress))progress success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
++ (void)getWithURL:(NSString *)url parameters:(NSDictionary *)parameters progress:(void (^)(NSProgress *downloadProgress))progress success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
 
 @end

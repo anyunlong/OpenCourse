@@ -1,12 +1,12 @@
 //
-//  PrefixHeader.pch
+//  AYLCommon.pch
 //
 //  Created by Oneself on 16/5/31.
 //  Copyright © 2016年 CCUT. All rights reserved.
 //
 
-#ifndef PrefixHeader_pch
-#define PrefixHeader_pch
+#ifndef AYLCommon_pch
+#define AYLCommon_pch
 
 // 核心框架
 #import <UIKit/UIKit.h>
@@ -22,4 +22,4 @@
 // 主屏幕bounds
 #define AYLMainScreenBounds [UIScreen mainScreen].bounds
 
-#endif /* PrefixHeader_pch */
+#endif /* AYLCommon_pch */

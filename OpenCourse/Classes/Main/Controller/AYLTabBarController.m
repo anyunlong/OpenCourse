@@ -25,29 +25,29 @@
 - (instancetype)init {
     if (self = [super init]) {
         // 初始化控制器
-        [self ayl_setupTabBarController];
+        [self setupTabBarController];
         
         // 设置tabBar背景颜色
         UITabBar *tabBarAppearance = [UITabBar appearance];
         [tabBarAppearance setBackgroundImage:[UIImage imageNamed:@"tabbar_bg"]];
         
         // 初始化tabBarItem风格
-        [self ayl_setupTabBarItemStyle];
+        [self setupTabBarItemStyle];
     }
     
     return self;
 }
 
 #pragma mark 初始化控制器
-- (void)ayl_setupTabBarController {
+- (void)setupTabBarController {
     // tabBarController所有子控制器
-    NSArray *controllers = [self ayl_setupAllSubControllers];
+    NSArray *controllers = [self setupAllSubControllers];
     // tabBarItem内容
-    [self ayl_setupTabBarItemContent];
+    [self setupTabBarItemContent];
     // addControllers
     [self setViewControllers:controllers];
 }
-- (NSArray<UIViewController *> *)ayl_setupAllSubControllers {
+- (NSArray<UIViewController *> *)setupAllSubControllers {
     OCEHomeViewController *hvc = [[OCEHomeViewController alloc] init];
     AYLNavigationController *hvcNc = [[AYLNavigationController alloc] initWithRootViewController:hvc];
     
@@ -60,7 +60,7 @@
     
     return @[hvcNc, cvcNc, mvcNc];
 }
-- (void)ayl_setupTabBarItemContent {
+- (void)setupTabBarItemContent {
     NSDictionary *dict1 = @{
                             CYLTabBarItemTitle : @"首页",
                             CYLTabBarItemImage : @"tabbar_home",
@@ -81,7 +81,7 @@
 }
 
 #pragma mark 初始化tabBarItem风格
-- (void)ayl_setupTabBarItemStyle {
+- (void)setupTabBarItemStyle {
     // 文字主题
     UITabBarItem *tabBarItem = [UITabBarItem appearance];
     // 两种状态文字的颜色

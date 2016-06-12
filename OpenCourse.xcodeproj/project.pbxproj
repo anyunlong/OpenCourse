@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		727CF9E84C02C87884BDCCB2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A4DCB175D280237EC84D674 /* libPods.a */; };
-		A124129D1D099BB7004DFDAF /* OCESearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A124129C1D099BB7004DFDAF /* OCESearchViewController.m */; };
 		A159F0791D07C1DB00F5487E /* OCEWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A159F0781D07C1DB00F5487E /* OCEWebViewController.m */; };
+		A184E5281D0D3A4B009A0383 /* OCESearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = A184E5261D0D3A4B009A0383 /* OCESearchView.m */; };
+		A184E52B1D0D3A51009A0383 /* OCESearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A184E5291D0D3A51009A0383 /* OCESearchViewController.m */; };
 		A1CEF9F71D042E4500496A8F /* NSData+AYLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEF9E21D042E4500496A8F /* NSData+AYLExtension.m */; };
 		A1CEF9F81D042E4500496A8F /* UIColor+AYLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEF9E41D042E4500496A8F /* UIColor+AYLExtension.m */; };
 		A1CEF9F91D042E4500496A8F /* UIImage+AYLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEF9E61D042E4500496A8F /* UIImage+AYLExtension.m */; };
@@ -28,7 +29,6 @@
 		A1CF9E5F1CFD9C360042BCD7 /* OCEHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CF9E5E1CFD9C360042BCD7 /* OCEHomeViewController.m */; };
 		A1CF9E661CFD9D7A0042BCD7 /* OCECategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CF9E651CFD9D7A0042BCD7 /* OCECategoryViewController.m */; };
 		A1CF9E6D1CFD9DA40042BCD7 /* OCEMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CF9E6C1CFD9DA40042BCD7 /* OCEMeViewController.m */; };
-		A1CF9E7D1CFDC4B90042BCD7 /* OCESearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CF9E7C1CFDC4B90042BCD7 /* OCESearchView.m */; };
 		A1CF9E861CFE78040042BCD7 /* OCEButtonsView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CF9E851CFE78040042BCD7 /* OCEButtonsView.m */; };
 		A1CF9E891CFEC9D10042BCD7 /* OCECourse.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CF9E881CFEC9D10042BCD7 /* OCECourse.m */; };
 		A1CF9E8C1CFEE31F0042BCD7 /* OCECourseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CF9E8B1CFEE31F0042BCD7 /* OCECourseCell.m */; };
@@ -39,10 +39,12 @@
 /* Begin PBXFileReference section */
 		1A4DCB175D280237EC84D674 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		774C43ACFD70BBC892E55A4E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		A124129B1D099BB7004DFDAF /* OCESearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCESearchViewController.h; sourceTree = "<group>"; };
-		A124129C1D099BB7004DFDAF /* OCESearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCESearchViewController.m; sourceTree = "<group>"; };
 		A159F0771D07C1DB00F5487E /* OCEWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCEWebViewController.h; sourceTree = "<group>"; };
 		A159F0781D07C1DB00F5487E /* OCEWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCEWebViewController.m; sourceTree = "<group>"; };
+		A184E5261D0D3A4B009A0383 /* OCESearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCESearchView.m; sourceTree = "<group>"; };
+		A184E5271D0D3A4B009A0383 /* OCESearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCESearchView.h; sourceTree = "<group>"; };
+		A184E5291D0D3A51009A0383 /* OCESearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCESearchViewController.m; sourceTree = "<group>"; };
+		A184E52A1D0D3A51009A0383 /* OCESearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCESearchViewController.h; sourceTree = "<group>"; };
 		A1B89C6D1CFD8D34006B91D6 /* OpenCourse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenCourse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1CEF9E11D042E4500496A8F /* NSData+AYLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AYLExtension.h"; sourceTree = "<group>"; };
 		A1CEF9E21D042E4500496A8F /* NSData+AYLExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+AYLExtension.m"; sourceTree = "<group>"; };
@@ -80,8 +82,6 @@
 		A1CF9E651CFD9D7A0042BCD7 /* OCECategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCECategoryViewController.m; sourceTree = "<group>"; };
 		A1CF9E6B1CFD9DA40042BCD7 /* OCEMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCEMeViewController.h; sourceTree = "<group>"; };
 		A1CF9E6C1CFD9DA40042BCD7 /* OCEMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCEMeViewController.m; sourceTree = "<group>"; };
-		A1CF9E7B1CFDC4B90042BCD7 /* OCESearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCESearchView.h; sourceTree = "<group>"; };
-		A1CF9E7C1CFDC4B90042BCD7 /* OCESearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCESearchView.m; sourceTree = "<group>"; };
 		A1CF9E841CFE78040042BCD7 /* OCEButtonsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCEButtonsView.h; sourceTree = "<group>"; };
 		A1CF9E851CFE78040042BCD7 /* OCEButtonsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCEButtonsView.m; sourceTree = "<group>"; };
 		A1CF9E871CFEC9D10042BCD7 /* OCECourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCECourse.h; sourceTree = "<group>"; };
@@ -113,6 +113,33 @@
 				1A4DCB175D280237EC84D674 /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A184E5231D0D39DA009A0383 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				A184E5251D0D3A3D009A0383 /* View */,
+				A184E5241D0D39DA009A0383 /* Controller */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		A184E5241D0D39DA009A0383 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A184E5291D0D3A51009A0383 /* OCESearchViewController.m */,
+				A184E52A1D0D3A51009A0383 /* OCESearchViewController.h */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A184E5251D0D3A3D009A0383 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A184E5261D0D3A4B009A0383 /* OCESearchView.m */,
+				A184E5271D0D3A4B009A0383 /* OCESearchView.h */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		A1B89C641CFD8D34006B91D6 = {
@@ -206,6 +233,7 @@
 		A1CF9E3F1CFD97760042BCD7 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A184E5231D0D39DA009A0383 /* Search */,
 				A1CF9E671CFD9D950042BCD7 /* Me */,
 				A1CF9E601CFD9D370042BCD7 /* Category */,
 				A1CF9E561CFD9BBC0042BCD7 /* Home */,
@@ -252,8 +280,6 @@
 				A1CF9E5E1CFD9C360042BCD7 /* OCEHomeViewController.m */,
 				A159F0771D07C1DB00F5487E /* OCEWebViewController.h */,
 				A159F0781D07C1DB00F5487E /* OCEWebViewController.m */,
-				A124129B1D099BB7004DFDAF /* OCESearchViewController.h */,
-				A124129C1D099BB7004DFDAF /* OCESearchViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -276,8 +302,6 @@
 		A1CF9E591CFD9BBC0042BCD7 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A1CF9E7B1CFDC4B90042BCD7 /* OCESearchView.h */,
-				A1CF9E7C1CFDC4B90042BCD7 /* OCESearchView.m */,
 				A1CF9E841CFE78040042BCD7 /* OCEButtonsView.h */,
 				A1CF9E851CFE78040042BCD7 /* OCEButtonsView.m */,
 				A1CF9E8A1CFEE31F0042BCD7 /* OCECourseCell.h */,
@@ -290,8 +314,6 @@
 			isa = PBXGroup;
 			children = (
 				A1CF9E611CFD9D370042BCD7 /* Controller */,
-				A1CF9E621CFD9D370042BCD7 /* Model */,
-				A1CF9E631CFD9D370042BCD7 /* View */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -305,26 +327,10 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		A1CF9E621CFD9D370042BCD7 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		A1CF9E631CFD9D370042BCD7 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		A1CF9E671CFD9D950042BCD7 /* Me */ = {
 			isa = PBXGroup;
 			children = (
 				A1CF9E681CFD9D950042BCD7 /* Controller */,
-				A1CF9E691CFD9D950042BCD7 /* Model */,
-				A1CF9E6A1CFD9D950042BCD7 /* View */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -336,20 +342,6 @@
 				A1CF9E6C1CFD9DA40042BCD7 /* OCEMeViewController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		A1CF9E691CFD9D950042BCD7 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		A1CF9E6A1CFD9D950042BCD7 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		A5BDE34AD93E451B32F33DFF /* Pods */ = {
@@ -485,13 +477,14 @@
 				A1CEFA0B1D04434E00496A8F /* OCECourseToolParam.m in Sources */,
 				A159F0791D07C1DB00F5487E /* OCEWebViewController.m in Sources */,
 				A1CEFA081D04396A00496A8F /* OCECourseTool.m in Sources */,
-				A1CF9E7D1CFDC4B90042BCD7 /* OCESearchView.m in Sources */,
 				A1CEF9FB1D042E4500496A8F /* UIView+AYLExtension.m in Sources */,
 				A1CF9E891CFEC9D10042BCD7 /* OCECourse.m in Sources */,
 				A1CEF9FD1D042E4500496A8F /* AYLTabBarController.m in Sources */,
 				A1CEF9FC1D042E4500496A8F /* AYLNavigationController.m in Sources */,
+				A184E52B1D0D3A51009A0383 /* OCESearchViewController.m in Sources */,
 				A1CF9E861CFE78040042BCD7 /* OCEButtonsView.m in Sources */,
 				A1CF9E5F1CFD9C360042BCD7 /* OCEHomeViewController.m in Sources */,
+				A184E5281D0D3A4B009A0383 /* OCESearchView.m in Sources */,
 				A1D37E441D091943007613C8 /* UITableViewController+AYLExtension.m in Sources */,
 				A1CF9E6D1CFD9DA40042BCD7 /* OCEMeViewController.m in Sources */,
 				A1CF9E661CFD9D7A0042BCD7 /* OCECategoryViewController.m in Sources */,
@@ -501,7 +494,6 @@
 				A1CEF9FA1D042E4500496A8F /* UINavigationBar+AYLExtension.m in Sources */,
 				A1CEF9F91D042E4500496A8F /* UIImage+AYLExtension.m in Sources */,
 				A1CEF9FF1D042E4500496A8F /* AppDelegate.m in Sources */,
-				A124129D1D099BB7004DFDAF /* OCESearchViewController.m in Sources */,
 				A1CEFA0E1D04436400496A8F /* OCECourseToolResult.m in Sources */,
 				A1CEF9FE1D042E4500496A8F /* AYLTableViewController.m in Sources */,
 				A1CEFA001D042E4500496A8F /* main.m in Sources */,

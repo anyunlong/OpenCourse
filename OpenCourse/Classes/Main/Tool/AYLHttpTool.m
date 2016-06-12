@@ -11,7 +11,7 @@
 
 @implementation AYLHttpTool
 
-+ (void)ayl_getWithURL:(NSString *)url parameters:(NSDictionary *)parameters progress:(void (^)(NSProgress *downloadProgress))progress success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure {
++ (void)getWithURL:(NSString *)url parameters:(NSDictionary *)parameters progress:(void (^)(NSProgress *downloadProgress))progress success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager GET:url parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
         AYLLog(@"%@", @"progress");
