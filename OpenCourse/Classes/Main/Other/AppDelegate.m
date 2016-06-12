@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 // c
-#import "OFTabBarController.h"
+#import "AYLTabBarController.h"
 // framework
 #import <UIImageView+WebCache.h>
 
@@ -20,9 +20,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    self.window = [[UIWindow alloc] initWithFrame:kMainScreenBounds];
+    self.window = [[UIWindow alloc] initWithFrame:AYLMainScreenBounds];
     
-    OFTabBarController *tabBarC = [[OFTabBarController alloc] init];
+    AYLTabBarController *tabBarC = [[AYLTabBarController alloc] init];
     
     self.window.rootViewController = tabBarC;
     [self.window makeKeyAndVisible];

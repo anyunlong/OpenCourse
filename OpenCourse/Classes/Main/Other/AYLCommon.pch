@@ -1,0 +1,25 @@
+//
+//  PrefixHeader.pch
+//
+//  Created by Oneself on 16/5/31.
+//  Copyright © 2016年 CCUT. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// 核心框架
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+// AYLLog
+#ifdef DEBUG
+#define AYLLog(...) NSLog(__VA_ARGS__)
+#else
+#define AYLLog(...)
+#endif
+
+// 主屏幕bounds
+#define AYLMainScreenBounds [UIScreen mainScreen].bounds
+
+#endif /* PrefixHeader_pch */
