@@ -50,7 +50,6 @@ extern const CGFloat kUINavigationBarAYLExtensionSystemNavBarHeight;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = [UIColor ayl_systemTableViewBackgroundColor];
     
     UINavigationItem *navigationItem = self.navigationItem;

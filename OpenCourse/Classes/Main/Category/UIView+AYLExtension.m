@@ -9,7 +9,7 @@
 #import "UIView+AYLExtension.h"
 
 // views之间的间距
-const CGFloat kUIViewAYLExtensionViewMargin = 5;
+const CGFloat kUIViewAYLExtensionViewMargin = 10;
 
 @implementation UIView (AYLExtension)
 
@@ -106,13 +106,14 @@ const CGFloat kUIViewAYLExtensionViewMargin = 5;
     frame.size = ayl_size;
     self.frame = frame;
 }
+
 // *************************
 - (void)ayl_circleView {
     [self ayl_circularBeadViewWithRadius:self.ayl_width / 2];
 }
-
 - (void)ayl_circularBeadViewWithRadius:(CGFloat)radius {
     self.layer.cornerRadius = radius;
     self.layer.masksToBounds = YES;
 }
+
 @end

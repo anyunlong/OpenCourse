@@ -71,18 +71,18 @@ extern const CGFloat kUIViewAYLExtensionViewMargin;
         [listBtn setBackgroundImage:[UIImage ayl_resizedImageWithName:@"course_grid_bg_pressed"] forState:UIControlStateHighlighted];
         [listBtn addTarget:self action:@selector(listBtnDidClicked) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:listBtn];
-        self.listBtn = listBtn;
+        _listBtn = listBtn;
         
         UIImageView *picView = [[UIImageView alloc] init];
         [listBtn addSubview:picView];
-        self.picView = picView;
+        _picView = picView;
         
         UIButton *rtypeView = [[UIButton alloc] init];
         rtypeView.userInteractionEnabled = NO;
-        rtypeView.titleEdgeInsets = UIEdgeInsetsMake(0, kUIViewAYLExtensionViewMargin, 0, 0);
+        rtypeView.titleEdgeInsets = UIEdgeInsetsMake(0, kUIViewAYLExtensionViewMargin / 2, 0, 0);
         rtypeView.titleLabel.font = [UIFont systemFontOfSize:kOCECourseCellOthersFontSize];
         [listBtn addSubview:rtypeView];
-        self.rtypeView = rtypeView;
+        _rtypeView = rtypeView;
         
         UILabel *courseTypeView = [[UILabel alloc] init];
         courseTypeView.textAlignment = NSTextAlignmentCenter;
@@ -91,46 +91,46 @@ extern const CGFloat kUIViewAYLExtensionViewMargin;
         [courseTypeView.layer setMasksToBounds:YES];
         [courseTypeView.layer setCornerRadius:5];
         [listBtn addSubview:courseTypeView];
-        self.courseTypeView = courseTypeView;
+        _courseTypeView = courseTypeView;
         
         UILabel *createTimeView = [[UILabel alloc] init];
         createTimeView.textColor = [UIColor lightGrayColor];
         createTimeView.font = [UIFont systemFontOfSize:kOCECourseCellOthersFontSize];
         [listBtn addSubview:createTimeView];
-        self.createTimeView = createTimeView;
+        _createTimeView = createTimeView;
         
         UILabel *titleView = [[UILabel alloc] init];
         titleView.font = [UIFont systemFontOfSize:kOCECourseCellTitleFontSize];
         [listBtn addSubview:titleView];
-        self.titleView = titleView;
+        _titleView = titleView;
         
         UILabel *descView = [[UILabel alloc] init];
         descView.textColor = [UIColor grayColor];
         descView.font = [UIFont systemFontOfSize:kOCECourseCellDescFontSize];
         descView.numberOfLines = 0;
         [listBtn addSubview:descView];
-        self.descView = descView;
+        _descView = descView;
         
         UILabel *viewcountView = [[UILabel alloc] init];
         viewcountView.textColor = [UIColor lightGrayColor];
         viewcountView.font = [UIFont systemFontOfSize:kOCECourseCellOthersFontSize];
         [listBtn addSubview:viewcountView];
-        self.viewcountView = viewcountView;
+        _viewcountView = viewcountView;
         
         UIButton *shareView = [[UIButton alloc] init];
         [shareView setBackgroundImage:[UIImage imageNamed:@"home_shared"] forState:UIControlStateNormal];
         [listBtn addSubview:shareView];
-        self.shareView = shareView;
+        _shareView = shareView;
         
         UIView *divider = [[UIView alloc] init];
-        divider.backgroundColor = [UIColor grayColor];
+        divider.backgroundColor = [UIColor lightGrayColor];
         [listBtn addSubview:divider];
-        self.divider = divider;
+        _divider = divider;
         
         UIButton *likeView = [[UIButton alloc] init];
         [likeView setBackgroundImage:[UIImage imageNamed:@"home_tolike"] forState:UIControlStateNormal];
         [listBtn addSubview:likeView];
-        self.likeView = likeView;
+        _likeView = likeView;
     }
     
     return self;
@@ -141,10 +141,10 @@ extern const CGFloat kUIViewAYLExtensionViewMargin;
     OCECourse *course = courseFrame.course;
     
     // 占据整个cell的button
-    self.listBtn.frame = courseFrame.listBtnF;
+    _listBtn.frame = courseFrame.listBtnF;
     // 图片view
-    [self.picView sd_setImageWithURL:[NSURL URLWithString:course.picUrl] placeholderImage:nil];
-    self.picView.frame = courseFrame.picViewF;
+    [_picView sd_setImageWithURL:[NSURL URLWithString:course.picUrl] placeholderImage:nil];
+    _picView.frame = courseFrame.picViewF;
     // rtypeView
     NSString *imgName;
     NSString *bgImgName;
@@ -152,39 +152,39 @@ extern const CGFloat kUIViewAYLExtensionViewMargin;
         case OCECourseRtypeVideo:
             imgName = @"home_video";
             bgImgName = @"home_video_b";
-            [self.rtypeView setTitle:course.quantity forState:UIControlStateNormal];
+            [_rtypeView setTitle:course.quantity forState:UIControlStateNormal];
             break;
         case OCECourseRtypeH5:
             imgName = @"home_h5";
             bgImgName = @"home_article_b";
-            [self.rtypeView setTitle:nil forState:UIControlStateNormal];
+            [_rtypeView setTitle:nil forState:UIControlStateNormal];
             break;
     }
-    [self.rtypeView setImage:[UIImage imageNamed:imgName] forState:UIControlStateNormal];
-    [self.rtypeView setBackgroundImage:[UIImage imageNamed:bgImgName] forState:UIControlStateNormal];
-    self.rtypeView.frame = courseFrame.rtypeViewF;
+    [_rtypeView setImage:[UIImage imageNamed:imgName] forState:UIControlStateNormal];
+    [_rtypeView setBackgroundImage:[UIImage imageNamed:bgImgName] forState:UIControlStateNormal];
+    _rtypeView.frame = courseFrame.rtypeViewF;
     // 课程类型view
-    self.courseTypeView.text = course.courseType;
-    self.courseTypeView.backgroundColor = [UIColor ayl_colorWithHexString:course.tagBgColor];
-    self.courseTypeView.frame = courseFrame.courseTypeViewF;
+    _courseTypeView.text = course.courseType;
+    _courseTypeView.backgroundColor = [UIColor ayl_colorWithHexString:course.tagBgColor];
+    _courseTypeView.frame = courseFrame.courseTypeViewF;
     // 创建时间view
-    self.createTimeView.text = course.dbCreateTime;
-    self.createTimeView.frame = courseFrame.createTimeViewF;
+    _createTimeView.text = course.dbCreateTime;
+    _createTimeView.frame = courseFrame.createTimeViewF;
     // 标题view
-    self.titleView.text = course.title;
-    self.titleView.frame = courseFrame.titleViewF;
+    _titleView.text = course.title;
+    _titleView.frame = courseFrame.titleViewF;
     // 简介view
-    self.descView.text = course.desc;
-    self.descView.frame = courseFrame.descViewF;
+    _descView.text = course.desc;
+    _descView.frame = courseFrame.descViewF;
     // viewcountView
-    self.viewcountView.text = course.viewcount;
-    self.viewcountView.frame = courseFrame.viewconutViewF;
+    _viewcountView.text = course.viewcount;
+    _viewcountView.frame = courseFrame.viewconutViewF;
     // shareView
-    self.shareView.frame = courseFrame.shareViewF;
+    _shareView.frame = courseFrame.shareViewF;
     // divider
-    self.divider.frame = courseFrame.dividerF;
+    _divider.frame = courseFrame.dividerF;
     // likeView
-    self.likeView.frame = courseFrame.likeViewF;
+    _likeView.frame = courseFrame.likeViewF;
 }
 
 - (void)listBtnDidClicked {

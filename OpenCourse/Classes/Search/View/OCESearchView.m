@@ -58,7 +58,7 @@ extern const CGFloat kUIViewAYLExtensionViewMargin;
         
         // 设置左边图标的frame
         CGSize iconImgSize = iconImg.size;
-        self.leftView.ayl_size = CGSizeMake(iconImgSize.width + 2 * kUIViewAYLExtensionViewMargin, self.ayl_height);
+        self.leftView.ayl_size = CGSizeMake(iconImgSize.width + kUIViewAYLExtensionViewMargin, self.ayl_height);
     }
     
     return self;

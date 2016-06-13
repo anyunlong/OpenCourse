@@ -36,11 +36,11 @@ extern const CGFloat kOCECourseCellOthersFontSize;
     _picViewF = CGRectMake(0, 0, picViewW, picViewH);
     
     // courseTypeView
-    CGFloat courseTypeViewX = kUIViewAYLExtensionViewMargin * 2;
+    CGFloat courseTypeViewX = kUIViewAYLExtensionViewMargin;
     CGFloat courseTypeViewY = CGRectGetMaxY(_picViewF) + courseTypeViewX;
     CGSize courseTypeViewTextSize = [course.courseType sizeWithAttributes:courseCellOthersFontAttr];
-    CGFloat courseTypeViewW = courseTypeViewTextSize.width + 2 * kUIViewAYLExtensionViewMargin;
-    CGFloat courseTypeViewH = courseTypeViewTextSize.height + kUIViewAYLExtensionViewMargin;
+    CGFloat courseTypeViewW = courseTypeViewTextSize.width + kUIViewAYLExtensionViewMargin;
+    CGFloat courseTypeViewH = courseTypeViewTextSize.height + kUIViewAYLExtensionViewMargin / 2;
     _courseTypeViewF = CGRectMake(courseTypeViewX, courseTypeViewY, courseTypeViewW, courseTypeViewH);
     
     // rtypeView

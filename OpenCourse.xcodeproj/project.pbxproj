@@ -11,6 +11,8 @@
 		A159F0791D07C1DB00F5487E /* OCEWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A159F0781D07C1DB00F5487E /* OCEWebViewController.m */; };
 		A184E5281D0D3A4B009A0383 /* OCESearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = A184E5261D0D3A4B009A0383 /* OCESearchView.m */; };
 		A184E52B1D0D3A51009A0383 /* OCESearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A184E5291D0D3A51009A0383 /* OCESearchViewController.m */; };
+		A184E53A1D0D5E3B009A0383 /* OCESearchHotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A184E5391D0D5E3B009A0383 /* OCESearchHotCell.m */; };
+		A1AD95261D0D826800797049 /* OCESearchTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1AD95251D0D826800797049 /* OCESearchTableHeaderView.m */; };
 		A1CEF9F71D042E4500496A8F /* NSData+AYLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEF9E21D042E4500496A8F /* NSData+AYLExtension.m */; };
 		A1CEF9F81D042E4500496A8F /* UIColor+AYLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEF9E41D042E4500496A8F /* UIColor+AYLExtension.m */; };
 		A1CEF9F91D042E4500496A8F /* UIImage+AYLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEF9E61D042E4500496A8F /* UIImage+AYLExtension.m */; };
@@ -45,6 +47,10 @@
 		A184E5271D0D3A4B009A0383 /* OCESearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCESearchView.h; sourceTree = "<group>"; };
 		A184E5291D0D3A51009A0383 /* OCESearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCESearchViewController.m; sourceTree = "<group>"; };
 		A184E52A1D0D3A51009A0383 /* OCESearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCESearchViewController.h; sourceTree = "<group>"; };
+		A184E5381D0D5E3B009A0383 /* OCESearchHotCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCESearchHotCell.h; sourceTree = "<group>"; };
+		A184E5391D0D5E3B009A0383 /* OCESearchHotCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCESearchHotCell.m; sourceTree = "<group>"; };
+		A1AD95241D0D826800797049 /* OCESearchTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCESearchTableHeaderView.h; sourceTree = "<group>"; };
+		A1AD95251D0D826800797049 /* OCESearchTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCESearchTableHeaderView.m; sourceTree = "<group>"; };
 		A1B89C6D1CFD8D34006B91D6 /* OpenCourse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenCourse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1CEF9E11D042E4500496A8F /* NSData+AYLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AYLExtension.h"; sourceTree = "<group>"; };
 		A1CEF9E21D042E4500496A8F /* NSData+AYLExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+AYLExtension.m"; sourceTree = "<group>"; };
@@ -127,8 +133,8 @@
 		A184E5241D0D39DA009A0383 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				A184E5291D0D3A51009A0383 /* OCESearchViewController.m */,
 				A184E52A1D0D3A51009A0383 /* OCESearchViewController.h */,
+				A184E5291D0D3A51009A0383 /* OCESearchViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -136,8 +142,12 @@
 		A184E5251D0D3A3D009A0383 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A184E5261D0D3A4B009A0383 /* OCESearchView.m */,
 				A184E5271D0D3A4B009A0383 /* OCESearchView.h */,
+				A184E5261D0D3A4B009A0383 /* OCESearchView.m */,
+				A184E5381D0D5E3B009A0383 /* OCESearchHotCell.h */,
+				A184E5391D0D5E3B009A0383 /* OCESearchHotCell.m */,
+				A1AD95241D0D826800797049 /* OCESearchTableHeaderView.h */,
+				A1AD95251D0D826800797049 /* OCESearchTableHeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -488,6 +498,7 @@
 				A1D37E441D091943007613C8 /* UITableViewController+AYLExtension.m in Sources */,
 				A1CF9E6D1CFD9DA40042BCD7 /* OCEMeViewController.m in Sources */,
 				A1CF9E661CFD9D7A0042BCD7 /* OCECategoryViewController.m in Sources */,
+				A184E53A1D0D5E3B009A0383 /* OCESearchHotCell.m in Sources */,
 				A1CEF9F81D042E4500496A8F /* UIColor+AYLExtension.m in Sources */,
 				A1CEF9F71D042E4500496A8F /* NSData+AYLExtension.m in Sources */,
 				A1CEFA041D042FF200496A8F /* AYLHttpTool.m in Sources */,
@@ -495,6 +506,7 @@
 				A1CEF9F91D042E4500496A8F /* UIImage+AYLExtension.m in Sources */,
 				A1CEF9FF1D042E4500496A8F /* AppDelegate.m in Sources */,
 				A1CEFA0E1D04436400496A8F /* OCECourseToolResult.m in Sources */,
+				A1AD95261D0D826800797049 /* OCESearchTableHeaderView.m in Sources */,
 				A1CEF9FE1D042E4500496A8F /* AYLTableViewController.m in Sources */,
 				A1CEFA001D042E4500496A8F /* main.m in Sources */,
 				A1CF9E8C1CFEE31F0042BCD7 /* OCECourseCell.m in Sources */,

@@ -18,7 +18,7 @@ extern const CGFloat kUIViewAYLExtensionViewMargin;
     CGFloat nextButtonX = 0;
     OCEButtonsView *rightButtonsView = [[OCEButtonsView alloc] init];
     // buttons间距
-    CGFloat buttonMargin = kUIViewAYLExtensionViewMargin * 2;
+    CGFloat buttonMargin = kUIViewAYLExtensionViewMargin;
     // 初始化所有按钮并加到rightButtonsView中
     for (int count = 0; count<imgNames.count; ++count) {
         UIImage *image = [UIImage imageNamed:imgNames[count]];
