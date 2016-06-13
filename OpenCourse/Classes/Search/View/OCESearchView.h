@@ -8,6 +8,8 @@
 
 @interface OCESearchView : UITextField
 
+@property (nonatomic, copy) NSString *customPlaceholder;
+
 + (instancetype)searchView;
 
 @end

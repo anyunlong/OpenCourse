@@ -48,11 +48,6 @@ extern const CGFloat kUIViewAYLExtensionViewMargin;
         // 光标颜色
         self.tintColor = [UIColor whiteColor];
         
-        // 设置提醒文字
-        NSMutableDictionary *attr = [NSMutableDictionary dictionary];
-        attr[NSForegroundColorAttributeName] = [UIColor whiteColor];
-        self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"拖延症怎么治" attributes:attr];
-        
         // 文字颜色
         self.textColor = [UIColor whiteColor];
         
@@ -62,6 +57,15 @@ extern const CGFloat kUIViewAYLExtensionViewMargin;
     }
     
     return self;
+}
+
+- (void)setCustomPlaceholder:(NSString *)customPlaceholder {
+    _customPlaceholder = [customPlaceholder copy];
+    
+    // 设置提醒文字
+    NSMutableDictionary *attr = [NSMutableDictionary dictionary];
+    attr[NSForegroundColorAttributeName] = [UIColor whiteColor];
+    self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:customPlaceholder attributes:attr];
 }
 
 @end

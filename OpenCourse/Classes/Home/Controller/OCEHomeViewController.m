@@ -16,6 +16,7 @@
 #import "OCESearchView.h"
 #import "OCECourseCell.h"
 // m
+#import "OCESearchDataToolResult.h"
 #import "OCECourse.h"
 #import "OCECourseFrame.h"
 #import "OCECourseToolParam.h"
@@ -25,6 +26,7 @@
 #import "UIColor+AYLExtension.h"
 #import "UIView+AYLExtension.h"
 // tool
+#import "OCESearchDataTool.h"
 #import "OCECourseTool.h"
 // framework
 #import <MJRefresh.h>
@@ -36,6 +38,7 @@ extern const CGFloat kUINavigationBarAYLExtensionSystemNavBarHeight;
 @interface OCEHomeViewController () <OCECourseCellDelegate, UITextFieldDelegate>
 
 // dataSource
+@property (nonatomic, strong) OCESearchDataToolResult *searchDataToolResult;
 @property (nonatomic, strong) NSMutableArray *courseFrames;
 // view
 @property (nonatomic, strong) UIImageView *homeIconView;
@@ -62,6 +65,8 @@ extern const CGFloat kUINavigationBarAYLExtensionSystemNavBarHeight;
     
     // rightBarButtonItem
     navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.buttonsView];
+    
+    [self loadSearchData];
     
     // 初始化上下拉刷新
     [self setupRefresh];
@@ -101,6 +106,8 @@ extern const CGFloat kUINavigationBarAYLExtensionSystemNavBarHeight;
 #pragma mark - UITextFieldDelegate
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     OCESearchViewController *svc = [[OCESearchViewController alloc] init];
+    svc.data = _searchDataToolResult;
+    
     [self.navigationController pushViewController:svc animated:YES];
 }
 
@@ -114,6 +121,17 @@ extern const CGFloat kUINavigationBarAYLExtensionSystemNavBarHeight;
 }
 
 #pragma mark - private methods
+#pragma mark ***
+- (void)loadSearchData {
+    [OCESearchDataTool searchDataWithProgress:nil success:^(OCESearchDataToolResult *result) {
+        self.searchDataToolResult = result;
+        
+        _searchView.customPlaceholder = _searchDataToolResult.searchKeyword;
+    } failure:^(NSError *error) {
+        AYLLog(@"%@", error);
+    }];
+}
+
 #pragma mark setup refresh
 - (void)setupRefresh {
     // -- 下拉刷新

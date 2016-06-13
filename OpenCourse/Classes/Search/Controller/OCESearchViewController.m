@@ -11,6 +11,8 @@
 #import "OCESearchView.h"
 #import "OCESearchHotCell.h"
 #import "OCESearchTableHeaderView.h"
+// m
+#import "OCESearchDataToolResult.h"
 // category
 #import "UIView+AYLExtension.h"
 
@@ -52,11 +54,14 @@ extern const CGFloat kUINavigationBarAYLExtensionSystemNavBarHeight;
 
 #pragma mark - UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return _data.hotKeywords.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    OCESearchHotCell *cell = [OCESearchHotCell cellWithTable:tableView];
+    OCESearchHotCell *cell = [OCESearchHotCell cellWithTable:tableView indexPath:indexPath];
+    
+    cell.hotKeyword = _data.hotKeywords[indexPath.row];
+    
     return cell;
 }
 
@@ -70,6 +75,8 @@ extern const CGFloat kUINavigationBarAYLExtensionSystemNavBarHeight;
 - (OCESearchView *)searchView {
     if (!_searchView) {
         _searchView = [[OCESearchView alloc] init];
+        _searchView.customPlaceholder = _data.searchKeyword;
+        
         [self.searchView becomeFirstResponder];
     }
     return _searchView;
