@@ -7,6 +7,7 @@
 //
 
 #import "OCESearchViewController.h"
+#import "OCESearchResultViewController.h"
 // v
 #import "OCESearchView.h"
 #import "OCESearchHotCell.h"
@@ -65,10 +66,14 @@ extern const CGFloat kUINavigationBarAYLExtensionSystemNavBarHeight;
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.navigationController pushViewController:[[OCESearchResultViewController alloc] init] animated:NO];
+}
+
 #pragma mark - event response
 - (void)rightBarButtonItemDidClicked {
     [self.searchView resignFirstResponder];
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 #pragma mark - getters and setters

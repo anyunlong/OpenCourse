@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		727CF9E84C02C87884BDCCB2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A4DCB175D280237EC84D674 /* libPods.a */; };
+		A1385F7A1D2112B6006A2424 /* OCESearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1385F791D2112B6006A2424 /* OCESearchResultViewController.m */; };
 		A159F0791D07C1DB00F5487E /* OCEWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A159F0781D07C1DB00F5487E /* OCEWebViewController.m */; };
 		A16491C51D0EA41200D7B529 /* OCEHotKeyword.m in Sources */ = {isa = PBXBuildFile; fileRef = A16491C41D0EA41200D7B529 /* OCEHotKeyword.m */; };
 		A16491C81D0EA44500D7B529 /* OCESearchDataToolResult.m in Sources */ = {isa = PBXBuildFile; fileRef = A16491C71D0EA44500D7B529 /* OCESearchDataToolResult.m */; };
@@ -44,6 +45,8 @@
 /* Begin PBXFileReference section */
 		1A4DCB175D280237EC84D674 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		774C43ACFD70BBC892E55A4E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		A1385F781D2112B6006A2424 /* OCESearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCESearchResultViewController.h; sourceTree = "<group>"; };
+		A1385F791D2112B6006A2424 /* OCESearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCESearchResultViewController.m; sourceTree = "<group>"; };
 		A159F0771D07C1DB00F5487E /* OCEWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCEWebViewController.h; sourceTree = "<group>"; };
 		A159F0781D07C1DB00F5487E /* OCEWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCEWebViewController.m; sourceTree = "<group>"; };
 		A16491C31D0EA41200D7B529 /* OCEHotKeyword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCEHotKeyword.h; sourceTree = "<group>"; };
@@ -166,6 +169,8 @@
 			children = (
 				A184E52A1D0D3A51009A0383 /* OCESearchViewController.h */,
 				A184E5291D0D3A51009A0383 /* OCESearchViewController.m */,
+				A1385F781D2112B6006A2424 /* OCESearchResultViewController.h */,
+				A1385F791D2112B6006A2424 /* OCESearchResultViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -522,6 +527,7 @@
 				A1CF9E891CFEC9D10042BCD7 /* OCECourse.m in Sources */,
 				A1CEF9FD1D042E4500496A8F /* AYLTabBarController.m in Sources */,
 				A1CEF9FC1D042E4500496A8F /* AYLNavigationController.m in Sources */,
+				A1385F7A1D2112B6006A2424 /* OCESearchResultViewController.m in Sources */,
 				A184E52B1D0D3A51009A0383 /* OCESearchViewController.m in Sources */,
 				A1CF9E861CFE78040042BCD7 /* OCEButtonsView.m in Sources */,
 				A1CF9E5F1CFD9C360042BCD7 /* OCEHomeViewController.m in Sources */,
