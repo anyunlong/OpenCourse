@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		727CF9E84C02C87884BDCCB2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A4DCB175D280237EC84D674 /* libPods.a */; };
+		A10CBDDE1D290F110022DCDB /* OCESearchResultTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A10CBDDD1D290F110022DCDB /* OCESearchResultTableHeaderView.m */; };
+		A10CBDE01D290F300022DCDB /* OCESearchResultTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A10CBDDF1D290F300022DCDB /* OCESearchResultTableHeaderView.xib */; };
 		A1385F7A1D2112B6006A2424 /* OCESearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1385F791D2112B6006A2424 /* OCESearchResultViewController.m */; };
 		A159F0791D07C1DB00F5487E /* OCEWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A159F0781D07C1DB00F5487E /* OCEWebViewController.m */; };
 		A16491C51D0EA41200D7B529 /* OCEHotKeyword.m in Sources */ = {isa = PBXBuildFile; fileRef = A16491C41D0EA41200D7B529 /* OCEHotKeyword.m */; };
@@ -45,6 +47,9 @@
 /* Begin PBXFileReference section */
 		1A4DCB175D280237EC84D674 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		774C43ACFD70BBC892E55A4E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		A10CBDDC1D290F110022DCDB /* OCESearchResultTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCESearchResultTableHeaderView.h; sourceTree = "<group>"; };
+		A10CBDDD1D290F110022DCDB /* OCESearchResultTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCESearchResultTableHeaderView.m; sourceTree = "<group>"; };
+		A10CBDDF1D290F300022DCDB /* OCESearchResultTableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OCESearchResultTableHeaderView.xib; sourceTree = "<group>"; };
 		A1385F781D2112B6006A2424 /* OCESearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCESearchResultViewController.h; sourceTree = "<group>"; };
 		A1385F791D2112B6006A2424 /* OCESearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCESearchResultViewController.m; sourceTree = "<group>"; };
 		A159F0771D07C1DB00F5487E /* OCEWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCEWebViewController.h; sourceTree = "<group>"; };
@@ -184,6 +189,9 @@
 				A184E5391D0D5E3B009A0383 /* OCESearchHotCell.m */,
 				A1AD95241D0D826800797049 /* OCESearchTableHeaderView.h */,
 				A1AD95251D0D826800797049 /* OCESearchTableHeaderView.m */,
+				A10CBDDC1D290F110022DCDB /* OCESearchResultTableHeaderView.h */,
+				A10CBDDD1D290F110022DCDB /* OCESearchResultTableHeaderView.m */,
+				A10CBDDF1D290F300022DCDB /* OCESearchResultTableHeaderView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -461,6 +469,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1CF9E4D1CFD97760042BCD7 /* Assets.xcassets in Resources */,
+				A10CBDE01D290F300022DCDB /* OCESearchResultTableHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,6 +534,7 @@
 				A1CEFA081D04396A00496A8F /* OCECourseTool.m in Sources */,
 				A1CEF9FB1D042E4500496A8F /* UIView+AYLExtension.m in Sources */,
 				A1CF9E891CFEC9D10042BCD7 /* OCECourse.m in Sources */,
+				A10CBDDE1D290F110022DCDB /* OCESearchResultTableHeaderView.m in Sources */,
 				A1CEF9FD1D042E4500496A8F /* AYLTabBarController.m in Sources */,
 				A1CEF9FC1D042E4500496A8F /* AYLNavigationController.m in Sources */,
 				A1385F7A1D2112B6006A2424 /* OCESearchResultViewController.m in Sources */,
