@@ -10,6 +10,8 @@
 // m
 #import "OCECourseFrame.h"
 #import "OCECourse.h"
+// v
+#import "AYLDivider.h"
 // category
 #import "UIColor+AYLExtension.h"
 #import "UIImage+AYLExtension.h"
@@ -122,8 +124,7 @@ extern const CGFloat kUIViewAYLExtensionViewMargin;
         [listBtn addSubview:shareView];
         _shareView = shareView;
         
-        UIView *divider = [[UIView alloc] init];
-        divider.backgroundColor = [UIColor lightGrayColor];
+        AYLDivider *divider = [AYLDivider divider];
         [listBtn addSubview:divider];
         _divider = divider;
         

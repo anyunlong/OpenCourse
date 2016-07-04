@@ -10,6 +10,7 @@
 		727CF9E84C02C87884BDCCB2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A4DCB175D280237EC84D674 /* libPods.a */; };
 		A10CBDDE1D290F110022DCDB /* OCESearchResultTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A10CBDDD1D290F110022DCDB /* OCESearchResultTableHeaderView.m */; };
 		A10CBDE01D290F300022DCDB /* OCESearchResultTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A10CBDDF1D290F300022DCDB /* OCESearchResultTableHeaderView.xib */; };
+		A10CBDE41D2937240022DCDB /* OCESearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A10CBDE21D2937240022DCDB /* OCESearchResultCell.m */; };
 		A1385F7A1D2112B6006A2424 /* OCESearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1385F791D2112B6006A2424 /* OCESearchResultViewController.m */; };
 		A159F0791D07C1DB00F5487E /* OCEWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A159F0781D07C1DB00F5487E /* OCEWebViewController.m */; };
 		A16491C51D0EA41200D7B529 /* OCEHotKeyword.m in Sources */ = {isa = PBXBuildFile; fileRef = A16491C41D0EA41200D7B529 /* OCEHotKeyword.m */; };
@@ -18,6 +19,10 @@
 		A184E5281D0D3A4B009A0383 /* OCESearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = A184E5261D0D3A4B009A0383 /* OCESearchView.m */; };
 		A184E52B1D0D3A51009A0383 /* OCESearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A184E5291D0D3A51009A0383 /* OCESearchViewController.m */; };
 		A184E53A1D0D5E3B009A0383 /* OCESearchHotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A184E5391D0D5E3B009A0383 /* OCESearchHotCell.m */; };
+		A1953CA61D2A317500B36403 /* AYLDivider.m in Sources */ = {isa = PBXBuildFile; fileRef = A1953CA51D2A317500B36403 /* AYLDivider.m */; };
+		A1953CA91D2A3F5E00B36403 /* OCESearchResultCellLablesView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1953CA81D2A3F5E00B36403 /* OCESearchResultCellLablesView.m */; };
+		A1953CAB1D2A3FD600B36403 /* OCESearchResultCellLablesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1953CAA1D2A3FD600B36403 /* OCESearchResultCellLablesView.xib */; };
+		A1953CAE1D2A474B00B36403 /* OCESearchResultCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = A1953CAD1D2A474B00B36403 /* OCESearchResultCourse.m */; };
 		A1AD95261D0D826800797049 /* OCESearchTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1AD95251D0D826800797049 /* OCESearchTableHeaderView.m */; };
 		A1CEF9F71D042E4500496A8F /* NSData+AYLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEF9E21D042E4500496A8F /* NSData+AYLExtension.m */; };
 		A1CEF9F81D042E4500496A8F /* UIColor+AYLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEF9E41D042E4500496A8F /* UIColor+AYLExtension.m */; };
@@ -50,6 +55,8 @@
 		A10CBDDC1D290F110022DCDB /* OCESearchResultTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCESearchResultTableHeaderView.h; sourceTree = "<group>"; };
 		A10CBDDD1D290F110022DCDB /* OCESearchResultTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCESearchResultTableHeaderView.m; sourceTree = "<group>"; };
 		A10CBDDF1D290F300022DCDB /* OCESearchResultTableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OCESearchResultTableHeaderView.xib; sourceTree = "<group>"; };
+		A10CBDE11D2937240022DCDB /* OCESearchResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCESearchResultCell.h; sourceTree = "<group>"; };
+		A10CBDE21D2937240022DCDB /* OCESearchResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCESearchResultCell.m; sourceTree = "<group>"; };
 		A1385F781D2112B6006A2424 /* OCESearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCESearchResultViewController.h; sourceTree = "<group>"; };
 		A1385F791D2112B6006A2424 /* OCESearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCESearchResultViewController.m; sourceTree = "<group>"; };
 		A159F0771D07C1DB00F5487E /* OCEWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCEWebViewController.h; sourceTree = "<group>"; };
@@ -66,6 +73,13 @@
 		A184E52A1D0D3A51009A0383 /* OCESearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCESearchViewController.h; sourceTree = "<group>"; };
 		A184E5381D0D5E3B009A0383 /* OCESearchHotCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCESearchHotCell.h; sourceTree = "<group>"; };
 		A184E5391D0D5E3B009A0383 /* OCESearchHotCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCESearchHotCell.m; sourceTree = "<group>"; };
+		A1953CA41D2A317500B36403 /* AYLDivider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYLDivider.h; sourceTree = "<group>"; };
+		A1953CA51D2A317500B36403 /* AYLDivider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYLDivider.m; sourceTree = "<group>"; };
+		A1953CA71D2A3F5E00B36403 /* OCESearchResultCellLablesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCESearchResultCellLablesView.h; sourceTree = "<group>"; };
+		A1953CA81D2A3F5E00B36403 /* OCESearchResultCellLablesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCESearchResultCellLablesView.m; sourceTree = "<group>"; };
+		A1953CAA1D2A3FD600B36403 /* OCESearchResultCellLablesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OCESearchResultCellLablesView.xib; sourceTree = "<group>"; };
+		A1953CAC1D2A474B00B36403 /* OCESearchResultCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCESearchResultCourse.h; sourceTree = "<group>"; };
+		A1953CAD1D2A474B00B36403 /* OCESearchResultCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCESearchResultCourse.m; sourceTree = "<group>"; };
 		A1AD95241D0D826800797049 /* OCESearchTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCESearchTableHeaderView.h; sourceTree = "<group>"; };
 		A1AD95251D0D826800797049 /* OCESearchTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCESearchTableHeaderView.m; sourceTree = "<group>"; };
 		A1B89C6D1CFD8D34006B91D6 /* OpenCourse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenCourse.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +159,8 @@
 				A16491C71D0EA44500D7B529 /* OCESearchDataToolResult.m */,
 				A16491C31D0EA41200D7B529 /* OCEHotKeyword.h */,
 				A16491C41D0EA41200D7B529 /* OCEHotKeyword.m */,
+				A1953CAC1D2A474B00B36403 /* OCESearchResultCourse.h */,
+				A1953CAD1D2A474B00B36403 /* OCESearchResultCourse.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -192,6 +208,20 @@
 				A10CBDDC1D290F110022DCDB /* OCESearchResultTableHeaderView.h */,
 				A10CBDDD1D290F110022DCDB /* OCESearchResultTableHeaderView.m */,
 				A10CBDDF1D290F300022DCDB /* OCESearchResultTableHeaderView.xib */,
+				A10CBDE11D2937240022DCDB /* OCESearchResultCell.h */,
+				A10CBDE21D2937240022DCDB /* OCESearchResultCell.m */,
+				A1953CA71D2A3F5E00B36403 /* OCESearchResultCellLablesView.h */,
+				A1953CA81D2A3F5E00B36403 /* OCESearchResultCellLablesView.m */,
+				A1953CAA1D2A3FD600B36403 /* OCESearchResultCellLablesView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A1953CA31D2A315C00B36403 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A1953CA41D2A317500B36403 /* AYLDivider.h */,
+				A1953CA51D2A317500B36403 /* AYLDivider.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -299,6 +329,7 @@
 		A1CF9E401CFD97760042BCD7 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				A1953CA31D2A315C00B36403 /* View */,
 				A1CEFA011D042E6800496A8F /* Tool */,
 				A1CEF9E01D042E4500496A8F /* Category */,
 				A1CEF9EB1D042E4500496A8F /* Controller */,
@@ -470,6 +501,7 @@
 			files = (
 				A1CF9E4D1CFD97760042BCD7 /* Assets.xcassets in Resources */,
 				A10CBDE01D290F300022DCDB /* OCESearchResultTableHeaderView.xib in Resources */,
+				A1953CAB1D2A3FD600B36403 /* OCESearchResultCellLablesView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,14 +570,17 @@
 				A1CEF9FD1D042E4500496A8F /* AYLTabBarController.m in Sources */,
 				A1CEF9FC1D042E4500496A8F /* AYLNavigationController.m in Sources */,
 				A1385F7A1D2112B6006A2424 /* OCESearchResultViewController.m in Sources */,
+				A1953CA61D2A317500B36403 /* AYLDivider.m in Sources */,
 				A184E52B1D0D3A51009A0383 /* OCESearchViewController.m in Sources */,
 				A1CF9E861CFE78040042BCD7 /* OCEButtonsView.m in Sources */,
 				A1CF9E5F1CFD9C360042BCD7 /* OCEHomeViewController.m in Sources */,
 				A184E5281D0D3A4B009A0383 /* OCESearchView.m in Sources */,
+				A1953CAE1D2A474B00B36403 /* OCESearchResultCourse.m in Sources */,
 				A1D37E441D091943007613C8 /* UITableViewController+AYLExtension.m in Sources */,
 				A1CF9E6D1CFD9DA40042BCD7 /* OCEMeViewController.m in Sources */,
 				A1CF9E661CFD9D7A0042BCD7 /* OCECategoryViewController.m in Sources */,
 				A184E53A1D0D5E3B009A0383 /* OCESearchHotCell.m in Sources */,
+				A10CBDE41D2937240022DCDB /* OCESearchResultCell.m in Sources */,
 				A1CEF9F81D042E4500496A8F /* UIColor+AYLExtension.m in Sources */,
 				A1CEF9F71D042E4500496A8F /* NSData+AYLExtension.m in Sources */,
 				A1CEFA041D042FF200496A8F /* AYLHttpTool.m in Sources */,
@@ -558,6 +593,7 @@
 				A1AD95261D0D826800797049 /* OCESearchTableHeaderView.m in Sources */,
 				A1CEF9FE1D042E4500496A8F /* AYLTableViewController.m in Sources */,
 				A1CEFA001D042E4500496A8F /* main.m in Sources */,
+				A1953CA91D2A3F5E00B36403 /* OCESearchResultCellLablesView.m in Sources */,
 				A1CF9E8C1CFEE31F0042BCD7 /* OCECourseCell.m in Sources */,
 				A16491CB1D0EA45000D7B529 /* OCESearchDataTool.m in Sources */,
 			);

@@ -7,6 +7,7 @@
 //
 
 #import "OCESearchTableHeaderView.h"
+#import "AYLDivider.h"
 // category
 #import "UIView+AYLExtension.h"
 #import "UIColor+AYLExtension.h"
@@ -35,9 +36,7 @@ extern const CGFloat kUIViewAYLExtensionViewMargin;
         _titleView = titleView;
         [self addSubview:titleView];
         
-        UIView *divider = [[UIView alloc] init];
-        divider.backgroundColor = [UIColor lightGrayColor];
-        divider.alpha = 0.5;
+        AYLDivider *divider = [AYLDivider divider];
         _divider = divider;
         [self addSubview:divider];
         

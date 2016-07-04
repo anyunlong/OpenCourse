@@ -7,12 +7,20 @@
 //
 
 #import "OCESearchResultViewController.h"
+// m
+#import "OCESearchResultCourse.h"
 // v
 #import "OCESearchResultTableHeaderView.h"
+#import "OCESearchResultCell.h"
 // category
 #import "UIView+AYLExtension.h"
+// framework
+#import <AFNetworking.h>
+#import <MJExtension.h>
 
 @interface OCESearchResultViewController()
+
+@property (nonatomic, strong) NSMutableArray *searchResultCourses;
 
 @property(nonatomic, strong) UIView *tableHeaderView;
 
@@ -26,14 +34,11 @@ extern const CGFloat kOCESearchResultTableHeaderViewHeight;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UINavigationItem *searchViewControllerNavigationItem = [self.navigationController.viewControllers[1] navigationItem];
-    UINavigationItem *navigationItem = self.navigationItem;
-    
-    navigationItem.hidesBackButton = searchViewControllerNavigationItem.hidesBackButton;
-    navigationItem.titleView = searchViewControllerNavigationItem.titleView;
-    navigationItem.rightBarButtonItem = searchViewControllerNavigationItem.rightBarButtonItem;
+    [self setupNavigationItem];
     
     self.tableView.tableHeaderView = self.tableHeaderView;
+    
+    [self loadSearchResultData];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -44,23 +49,55 @@ extern const CGFloat kOCESearchResultTableHeaderViewHeight;
 
 #pragma mark - UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return self.searchResultCourses.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    // cell标识
-    static NSString *ID = @"cell";
-    // 从缓存池中取可用cell
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:ID];
-        cell.backgroundColor = [UIColor blueColor];
-    }
+    OCESearchResultCell *searchResultCell = [OCESearchResultCell cellWithTableView:tableView];
     
-    return cell;
+    return searchResultCell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 200;
+}
+
+#pragma mark - private methods
+#pragma mark setup views
+- (void)setupNavigationItem {
+    UINavigationItem *searchViewControllerNavigationItem = [self.navigationController.viewControllers[1] navigationItem];
+    UINavigationItem *navigationItem = self.navigationItem;
+    
+    navigationItem.hidesBackButton = searchViewControllerNavigationItem.hidesBackButton;
+    navigationItem.titleView = searchViewControllerNavigationItem.titleView;
+    navigationItem.rightBarButtonItem = searchViewControllerNavigationItem.rightBarButtonItem;
+}
+
+#pragma mark load Data
+- (void)loadSearchResultData {
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    NSDictionary *para = @{
+                           @"keyword"  : @"数学",
+                           @"pagesize" : @(20)
+                           };
+    [manager POST:@"http://c.open.163.com/mob/search/keyword.do" parameters:para progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSArray *searchResultCourseDicts = responseObject[@"data"][@"courses"];
+        self.searchResultCourses = [OCESearchResultCourse mj_objectArrayWithKeyValuesArray:searchResultCourseDicts];
+        
+        [self.tableView reloadData];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        AYLLog(@"%@", error);
+    }];
 }
 
 #pragma mark - getters and setters
+- (NSMutableArray *)searchResultCourses {
+    if (!_searchResultCourses) {
+        _searchResultCourses = [NSMutableArray array];
+    }
+    return _searchResultCourses;
+}
+
 - (UIView *)tableHeaderView {
     if (!_tableHeaderView) {
         _tableHeaderView = [[OCESearchResultTableHeaderView alloc] init];
