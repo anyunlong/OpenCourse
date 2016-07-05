@@ -10,4 +10,6 @@
 
 + (instancetype)cellWithTableView:(UITableView *)tableView;
 
++ (CGFloat)cellHeight;
+
 @end

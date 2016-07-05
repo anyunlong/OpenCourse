@@ -59,7 +59,7 @@ extern const CGFloat kOCESearchResultTableHeaderViewHeight;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 200;
+    return [OCESearchResultCell cellHeight];
 }
 
 #pragma mark - private methods

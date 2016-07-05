@@ -11,6 +11,11 @@
 #import "AYLDivider.h"
 // category
 #import "UIView+AYLExtension.h"
+// macro
+#define kOCESearchResultCellpicViewX kUIViewAYLExtensionViewMargin
+#define kOCESearchResultCellpicViewW (AYLMainScreenBounds.size.width / 2 - 5 * kOCESearchResultCellpicViewX)
+#define kOCESearchResultCellpicViewH (kOCESearchResultCellpicViewW / 16 * 9)
+#define kOCESearchResultCellHeight (kOCESearchResultCellpicViewH + 2 * kOCESearchResultCellpicViewX)
 
 @interface OCESearchResultCell()
 
@@ -64,21 +69,15 @@ extern const CGFloat kUIViewAYLExtensionViewMargin;
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    UIView *contentView = self.contentView;
-    CGFloat cellCenterX = contentView.ayl_centerX;
-    
-    CGFloat picViewX = kUIViewAYLExtensionViewMargin;
+    CGFloat picViewX = kOCESearchResultCellpicViewX;
     _picView.ayl_orign = CGPointMake(picViewX, picViewX);
-    CGFloat picViewW = cellCenterX - 5 * picViewX;
-    CGFloat picViewH = picViewW / 16 * 9;
+    CGFloat picViewW = kOCESearchResultCellpicViewW;
+    CGFloat picViewH = kOCESearchResultCellpicViewH;
     _picView.ayl_size = CGSizeMake(picViewW, picViewH);
     
-    CGFloat cellHeight = _picView.ayl_bottom + picViewX;
-    self.ayl_height = cellHeight;
-    
-    CGFloat cellDividerW = contentView.ayl_width;
+    CGFloat cellDividerW = self.contentView.ayl_width;
     CGFloat cellDividerH = 0.5;
-    CGFloat cellDividerY = cellHeight - cellDividerH;
+    CGFloat cellDividerY = kOCESearchResultCellHeight - cellDividerH;
     _cellDivider.frame = CGRectMake(0, cellDividerY, cellDividerW, cellDividerH);
     
     CGFloat lableViewX = _picView.ayl_right + picViewX;
@@ -86,6 +85,10 @@ extern const CGFloat kUIViewAYLExtensionViewMargin;
     CGFloat lableViewW = cellDividerW - picViewW - 3 * picViewX;
     CGFloat lableViewH = picViewH;
     _lablesView.frame = CGRectMake(lableViewX, lableViewY, lableViewW, lableViewH);
+}
+
++ (CGFloat)cellHeight {
+    return kOCESearchResultCellHeight;
 }
 
 @end
