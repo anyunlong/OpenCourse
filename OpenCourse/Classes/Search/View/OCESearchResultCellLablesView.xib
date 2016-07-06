@@ -12,22 +12,21 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="南昌大学公开课：走近科学女王——数学" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TIk-VS-cra">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="这是一段示例文字。这是一段示例文字。这是一段示例文字。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TIk-VS-cra">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
-                    <color key="backgroundColor" red="0.68944600199999995" green="1" blue="0.090301709829999993" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="分类：网易公开课;生理期;禁忌;教育;青春期;成见;迂腐的束缚," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qHh-tI-6Ql">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="分类：哈哈哈哈哈哈哈哈哈哈" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qHh-tI-6Ql">
                     <rect key="frame" x="0.0" y="299" width="600" height="150"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="集数：60  已译：60" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BZ8-AA-46d">
                     <rect key="frame" x="0.0" y="450" width="600" height="150"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
@@ -45,6 +44,11 @@
                 <constraint firstAttribute="bottom" secondItem="BZ8-AA-46d" secondAttribute="bottom" id="VID-kZ-h5f"/>
                 <constraint firstItem="TIk-VS-cra" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="hBg-we-4lp"/>
             </constraints>
+            <connections>
+                <outlet property="playcountAndUpdatedPlaycountView" destination="BZ8-AA-46d" id="GdH-XJ-LZn"/>
+                <outlet property="tagsView" destination="qHh-tI-6Ql" id="Jfy-Wz-B3O"/>
+                <outlet property="titleView" destination="TIk-VS-cra" id="Ub3-qf-2bd"/>
+            </connections>
             <point key="canvasLocation" x="502" y="458"/>
         </view>
     </objects>

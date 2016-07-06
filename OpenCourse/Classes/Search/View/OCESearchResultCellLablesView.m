@@ -7,6 +7,16 @@
 //
 
 #import "OCESearchResultCellLablesView.h"
+// m
+#import "OCESearchResultCourse.h"
+
+@interface OCESearchResultCellLablesView()
+
+@property (weak, nonatomic) IBOutlet UILabel *titleView;
+@property (weak, nonatomic) IBOutlet UILabel *tagsView;
+@property (weak, nonatomic) IBOutlet UILabel *playcountAndUpdatedPlaycountView;
+
+@end
 
 @implementation OCESearchResultCellLablesView
 
@@ -16,6 +26,14 @@
     }
     
     return self;
+}
+
+- (void)setCourse:(OCESearchResultCourse *)course {
+    _course = course;
+    
+    _titleView.attributedText = course.workedTitle;
+    _tagsView.attributedText = course.workedTags;
+    _playcountAndUpdatedPlaycountView.text = [[NSString stringWithFormat:@"集数：%@  已译：%@", course.playcount, course.updatedPlaycount] copy];
 }
 
 @end

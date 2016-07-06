@@ -6,7 +6,11 @@
 //  Copyright © 2016年 CCUT. All rights reserved.
 //
 
+@class OCESearchResultCourse;
+
 @interface OCESearchResultCell : UITableViewCell
+
+@property (nonatomic, strong) OCESearchResultCourse *course;
 
 + (instancetype)cellWithTableView:(UITableView *)tableView;
 

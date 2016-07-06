@@ -14,6 +14,7 @@
 #import "OCESearchTableHeaderView.h"
 // m
 #import "OCESearchDataToolResult.h"
+#import "OCEHotKeyword.h"
 // category
 #import "UIView+AYLExtension.h"
 
@@ -67,7 +68,10 @@ extern const CGFloat kUINavigationBarAYLExtensionSystemNavBarHeight;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.navigationController pushViewController:[[OCESearchResultViewController alloc] init] animated:NO];
+    OCESearchResultViewController *searchResultViewController = [[OCESearchResultViewController alloc] init];
+    searchResultViewController.keyword = [_data.hotKeywords[indexPath.row] value];
+    
+    [self.navigationController pushViewController:searchResultViewController animated:NO];
 }
 
 #pragma mark - event response

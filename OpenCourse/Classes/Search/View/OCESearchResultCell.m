@@ -9,8 +9,12 @@
 #import "OCESearchResultCell.h"
 #import "OCESearchResultCellLablesView.h"
 #import "AYLDivider.h"
+// m
+#import "OCESearchResultCourse.h"
 // category
 #import "UIView+AYLExtension.h"
+// framework
+#import <UIImageView+WebCache.h>
 // macro
 #define kOCESearchResultCellpicViewX kUIViewAYLExtensionViewMargin
 #define kOCESearchResultCellpicViewW (AYLMainScreenBounds.size.width / 2 - 5 * kOCESearchResultCellpicViewX)
@@ -48,7 +52,6 @@ extern const CGFloat kUIViewAYLExtensionViewMargin;
         
         // left views
         UIImageView *picView = [[UIImageView alloc] init];
-        picView.backgroundColor = [UIColor orangeColor];
         [contentView addSubview:picView];
         _picView = picView;
         
@@ -60,10 +63,17 @@ extern const CGFloat kUIViewAYLExtensionViewMargin;
         // bottom views
         AYLDivider *cellDivider = [[AYLDivider alloc] init];
         [contentView addSubview:cellDivider];
-        _cellDivider = cellDivider;
+        _cellDivider = cellDivider; 
     }
     
     return self;
+}
+
+- (void)setCourse:(OCESearchResultCourse *)course {
+    _course = course;
+    
+    [self.picView sd_setImageWithURL:[NSURL URLWithString:course.picUrl] placeholderImage:nil];
+    _lablesView.course = course;
 }
 
 - (void)layoutSubviews {

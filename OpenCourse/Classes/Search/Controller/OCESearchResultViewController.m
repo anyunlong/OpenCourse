@@ -12,6 +12,7 @@
 // v
 #import "OCESearchResultTableHeaderView.h"
 #import "OCESearchResultCell.h"
+#import "OCESearchView.h"
 // category
 #import "UIView+AYLExtension.h"
 // framework
@@ -55,6 +56,8 @@ extern const CGFloat kOCESearchResultTableHeaderViewHeight;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     OCESearchResultCell *searchResultCell = [OCESearchResultCell cellWithTableView:tableView];
     
+    searchResultCell.course = _searchResultCourses[indexPath.row];
+    
     return searchResultCell;
 }
 
@@ -68,8 +71,16 @@ extern const CGFloat kOCESearchResultTableHeaderViewHeight;
     UINavigationItem *searchViewControllerNavigationItem = [self.navigationController.viewControllers[1] navigationItem];
     UINavigationItem *navigationItem = self.navigationItem;
     
+    // hidesBackButton
     navigationItem.hidesBackButton = searchViewControllerNavigationItem.hidesBackButton;
-    navigationItem.titleView = searchViewControllerNavigationItem.titleView;
+    // titleView
+    OCESearchView *searchView = [[OCESearchView alloc] init];
+    
+    searchView.customPlaceholder = _keyword;
+    searchView.ayl_size = searchViewControllerNavigationItem.titleView.ayl_size;
+    
+    navigationItem.titleView = searchView;
+    // rightBarButtonItem
     navigationItem.rightBarButtonItem = searchViewControllerNavigationItem.rightBarButtonItem;
 }
 
@@ -77,7 +88,7 @@ extern const CGFloat kOCESearchResultTableHeaderViewHeight;
 - (void)loadSearchResultData {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     NSDictionary *para = @{
-                           @"keyword"  : @"数学",
+                           @"keyword"  : _keyword,
                            @"pagesize" : @(20)
                            };
     [manager POST:@"http://c.open.163.com/mob/search/keyword.do" parameters:para progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {

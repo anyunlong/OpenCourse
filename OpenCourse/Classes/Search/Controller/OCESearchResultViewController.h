@@ -10,4 +10,6 @@
 
 @interface OCESearchResultViewController : AYLTableViewController
 
+@property (nonatomic, copy) NSString *keyword;
+
 @end

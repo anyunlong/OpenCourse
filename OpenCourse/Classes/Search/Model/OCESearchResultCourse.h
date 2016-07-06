@@ -10,7 +10,9 @@
 
 @property (nonatomic, copy) NSString *picUrl;
 @property (nonatomic, copy) NSString *title;
+@property (nonatomic, strong) NSMutableAttributedString *workedTitle;
 @property (nonatomic, copy) NSString *tags;
+@property (nonatomic, strong) NSMutableAttributedString *workedTags;
 @property (nonatomic, copy) NSString *playcount;
 @property (nonatomic, copy) NSString *updatedPlaycount;
 

@@ -6,6 +6,10 @@
 //  Copyright © 2016年 CCUT. All rights reserved.
 //
 
+@class OCESearchResultCourse;
+
 @interface OCESearchResultCellLablesView : UIView
+
+@property (nonatomic, strong) OCESearchResultCourse *course;
 
 @end
