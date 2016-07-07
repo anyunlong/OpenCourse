@@ -10,4 +10,6 @@ extern const CGFloat kOCESearchResultTableHeaderViewHeight;
 
 @interface OCESearchResultTableHeaderView : UIView
 
+@property (nonatomic, assign) int totalNum;
+
 @end

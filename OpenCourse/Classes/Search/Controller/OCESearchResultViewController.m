@@ -18,12 +18,13 @@
 // framework
 #import <AFNetworking.h>
 #import <MJExtension.h>
+#import <MJRefresh.h>
 
 @interface OCESearchResultViewController()
 
 @property (nonatomic, strong) NSMutableArray *searchResultCourses;
 
-@property(nonatomic, strong) UIView *tableHeaderView;
+@property(nonatomic, strong) OCESearchResultTableHeaderView *tableHeaderView;
 
 @end
 
@@ -84,21 +85,47 @@ extern const CGFloat kOCESearchResultTableHeaderViewHeight;
     navigationItem.rightBarButtonItem = searchViewControllerNavigationItem.rightBarButtonItem;
 }
 
-#pragma mark load Data
-- (void)loadSearchResultData {
+#pragma mark setup refresh
+- (void)setupRefresh {
+    self.tableView.mj_footer = [MJRefreshAutoGifFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+}
+
+#pragma mark refresh event response
+- (void)loadMoreData {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    NSDictionary *para = @{
-                           @"keyword"  : _keyword,
-                           @"pagesize" : @(20)
-                           };
+    int pagesize = 20;
+    NSMutableDictionary *para = [NSMutableDictionary dictionaryWithDictionary:@{
+                                                                                @"keyword"  : _keyword,
+                                                                                @"pagesize" : @(pagesize)
+                                                                                }];
+    if (self.searchResultCourses.count) {
+        [para setObject:@(_searchResultCourses.count) forKey:@"cursor"];
+    }
     [manager POST:@"http://c.open.163.com/mob/search/keyword.do" parameters:para progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSArray *searchResultCourseDicts = responseObject[@"data"][@"courses"];
-        self.searchResultCourses = [OCESearchResultCourse mj_objectArrayWithKeyValuesArray:searchResultCourseDicts];
+        NSDictionary *dataDict = responseObject[@"data"];
+        NSArray *searchResultCourseDicts = dataDict[@"courses"];
         
+        if (_searchResultCourses.count) {
+            [self.tableView.mj_footer endRefreshing];
+        } else {
+            NSNumber *totalNum = dataDict[@"totalNum"];
+            int intTotalNum = [totalNum intValue];
+            
+            _tableHeaderView.totalNum = intTotalNum;
+            if (intTotalNum > pagesize) {
+                [self setupRefresh];
+            }
+        }
+        
+        [self.searchResultCourses addObjectsFromArray:[OCESearchResultCourse mj_objectArrayWithKeyValuesArray:searchResultCourseDicts]];
         [self.tableView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        AYLLog(@"%@", error);
     }];
+}
+
+#pragma mark load Data
+- (void)loadSearchResultData {
+    [self loadMoreData];
 }
 
 #pragma mark - getters and setters

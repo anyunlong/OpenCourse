@@ -6,94 +6,56 @@
 //  Copyright © 2016年 CCUT. All rights reserved.
 //
 
-#warning !!!
-
 #import "OCESearchResultCourse.h"
 
 @implementation OCESearchResultCourse
 
 - (NSMutableAttributedString *)workedTitle {
-    self.title = [_title stringByReplacingOccurrencesOfString:@"##" withString:@"#"];
-    
-    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:_title];
-    
-    NSString *newStr = _title;
-    NSString *temp = nil;
-    int j = 0;
-    int k = 0;
-    int m = 0;
-    for(int i =0; i < [newStr length]; i++)
-    {
-        temp = [newStr substringWithRange:NSMakeRange(i, 1)];
-        if ([temp isEqualToString:@"#"]) {
-            ++j;
-            if (j % 2 == 0) {
-                m = i;
-                
-                [str addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:NSMakeRange(k,m - k + 1)];
-            } else {
-                k = i;
-            }
-        }
-    }
-    
-    NSMutableString *mstr = [NSMutableString stringWithString:newStr];
-    
-    while ([mstr rangeOfString:@"#"].location != NSNotFound) {
-        for(int i =0;i < [mstr length]; i++)
-        {
-            temp = [mstr substringWithRange:NSMakeRange(i, 1)];
-            if ([temp isEqualToString:@"#"]) {
-                [str deleteCharactersInRange:NSMakeRange(i, 1)];
-                [mstr deleteCharactersInRange:NSMakeRange(i, 1)];
-                break;
-            }
-        }
-    }
-    
-    return str;
+    return [self attributedStringWithText:_title];
 }
 
 - (NSMutableAttributedString *)workedTags {
-    self.tags = [_tags stringByReplacingOccurrencesOfString:@"##" withString:@"#"];
+    return [self attributedStringWithText:_tags];
+}
+
+- (NSMutableAttributedString *)attributedStringWithText:(NSString *)text {
+    NSString *rubbishChar = @"#";
+    NSMutableString *newTitle = [[text stringByReplacingOccurrencesOfString:@"##" withString:rubbishChar] mutableCopy];
+    NSMutableAttributedString *attributedNewTitle = [[NSMutableAttributedString alloc] initWithString:newTitle];
     
-    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:_tags];
-    
-    NSString *newStr = _tags;
-    NSString *temp = nil;
-    int j = 0;
-    int k = 0;
-    int m = 0;
-    for(int i =0; i < [newStr length]; i++)
-    {
-        temp = [newStr substringWithRange:NSMakeRange(i, 1)];
-        if ([temp isEqualToString:@"#"]) {
-            ++j;
-            if (j % 2 == 0) {
-                m = i;
-                
-                [str addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:NSMakeRange(k,m - k + 1)];
+    NSString *aChar = nil;
+    int selectCharIndex = 0;
+    int previousSelectCharIndex = 0;
+    int behindSelectCharIndex = 0;
+    for (int index = 0; index < newTitle.length; index++) {
+        aChar = [newTitle substringWithRange:NSMakeRange(index, 1)];
+        
+        if ([aChar isEqualToString:rubbishChar]) {
+            ++selectCharIndex;
+            if (selectCharIndex % 2) {
+                previousSelectCharIndex = index;
             } else {
-                k = i;
+                behindSelectCharIndex = index;
+                
+                [attributedNewTitle addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:NSMakeRange(previousSelectCharIndex, behindSelectCharIndex - previousSelectCharIndex + 1)];
             }
         }
     }
     
-    NSMutableString *mstr = [NSMutableString stringWithString:newStr];
-    
-    while ([mstr rangeOfString:@"#"].location != NSNotFound) {
-        for(int i =0;i < [mstr length]; i++)
-        {
-            temp = [mstr substringWithRange:NSMakeRange(i, 1)];
-            if ([temp isEqualToString:@"#"]) {
-                [str deleteCharactersInRange:NSMakeRange(i, 1)];
-                [mstr deleteCharactersInRange:NSMakeRange(i, 1)];
+    while ([newTitle rangeOfString:rubbishChar].location != NSNotFound) {
+        for(int i = 0; i < newTitle.length; i++) {
+            aChar = [newTitle substringWithRange:NSMakeRange(i, 1)];
+            
+            if ([aChar isEqualToString:rubbishChar]) {
+                [attributedNewTitle deleteCharactersInRange:NSMakeRange(i, 1)];
+                [newTitle deleteCharactersInRange:NSMakeRange(i, 1)];
+                
                 break;
             }
         }
     }
     
-    return str;
+    return attributedNewTitle;
 }
 
 @end

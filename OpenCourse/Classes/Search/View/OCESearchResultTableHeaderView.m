@@ -31,6 +31,12 @@ extern const CGFloat kUIViewAYLExtensionViewMargin;
     return self;
 }
 
+- (void)setTotalNum:(int)totalNum {
+    _totalNum = totalNum;
+    
+    _searchResultLable.text = [NSString stringWithFormat:@"共找到%d个相关课程", totalNum];
+}
+
 - (void)layoutSubviews {
     [super layoutSubviews];
     
