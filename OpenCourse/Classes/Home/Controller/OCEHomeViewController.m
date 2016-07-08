@@ -8,6 +8,7 @@
 
 // c
 #import "OCEHomeViewController.h"
+#import "OCEPlayVideoViewController.h"
 #import "AYLNavigationController.h"
 #import "OCESearchViewController.h"
 #import "OCEWebViewController.h"
@@ -113,10 +114,18 @@ extern const CGFloat kUINavigationBarAYLExtensionSystemNavBarHeight;
 
 #pragma mark - CustomDelegate
 - (void)courseCell:(OCECourseCell *)courseCell didClickedButtonAtIndex:(NSInteger)index {
-    OCEWebViewController *wc = [[OCEWebViewController alloc] init];
-    wc.course = [_courseFrames[index] course];
-    AYLNavigationController *nc = [[AYLNavigationController alloc] initWithRootViewController:wc];
+    UIViewController *nextController;
+    OCECourse *course = [_courseFrames[index] course];
+    if (course.rtype == OCECourseRtypeH5) {
+        nextController = [[OCEWebViewController alloc] init];
+        OCEWebViewController *webViewController = (OCEWebViewController *)nextController;
+        
+        webViewController.course = course;
+    } else if (course.rtype == OCECourseRtypeVideo) {
+        nextController = [[OCEPlayVideoViewController alloc] init];
+    }
     
+    AYLNavigationController *nc = [[AYLNavigationController alloc] initWithRootViewController:nextController];
     [self presentViewController:nc animated:YES completion:nil];
 }
 

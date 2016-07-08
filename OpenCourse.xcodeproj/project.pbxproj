@@ -24,6 +24,21 @@
 		A1953CAB1D2A3FD600B36403 /* OCESearchResultCellLablesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1953CAA1D2A3FD600B36403 /* OCESearchResultCellLablesView.xib */; };
 		A1953CAE1D2A474B00B36403 /* OCESearchResultCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = A1953CAD1D2A474B00B36403 /* OCESearchResultCourse.m */; };
 		A1AD95261D0D826800797049 /* OCESearchTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1AD95251D0D826800797049 /* OCESearchTableHeaderView.m */; };
+		A1C5782B1D2FC0D3000DA4F7 /* OCEPlayVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C578291D2FC0D3000DA4F7 /* OCEPlayVideoViewController.m */; };
+		A1C5782E1D2FC79E000DA4F7 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C5782D1D2FC79E000DA4F7 /* IJKMediaFramework.framework */; };
+		A1C578301D2FC7CD000DA4F7 /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C5782F1D2FC7CD000DA4F7 /* libbz2.tbd */; };
+		A1C578321D2FC7D8000DA4F7 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C578311D2FC7D8000DA4F7 /* libz.tbd */; };
+		A1C578341D2FC7EC000DA4F7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C578331D2FC7EC000DA4F7 /* AudioToolbox.framework */; };
+		A1C578361D2FC7F1000DA4F7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C578351D2FC7F1000DA4F7 /* AVFoundation.framework */; };
+		A1C578381D2FC7FA000DA4F7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C578371D2FC7FA000DA4F7 /* CoreGraphics.framework */; };
+		A1C5783B1D2FC805000DA4F7 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C578391D2FC805000DA4F7 /* CoreMedia.framework */; };
+		A1C5783C1D2FC805000DA4F7 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C5783A1D2FC805000DA4F7 /* CoreVideo.framework */; };
+		A1C5783E1D2FC81C000DA4F7 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C5783D1D2FC81C000DA4F7 /* MediaPlayer.framework */; };
+		A1C578401D2FC821000DA4F7 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C5783F1D2FC821000DA4F7 /* MobileCoreServices.framework */; };
+		A1C578421D2FC829000DA4F7 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C578411D2FC829000DA4F7 /* OpenGLES.framework */; };
+		A1C578441D2FC830000DA4F7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C578431D2FC830000DA4F7 /* QuartzCore.framework */; };
+		A1C578461D2FC844000DA4F7 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C578451D2FC844000DA4F7 /* VideoToolbox.framework */; };
+		A1C578481D2FD3D0000DA4F7 /* OCEPlayVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1C578471D2FD3D0000DA4F7 /* OCEPlayVideoViewController.xib */; };
 		A1CEF9F71D042E4500496A8F /* NSData+AYLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEF9E21D042E4500496A8F /* NSData+AYLExtension.m */; };
 		A1CEF9F81D042E4500496A8F /* UIColor+AYLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEF9E41D042E4500496A8F /* UIColor+AYLExtension.m */; };
 		A1CEF9F91D042E4500496A8F /* UIImage+AYLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEF9E61D042E4500496A8F /* UIImage+AYLExtension.m */; };
@@ -83,6 +98,22 @@
 		A1AD95241D0D826800797049 /* OCESearchTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCESearchTableHeaderView.h; sourceTree = "<group>"; };
 		A1AD95251D0D826800797049 /* OCESearchTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCESearchTableHeaderView.m; sourceTree = "<group>"; };
 		A1B89C6D1CFD8D34006B91D6 /* OpenCourse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenCourse.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1C578281D2FC0D3000DA4F7 /* OCEPlayVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCEPlayVideoViewController.h; sourceTree = "<group>"; };
+		A1C578291D2FC0D3000DA4F7 /* OCEPlayVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCEPlayVideoViewController.m; sourceTree = "<group>"; };
+		A1C5782D1D2FC79E000DA4F7 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IJKMediaFramework.framework; path = "../../Software/Xcode/ijkplayer-master/Simulator/IJKMediaFramework.framework"; sourceTree = "<group>"; };
+		A1C5782F1D2FC7CD000DA4F7 /* libbz2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.tbd; path = usr/lib/libbz2.tbd; sourceTree = SDKROOT; };
+		A1C578311D2FC7D8000DA4F7 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		A1C578331D2FC7EC000DA4F7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		A1C578351D2FC7F1000DA4F7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A1C578371D2FC7FA000DA4F7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A1C578391D2FC805000DA4F7 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		A1C5783A1D2FC805000DA4F7 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		A1C5783D1D2FC81C000DA4F7 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		A1C5783F1D2FC821000DA4F7 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		A1C578411D2FC829000DA4F7 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		A1C578431D2FC830000DA4F7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A1C578451D2FC844000DA4F7 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		A1C578471D2FD3D0000DA4F7 /* OCEPlayVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OCEPlayVideoViewController.xib; sourceTree = "<group>"; };
 		A1CEF9E11D042E4500496A8F /* NSData+AYLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AYLExtension.h"; sourceTree = "<group>"; };
 		A1CEF9E21D042E4500496A8F /* NSData+AYLExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+AYLExtension.m"; sourceTree = "<group>"; };
 		A1CEF9E31D042E4500496A8F /* UIColor+AYLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+AYLExtension.h"; sourceTree = "<group>"; };
@@ -137,6 +168,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1C578461D2FC844000DA4F7 /* VideoToolbox.framework in Frameworks */,
+				A1C578441D2FC830000DA4F7 /* QuartzCore.framework in Frameworks */,
+				A1C578421D2FC829000DA4F7 /* OpenGLES.framework in Frameworks */,
+				A1C578401D2FC821000DA4F7 /* MobileCoreServices.framework in Frameworks */,
+				A1C5783E1D2FC81C000DA4F7 /* MediaPlayer.framework in Frameworks */,
+				A1C5783B1D2FC805000DA4F7 /* CoreMedia.framework in Frameworks */,
+				A1C5783C1D2FC805000DA4F7 /* CoreVideo.framework in Frameworks */,
+				A1C578381D2FC7FA000DA4F7 /* CoreGraphics.framework in Frameworks */,
+				A1C578361D2FC7F1000DA4F7 /* AVFoundation.framework in Frameworks */,
+				A1C578341D2FC7EC000DA4F7 /* AudioToolbox.framework in Frameworks */,
+				A1C578321D2FC7D8000DA4F7 /* libz.tbd in Frameworks */,
+				A1C578301D2FC7CD000DA4F7 /* libbz2.tbd in Frameworks */,
+				A1C5782E1D2FC79E000DA4F7 /* IJKMediaFramework.framework in Frameworks */,
 				727CF9E84C02C87884BDCCB2 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,6 +191,19 @@
 		997D72DED4BFD6D928ED8B8E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A1C578451D2FC844000DA4F7 /* VideoToolbox.framework */,
+				A1C578431D2FC830000DA4F7 /* QuartzCore.framework */,
+				A1C578411D2FC829000DA4F7 /* OpenGLES.framework */,
+				A1C5783F1D2FC821000DA4F7 /* MobileCoreServices.framework */,
+				A1C5783D1D2FC81C000DA4F7 /* MediaPlayer.framework */,
+				A1C578391D2FC805000DA4F7 /* CoreMedia.framework */,
+				A1C5783A1D2FC805000DA4F7 /* CoreVideo.framework */,
+				A1C578371D2FC7FA000DA4F7 /* CoreGraphics.framework */,
+				A1C578351D2FC7F1000DA4F7 /* AVFoundation.framework */,
+				A1C578331D2FC7EC000DA4F7 /* AudioToolbox.framework */,
+				A1C578311D2FC7D8000DA4F7 /* libz.tbd */,
+				A1C5782F1D2FC7CD000DA4F7 /* libbz2.tbd */,
+				A1C5782D1D2FC79E000DA4F7 /* IJKMediaFramework.framework */,
 				1A4DCB175D280237EC84D674 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -365,6 +422,9 @@
 				A1CF9E5E1CFD9C360042BCD7 /* OCEHomeViewController.m */,
 				A159F0771D07C1DB00F5487E /* OCEWebViewController.h */,
 				A159F0781D07C1DB00F5487E /* OCEWebViewController.m */,
+				A1C578281D2FC0D3000DA4F7 /* OCEPlayVideoViewController.h */,
+				A1C578291D2FC0D3000DA4F7 /* OCEPlayVideoViewController.m */,
+				A1C578471D2FD3D0000DA4F7 /* OCEPlayVideoViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -501,6 +561,7 @@
 			files = (
 				A1CF9E4D1CFD97760042BCD7 /* Assets.xcassets in Resources */,
 				A10CBDE01D290F300022DCDB /* OCESearchResultTableHeaderView.xib in Resources */,
+				A1C578481D2FD3D0000DA4F7 /* OCEPlayVideoViewController.xib in Resources */,
 				A1953CAB1D2A3FD600B36403 /* OCESearchResultCellLablesView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -582,6 +643,7 @@
 				A184E53A1D0D5E3B009A0383 /* OCESearchHotCell.m in Sources */,
 				A10CBDE41D2937240022DCDB /* OCESearchResultCell.m in Sources */,
 				A1CEF9F81D042E4500496A8F /* UIColor+AYLExtension.m in Sources */,
+				A1C5782B1D2FC0D3000DA4F7 /* OCEPlayVideoViewController.m in Sources */,
 				A1CEF9F71D042E4500496A8F /* NSData+AYLExtension.m in Sources */,
 				A1CEFA041D042FF200496A8F /* AYLHttpTool.m in Sources */,
 				A1CEF9FA1D042E4500496A8F /* UINavigationBar+AYLExtension.m in Sources */,
@@ -690,6 +752,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = "/Users/Oneself/Documents/Software/Xcode/ijkplayer-master/Simulator";
 				GCC_PREFIX_HEADER = /Users/Oneself/Documents/iOSProjects/OpenCourse/OpenCourse/Classes/Main/Other/AYLCommon.pch;
 				INFOPLIST_FILE = "OpenCourse/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -705,6 +768,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = "/Users/Oneself/Documents/Software/Xcode/ijkplayer-master/Simulator";
 				GCC_PREFIX_HEADER = /Users/Oneself/Documents/iOSProjects/OpenCourse/OpenCourse/Classes/Main/Other/AYLCommon.pch;
 				INFOPLIST_FILE = "OpenCourse/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
