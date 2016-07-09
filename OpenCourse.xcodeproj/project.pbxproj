@@ -16,6 +16,8 @@
 		A16491C51D0EA41200D7B529 /* OCEHotKeyword.m in Sources */ = {isa = PBXBuildFile; fileRef = A16491C41D0EA41200D7B529 /* OCEHotKeyword.m */; };
 		A16491C81D0EA44500D7B529 /* OCESearchDataToolResult.m in Sources */ = {isa = PBXBuildFile; fileRef = A16491C71D0EA44500D7B529 /* OCESearchDataToolResult.m */; };
 		A16491CB1D0EA45000D7B529 /* OCESearchDataTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A16491CA1D0EA45000D7B529 /* OCESearchDataTool.m */; };
+		A182F83A1D3105020083A274 /* OCEPlayerToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A182F8391D3105020083A274 /* OCEPlayerToolBar.m */; };
+		A182F83C1D31051B0083A274 /* OCEPlayerToolBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = A182F83B1D31051B0083A274 /* OCEPlayerToolBar.xib */; };
 		A184E5281D0D3A4B009A0383 /* OCESearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = A184E5261D0D3A4B009A0383 /* OCESearchView.m */; };
 		A184E52B1D0D3A51009A0383 /* OCESearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A184E5291D0D3A51009A0383 /* OCESearchViewController.m */; };
 		A184E53A1D0D5E3B009A0383 /* OCESearchHotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A184E5391D0D5E3B009A0383 /* OCESearchHotCell.m */; };
@@ -38,7 +40,6 @@
 		A1C578421D2FC829000DA4F7 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C578411D2FC829000DA4F7 /* OpenGLES.framework */; };
 		A1C578441D2FC830000DA4F7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C578431D2FC830000DA4F7 /* QuartzCore.framework */; };
 		A1C578461D2FC844000DA4F7 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C578451D2FC844000DA4F7 /* VideoToolbox.framework */; };
-		A1C578481D2FD3D0000DA4F7 /* OCEPlayVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1C578471D2FD3D0000DA4F7 /* OCEPlayVideoViewController.xib */; };
 		A1CEF9F71D042E4500496A8F /* NSData+AYLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEF9E21D042E4500496A8F /* NSData+AYLExtension.m */; };
 		A1CEF9F81D042E4500496A8F /* UIColor+AYLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEF9E41D042E4500496A8F /* UIColor+AYLExtension.m */; };
 		A1CEF9F91D042E4500496A8F /* UIImage+AYLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CEF9E61D042E4500496A8F /* UIImage+AYLExtension.m */; };
@@ -82,6 +83,9 @@
 		A16491C71D0EA44500D7B529 /* OCESearchDataToolResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCESearchDataToolResult.m; sourceTree = "<group>"; };
 		A16491C91D0EA45000D7B529 /* OCESearchDataTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCESearchDataTool.h; sourceTree = "<group>"; };
 		A16491CA1D0EA45000D7B529 /* OCESearchDataTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCESearchDataTool.m; sourceTree = "<group>"; };
+		A182F8381D3105020083A274 /* OCEPlayerToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCEPlayerToolBar.h; sourceTree = "<group>"; };
+		A182F8391D3105020083A274 /* OCEPlayerToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCEPlayerToolBar.m; sourceTree = "<group>"; };
+		A182F83B1D31051B0083A274 /* OCEPlayerToolBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OCEPlayerToolBar.xib; sourceTree = "<group>"; };
 		A184E5261D0D3A4B009A0383 /* OCESearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCESearchView.m; sourceTree = "<group>"; };
 		A184E5271D0D3A4B009A0383 /* OCESearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCESearchView.h; sourceTree = "<group>"; };
 		A184E5291D0D3A51009A0383 /* OCESearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCESearchViewController.m; sourceTree = "<group>"; };
@@ -113,7 +117,6 @@
 		A1C578411D2FC829000DA4F7 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		A1C578431D2FC830000DA4F7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A1C578451D2FC844000DA4F7 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
-		A1C578471D2FD3D0000DA4F7 /* OCEPlayVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OCEPlayVideoViewController.xib; sourceTree = "<group>"; };
 		A1CEF9E11D042E4500496A8F /* NSData+AYLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AYLExtension.h"; sourceTree = "<group>"; };
 		A1CEF9E21D042E4500496A8F /* NSData+AYLExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+AYLExtension.m"; sourceTree = "<group>"; };
 		A1CEF9E31D042E4500496A8F /* UIColor+AYLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+AYLExtension.h"; sourceTree = "<group>"; };
@@ -424,7 +427,6 @@
 				A159F0781D07C1DB00F5487E /* OCEWebViewController.m */,
 				A1C578281D2FC0D3000DA4F7 /* OCEPlayVideoViewController.h */,
 				A1C578291D2FC0D3000DA4F7 /* OCEPlayVideoViewController.m */,
-				A1C578471D2FD3D0000DA4F7 /* OCEPlayVideoViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -451,6 +453,9 @@
 				A1CF9E851CFE78040042BCD7 /* OCEButtonsView.m */,
 				A1CF9E8A1CFEE31F0042BCD7 /* OCECourseCell.h */,
 				A1CF9E8B1CFEE31F0042BCD7 /* OCECourseCell.m */,
+				A182F8381D3105020083A274 /* OCEPlayerToolBar.h */,
+				A182F8391D3105020083A274 /* OCEPlayerToolBar.m */,
+				A182F83B1D31051B0083A274 /* OCEPlayerToolBar.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -559,9 +564,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A182F83C1D31051B0083A274 /* OCEPlayerToolBar.xib in Resources */,
 				A1CF9E4D1CFD97760042BCD7 /* Assets.xcassets in Resources */,
 				A10CBDE01D290F300022DCDB /* OCESearchResultTableHeaderView.xib in Resources */,
-				A1C578481D2FD3D0000DA4F7 /* OCEPlayVideoViewController.xib in Resources */,
 				A1953CAB1D2A3FD600B36403 /* OCESearchResultCellLablesView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -627,6 +632,7 @@
 				A1CEFA081D04396A00496A8F /* OCECourseTool.m in Sources */,
 				A1CEF9FB1D042E4500496A8F /* UIView+AYLExtension.m in Sources */,
 				A1CF9E891CFEC9D10042BCD7 /* OCECourse.m in Sources */,
+				A182F83A1D3105020083A274 /* OCEPlayerToolBar.m in Sources */,
 				A10CBDDE1D290F110022DCDB /* OCESearchResultTableHeaderView.m in Sources */,
 				A1CEF9FD1D042E4500496A8F /* AYLTabBarController.m in Sources */,
 				A1CEF9FC1D042E4500496A8F /* AYLNavigationController.m in Sources */,

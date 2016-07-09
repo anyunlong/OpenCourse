@@ -41,6 +41,11 @@
     item.tintColor = [UIColor whiteColor];
 }
 
+// 状态栏颜色
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     if (self.viewControllers.count > 1) {
         viewController.hidesBottomBarWhenPushed = YES;

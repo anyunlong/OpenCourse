@@ -56,16 +56,7 @@ extern const CGFloat kUINavigationBarAYLExtensionSystemNavBarHeight;
     
     self.tableView.backgroundColor = [UIColor ayl_systemTableViewBackgroundColor];
     
-    UINavigationItem *navigationItem = self.navigationItem;
-    
-    // homeIconView
-    navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.homeIconView];
-    
-    // navBarTitleView
-    navigationItem.titleView = self.searchView;;
-    
-    // rightBarButtonItem
-    navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.buttonsView];
+    [self setupNavigationBar];
     
     [self loadSearchData];
     
@@ -77,6 +68,8 @@ extern const CGFloat kUINavigationBarAYLExtensionSystemNavBarHeight;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    self.navigationController.navigationBar.hidden = NO;
+    
     [super viewWillAppear:animated];
     
     self.homeIconView.ayl_size = _homeIconView.image.size;
@@ -114,19 +107,17 @@ extern const CGFloat kUINavigationBarAYLExtensionSystemNavBarHeight;
 
 #pragma mark - CustomDelegate
 - (void)courseCell:(OCECourseCell *)courseCell didClickedButtonAtIndex:(NSInteger)index {
-    UIViewController *nextController;
     OCECourse *course = [_courseFrames[index] course];
     if (course.rtype == OCECourseRtypeH5) {
-        nextController = [[OCEWebViewController alloc] init];
-        OCEWebViewController *webViewController = (OCEWebViewController *)nextController;
-        
+        OCEWebViewController *webViewController = [[OCEWebViewController alloc] init];
         webViewController.course = course;
+        
+        AYLNavigationController *nc = [[AYLNavigationController alloc] initWithRootViewController:webViewController];
+        [self presentViewController:nc animated:YES completion:nil];
     } else if (course.rtype == OCECourseRtypeVideo) {
-        nextController = [[OCEPlayVideoViewController alloc] init];
+        OCEPlayVideoViewController *playVideoViewController = [[OCEPlayVideoViewController alloc] init];
+        [self.navigationController pushViewController:playVideoViewController animated:YES];
     }
-    
-    AYLNavigationController *nc = [[AYLNavigationController alloc] initWithRootViewController:nextController];
-    [self presentViewController:nc animated:YES completion:nil];
 }
 
 #pragma mark - private methods
@@ -141,7 +132,18 @@ extern const CGFloat kUINavigationBarAYLExtensionSystemNavBarHeight;
     }];
 }
 
-#pragma mark setup refresh
+#pragma mark setup
+- (void)setupNavigationBar {
+    // homeIconView
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.homeIconView];
+    
+    // navBarTitleView
+    self.navigationItem.titleView = self.searchView;;
+    
+    // rightBarButtonItem
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.buttonsView];
+}
+
 - (void)setupRefresh {
     // -- 下拉刷新
     // 设置回调(一旦进入刷新状态,就调用target的action,也就是调用self的loadNewData方法)
