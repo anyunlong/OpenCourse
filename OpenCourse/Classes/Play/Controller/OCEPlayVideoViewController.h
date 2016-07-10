@@ -8,6 +8,10 @@
 
 #import "AYLTableViewController.h"
 
+@class OCECourse;
+
 @interface OCEPlayVideoViewController : AYLTableViewController
+
+@property (nonatomic, strong) OCECourse *course;
 
 @end

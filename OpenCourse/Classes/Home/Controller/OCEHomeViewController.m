@@ -116,6 +116,8 @@ extern const CGFloat kUINavigationBarAYLExtensionSystemNavBarHeight;
         [self presentViewController:nc animated:YES completion:nil];
     } else if (course.rtype == OCECourseRtypeVideo) {
         OCEPlayVideoViewController *playVideoViewController = [[OCEPlayVideoViewController alloc] init];
+        playVideoViewController.course = course;
+        
         [self.navigationController pushViewController:playVideoViewController animated:YES];
     }
 }

@@ -15,11 +15,13 @@ typedef NS_ENUM(char, OCECourseRtype) {
 @interface OCECourse : NSObject
 
 @property (nonatomic, assign) short int id;
-@property (nonatomic, copy) NSString *rid;
-@property (nonatomic, copy) NSString *plid;
 @property (nonatomic, assign) char weight;
+// 课程id
+@property (nonatomic, copy) NSString *rid;
 // 原文件类型
 @property (nonatomic, assign) OCECourseRtype rtype;
+// 课程系列id
+@property (nonatomic, copy) NSString *plid;
 // 标题
 @property (nonatomic, copy) NSString *title;
 // 简介
