@@ -12,8 +12,6 @@
 #import "OCEHotKeyword.h"
 // tool
 #import "AYLHttpTool.h"
-// framework
-#import <MJExtension.h>
 
 @implementation OCESearchDataTool
 

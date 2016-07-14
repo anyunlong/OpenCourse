@@ -7,8 +7,6 @@
 //
 
 #import "OCESearchResultTableHeaderView.h"
-// category
-#import "UIView+AYLExtension.h"
 
 @interface OCESearchResultTableHeaderView()
 
@@ -17,7 +15,7 @@
 @end
 
 const CGFloat kOCESearchResultTableHeaderViewHeight = 50;
-extern const CGFloat kUIViewAYLExtensionViewMargin;
+extern const CGFloat AYLViewsMargin;
 
 @implementation OCESearchResultTableHeaderView
 
@@ -40,7 +38,7 @@ extern const CGFloat kUIViewAYLExtensionViewMargin;
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    _searchResultLable.ayl_x = kUIViewAYLExtensionViewMargin;
+    _searchResultLable.ayl_x = AYLViewsMargin;
     _searchResultLable.ayl_height = kOCESearchResultTableHeaderViewHeight;
 }
 

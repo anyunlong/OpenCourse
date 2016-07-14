@@ -13,8 +13,6 @@
 #import "OCECourseToolResult.h"
 // main-tool
 #import "AYLHttpTool.h"
-// framework
-#import <MJExtension.h>
 
 @implementation OCECourseTool
 

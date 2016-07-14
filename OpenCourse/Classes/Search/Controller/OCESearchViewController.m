@@ -15,8 +15,6 @@
 // m
 #import "OCESearchDataToolResult.h"
 #import "OCEHotKeyword.h"
-// category
-#import "UIView+AYLExtension.h"
 
 @interface OCESearchViewController ()
 
@@ -25,8 +23,8 @@
 
 @end
 
-extern const CGFloat kUIViewAYLExtensionViewMargin;
-extern const CGFloat kUINavigationBarAYLExtensionSystemNavBarHeight;
+extern const CGFloat AYLViewsMargin;
+extern const CGFloat AYLNavigationBarHeight;
 
 @implementation OCESearchViewController
 
@@ -49,7 +47,7 @@ extern const CGFloat kUINavigationBarAYLExtensionSystemNavBarHeight;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.searchView.ayl_size = CGSizeMake(AYLMainScreenBounds.size.width, kUINavigationBarAYLExtensionSystemNavBarHeight - kUIViewAYLExtensionViewMargin);
+    self.searchView.ayl_size = CGSizeMake(SCREEN_WIDTH, AYLNavigationBarHeight - AYLViewsMargin);
     
     self.tableHeaderView.ayl_size = CGSizeMake(0, _tableHeaderView.ayl_height);
 }

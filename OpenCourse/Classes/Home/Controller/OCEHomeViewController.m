@@ -22,19 +22,13 @@
 #import "OCECourseFrame.h"
 #import "OCECourseToolParam.h"
 #import "OCECourseToolResult.h"
-// category
-#import "UITableViewController+AYLExtension.h"
-#import "UIColor+AYLExtension.h"
-#import "UIView+AYLExtension.h"
 // tool
 #import "OCESearchDataTool.h"
 #import "OCECourseTool.h"
-// framework
-#import <MJRefresh.h>
 
 static const int kAnimationPullImagesStartCount = 32;
 static const int kAnimationPullImagesEndCount = 58;
-extern const CGFloat kUINavigationBarAYLExtensionSystemNavBarHeight;
+extern const CGFloat AYLNavigationBarHeight;
 
 @interface OCEHomeViewController () <OCECourseCellDelegate, UITextFieldDelegate>
 
@@ -74,7 +68,7 @@ extern const CGFloat kUINavigationBarAYLExtensionSystemNavBarHeight;
     
     self.homeIconView.ayl_size = _homeIconView.image.size;
     
-    self.searchView.ayl_size = CGSizeMake(AYLMainScreenBounds.size.width, _homeIconView.ayl_height);
+    self.searchView.ayl_size = CGSizeMake(SCREEN_WIDTH, _homeIconView.ayl_height);
 }
 
 #pragma mark - UITableViewDelegate
@@ -235,7 +229,7 @@ extern const CGFloat kUINavigationBarAYLExtensionSystemNavBarHeight;
 
 - (OCEButtonsView *)buttonsView {
     if (!_buttonsView) {
-        _buttonsView = [OCEButtonsView buttonsViewWithImgNames:@[@"home_history", @"home_download"] height:kUINavigationBarAYLExtensionSystemNavBarHeight];
+        _buttonsView = [OCEButtonsView buttonsViewWithImgNames:@[@"home_history", @"home_download"] height:AYLNavigationBarHeight];
     }
     return _buttonsView;
 }

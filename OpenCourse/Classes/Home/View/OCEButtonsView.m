@@ -7,10 +7,8 @@
 //
 
 #import "OCEButtonsView.h"
-// category
-#import "UIView+AYLExtension.h"
 
-extern const CGFloat kUIViewAYLExtensionViewMargin;
+extern const CGFloat AYLViewsMargin;
 
 @implementation OCEButtonsView
 
@@ -18,7 +16,7 @@ extern const CGFloat kUIViewAYLExtensionViewMargin;
     CGFloat nextButtonX = 0;
     OCEButtonsView *rightButtonsView = [[OCEButtonsView alloc] init];
     // buttons间距
-    CGFloat buttonMargin = kUIViewAYLExtensionViewMargin;
+    CGFloat buttonMargin = AYLViewsMargin;
     // 初始化所有按钮并加到rightButtonsView中
     for (int count = 0; count<imgNames.count; ++count) {
         UIImage *image = [UIImage imageNamed:imgNames[count]];

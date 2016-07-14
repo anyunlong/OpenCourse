@@ -8,12 +8,12 @@
 
 #import "UIView+AYLExtension.h"
 
-// views之间的间距
-const CGFloat kUIViewAYLExtensionViewMargin = 10;
-
 @implementation UIView (AYLExtension)
 
-// *************************
+/**
+ *  get or set view's location.
+ */
+/* get or set view's x & y */
 - (CGFloat)ayl_centerX {
     return self.center.x;
 }
@@ -54,8 +54,7 @@ const CGFloat kUIViewAYLExtensionViewMargin = 10;
     frame.origin = ayl_orign;
     self.frame = frame;
 }
-
-// *************************
+/* get or set view's left & right & top & button. */
 - (CGFloat)ayl_left {
     return self.ayl_x;
 }
@@ -81,7 +80,9 @@ const CGFloat kUIViewAYLExtensionViewMargin = 10;
     self.ayl_y = ayl_bottom - self.ayl_height;
 }
 
-// *************************
+/**
+ *  get or set view's size.
+ */
 - (CGFloat)ayl_width {
     return self.ayl_size.width;
 }
@@ -107,13 +108,26 @@ const CGFloat kUIViewAYLExtensionViewMargin = 10;
     self.frame = frame;
 }
 
-// *************************
+/**
+ *  set view's style.
+ */
 - (void)ayl_circleView {
     [self ayl_circularBeadViewWithRadius:self.ayl_width / 2];
 }
 - (void)ayl_circularBeadViewWithRadius:(CGFloat)radius {
     self.layer.cornerRadius = radius;
     self.layer.masksToBounds = YES;
+}
+- (void)ayl_setBackgroundImageWithImageName:(NSString *)imageName {
+    UIImage *image = [UIImage imageNamed:imageName];
+    self.layer.contents = (id)image.CGImage;
+}
+
+/**
+ *  get a specific view.
+ */
++ (AYLDivider *)ayl_divider {
+    return [[AYLDivider alloc] init];
 }
 
 @end

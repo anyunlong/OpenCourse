@@ -13,12 +13,6 @@
 #import "OCESearchResultTableHeaderView.h"
 #import "OCESearchResultCell.h"
 #import "OCESearchView.h"
-// category
-#import "UIView+AYLExtension.h"
-// framework
-#import <AFNetworking.h>
-#import <MJExtension.h>
-#import <MJRefresh.h>
 
 @interface OCESearchResultViewController()
 

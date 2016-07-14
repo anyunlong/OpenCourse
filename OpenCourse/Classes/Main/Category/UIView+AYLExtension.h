@@ -6,7 +6,7 @@
 //  Copyright © 2016年 CCUT. All rights reserved.
 //
 
-extern const CGFloat kUIViewAYLExtensionViewMargin;
+typedef UIView AYLDivider;
 
 @interface UIView (AYLExtension)
 
@@ -27,5 +27,7 @@ extern const CGFloat kUIViewAYLExtensionViewMargin;
 
 - (void)ayl_circleView;
 - (void)ayl_circularBeadViewWithRadius:(CGFloat)radius;
+
++ (AYLDivider *)ayl_divider;
 
 @end

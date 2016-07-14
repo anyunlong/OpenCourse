@@ -7,8 +7,6 @@
 
 // c
 #import "AYLNavigationController.h"
-// category
-#import "UIColor+AYLExtension.h"
 
 @interface AYLNavigationController ()
 

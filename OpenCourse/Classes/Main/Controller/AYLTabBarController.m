@@ -13,8 +13,6 @@
 #import "OCEMeViewController.h"
 // framework
 #import <CYLTabBarController.h>
-// category
-#import "UIColor+AYLExtension.h"
 
 @interface AYLTabBarController ()
 

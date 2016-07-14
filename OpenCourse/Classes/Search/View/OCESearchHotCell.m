@@ -9,8 +9,6 @@
 #import "OCESearchHotCell.h"
 // m
 #import "OCEHotKeyword.h"
-// category
-#import "UIView+AYLExtension.h"
 
 @interface OCESearchHotCell()
 
@@ -22,7 +20,7 @@
 
 static const CGFloat kOCESearchHotCellTitleFontSize = 16;
 static const CGFloat kOCESearchHotCellDescAndNumberFontSize = 15;
-extern const CGFloat kUIViewAYLExtensionViewMargin;
+extern const CGFloat AYLViewsMargin;
 
 @implementation OCESearchHotCell
 
@@ -99,7 +97,7 @@ extern const CGFloat kUIViewAYLExtensionViewMargin;
     CGFloat viewWidth = self.ayl_width;
     CGFloat viewHeight = self.ayl_height;
     
-    CGFloat numberViewX = kUIViewAYLExtensionViewMargin;
+    CGFloat numberViewX = AYLViewsMargin;
     _numberView.ayl_x = numberViewX;
     _numberView.ayl_centerY = viewHeight / 2;
     _numberView.ayl_size = CGSizeMake(20, 20);

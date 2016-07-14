@@ -7,7 +7,6 @@
 
 @interface UIImage (AYLExtension)
 
-// 返回一张只拉伸中间的图片
 + (UIImage *)ayl_resizedImageWithName:(NSString *)name;
 
 @end

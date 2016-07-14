@@ -7,12 +7,9 @@
 //
 
 #import "OCESearchView.h"
-// category
-#import "UIImage+AYLExtension.h"
-#import "UIView+AYLExtension.h"
 
 static const CGFloat kTitleLableFontSize = 13;
-extern const CGFloat kUIViewAYLExtensionViewMargin;
+extern const CGFloat AYLViewsMargin;
 
 @interface OCESearchView()
 
@@ -53,7 +50,7 @@ extern const CGFloat kUIViewAYLExtensionViewMargin;
         
         // 设置左边图标的frame
         CGSize iconImgSize = iconImg.size;
-        self.leftView.ayl_size = CGSizeMake(iconImgSize.width + kUIViewAYLExtensionViewMargin, self.ayl_height);
+        self.leftView.ayl_size = CGSizeMake(iconImgSize.width + AYLViewsMargin, self.ayl_height);
     }
     
     return self;

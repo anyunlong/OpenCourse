@@ -10,7 +10,7 @@
 // m
 #import "OCECourse.h"
 
-extern const CGFloat kUIViewAYLExtensionViewMargin;
+extern const CGFloat AYLViewsMargin;
 extern const CGFloat kOCECourseCellTitleFontSize;
 extern const CGFloat kOCECourseCellDescFontSize;
 extern const CGFloat kOCECourseCellOthersFontSize;
@@ -20,7 +20,7 @@ extern const CGFloat kOCECourseCellOthersFontSize;
 - (void)setCourse:(OCECourse *)course {
     _course = course;
     
-    CGFloat screenWidth = AYLMainScreenBounds.size.width;
+    CGFloat screenWidth = SCREEN_WIDTH;
     CGSize videoBImageSize = [UIImage imageNamed:@"home_video_b"].size;
     CGSize h5BImageSize = [UIImage imageNamed:@"home_article_b"].size;
     CGSize shareImageSize = [UIImage imageNamed:@"home_shared"].size;
@@ -36,11 +36,11 @@ extern const CGFloat kOCECourseCellOthersFontSize;
     _picViewF = CGRectMake(0, 0, picViewW, picViewH);
     
     // courseTypeView
-    CGFloat courseTypeViewX = kUIViewAYLExtensionViewMargin;
+    CGFloat courseTypeViewX = AYLViewsMargin;
     CGFloat courseTypeViewY = CGRectGetMaxY(_picViewF) + courseTypeViewX;
     CGSize courseTypeViewTextSize = [course.courseType sizeWithAttributes:courseCellOthersFontAttr];
-    CGFloat courseTypeViewW = courseTypeViewTextSize.width + kUIViewAYLExtensionViewMargin;
-    CGFloat courseTypeViewH = courseTypeViewTextSize.height + kUIViewAYLExtensionViewMargin / 2;
+    CGFloat courseTypeViewW = courseTypeViewTextSize.width + AYLViewsMargin;
+    CGFloat courseTypeViewH = courseTypeViewTextSize.height + AYLViewsMargin / 2;
     _courseTypeViewF = CGRectMake(courseTypeViewX, courseTypeViewY, courseTypeViewW, courseTypeViewH);
     
     // rtypeView

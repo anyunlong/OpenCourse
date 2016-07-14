@@ -7,10 +7,6 @@
 //
 
 #import "OCESearchTableHeaderView.h"
-#import "AYLDivider.h"
-// category
-#import "UIView+AYLExtension.h"
-#import "UIColor+AYLExtension.h"
 
 @interface OCESearchTableHeaderView()
 
@@ -20,7 +16,7 @@
 
 @end
 
-extern const CGFloat kUIViewAYLExtensionViewMargin;
+extern const CGFloat AYLViewsMargin;
 
 @implementation OCESearchTableHeaderView
 
@@ -36,7 +32,7 @@ extern const CGFloat kUIViewAYLExtensionViewMargin;
         _titleView = titleView;
         [self addSubview:titleView];
         
-        AYLDivider *divider = [AYLDivider divider];
+        AYLDivider *divider = [AYLDivider ayl_divider];
         _divider = divider;
         [self addSubview:divider];
         
@@ -51,9 +47,9 @@ extern const CGFloat kUIViewAYLExtensionViewMargin;
     
     CGFloat viewHeight = self.ayl_height;
     
-    _topView.ayl_size = CGSizeMake(AYLMainScreenBounds.size.width, self.ayl_height / 5);
+    _topView.ayl_size = CGSizeMake(SCREEN_WIDTH, self.ayl_height / 5);
     
-    CGFloat dividerX = kUIViewAYLExtensionViewMargin;
+    CGFloat dividerX = AYLViewsMargin;
     CGFloat dividerW = _topView.ayl_width - 2 * dividerX;
     CGFloat dividerH = 0.5;
     CGFloat dividerY = viewHeight - dividerH;

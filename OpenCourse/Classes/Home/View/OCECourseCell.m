@@ -10,11 +10,6 @@
 // m
 #import "OCECourseFrame.h"
 #import "OCECourse.h"
-// v
-#import "AYLDivider.h"
-// category
-#import "UIColor+AYLExtension.h"
-#import "UIImage+AYLExtension.h"
 // framework
 #import <UIImageView+WebCache.h>
 
@@ -48,7 +43,7 @@
 const CGFloat kOCECourseCellTitleFontSize = 17;
 const CGFloat kOCECourseCellDescFontSize = 13;
 const CGFloat kOCECourseCellOthersFontSize = 11; // 类型、创建时间、观看数、vedioView
-extern const CGFloat kUIViewAYLExtensionViewMargin;
+extern const CGFloat AYLViewsMargin;
 
 @implementation OCECourseCell
 
@@ -81,7 +76,7 @@ extern const CGFloat kUIViewAYLExtensionViewMargin;
         
         UIButton *rtypeView = [[UIButton alloc] init];
         rtypeView.userInteractionEnabled = NO;
-        rtypeView.titleEdgeInsets = UIEdgeInsetsMake(0, kUIViewAYLExtensionViewMargin / 2, 0, 0);
+        rtypeView.titleEdgeInsets = UIEdgeInsetsMake(0, AYLViewsMargin / 2, 0, 0);
         rtypeView.titleLabel.font = [UIFont systemFontOfSize:kOCECourseCellOthersFontSize];
         [listBtn addSubview:rtypeView];
         _rtypeView = rtypeView;
@@ -124,7 +119,7 @@ extern const CGFloat kUIViewAYLExtensionViewMargin;
         [listBtn addSubview:shareView];
         _shareView = shareView;
         
-        AYLDivider *divider = [AYLDivider divider];
+        AYLDivider *divider = [AYLDivider ayl_divider];
         [listBtn addSubview:divider];
         _divider = divider;
         

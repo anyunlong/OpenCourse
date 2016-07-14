@@ -20,7 +20,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    self.window = [[UIWindow alloc] initWithFrame:AYLMainScreenBounds];
+    self.window = [[UIWindow alloc] initWithFrame:SCREEN_BOUNDS];
     
     AYLTabBarController *tabBarC = [[AYLTabBarController alloc] init];
     

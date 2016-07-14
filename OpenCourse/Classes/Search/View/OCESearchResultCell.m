@@ -8,18 +8,15 @@
 
 #import "OCESearchResultCell.h"
 #import "OCESearchResultCellLablesView.h"
-#import "AYLDivider.h"
 // m
 #import "OCESearchResultCourse.h"
-// category
-#import "UIView+AYLExtension.h"
 // framework
 #import <UIImageView+WebCache.h>
 // macro
-#define kOCESearchResultCellpicViewX kUIViewAYLExtensionViewMargin
-#define kOCESearchResultCellpicViewW (AYLMainScreenBounds.size.width / 2 - 5 * kOCESearchResultCellpicViewX)
+#define kOCESearchResultCellpicViewX AYLViewsMargin
+#define kOCESearchResultCellpicViewW (SCREEN_WIDTH / 2 - 5 * kOCESearchResultCellpicViewX)
 #define kOCESearchResultCellpicViewH (kOCESearchResultCellpicViewW / 16 * 9)
-#define kOCESearchResultCellHeight (kOCESearchResultCellpicViewH + 2 * kOCESearchResultCellpicViewX)
+#define kOCESearchResultCellHeight   (kOCESearchResultCellpicViewH + 2 * kOCESearchResultCellpicViewX)
 
 @interface OCESearchResultCell()
 
@@ -32,7 +29,7 @@
 
 @end
 
-extern const CGFloat kUIViewAYLExtensionViewMargin;
+extern const CGFloat AYLViewsMargin;
 
 @implementation OCESearchResultCell
 
@@ -61,7 +58,7 @@ extern const CGFloat kUIViewAYLExtensionViewMargin;
         _lablesView = lablesView;
         
         // bottom views
-        AYLDivider *cellDivider = [[AYLDivider alloc] init];
+        AYLDivider *cellDivider = [AYLDivider ayl_divider];
         [contentView addSubview:cellDivider];
         _cellDivider = cellDivider; 
     }

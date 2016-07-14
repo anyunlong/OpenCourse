@@ -9,23 +9,21 @@
 #import "OCEPlayVideoViewController.h"
 // m
 #import "OCECourse.h"
+// v
+#import "OCEPlayTopView.h"
 // framework
-#import <IJKMediaFramework/IJKMediaFramework.h>
-#import <AFNetworking.h>
-// catrgory
-#import "UIView+AYLExtension.h"
+#import <MobileVLCKit/MobileVLCKit.h>
 
 @interface OCEPlayVideoViewController ()
 
 @property (nonatomic, strong) UIButton *backButton;
-@property (nonatomic, strong) UIView *playerView;
-@property (nonatomic, strong) UIView *statusBarBackground;
+@property (nonatomic, strong) OCEPlayTopView *topView;
 
-@property (atomic, retain) id<IJKMediaPlayback> player;
+@property (nonatomic, strong) VLCMediaPlayer *player;
 
 @end
 
-extern const CGFloat kUIViewAYLExtensionViewMargin;
+extern const CGFloat AYLViewsMargin;
 
 @implementation OCEPlayVideoViewController
 
@@ -41,20 +39,22 @@ extern const CGFloat kUIViewAYLExtensionViewMargin;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    CGSize screenSize = AYLMainScreenBounds.size;
+    CGSize screenSize = SCREEN_SIZE;
     
-    CGFloat playerViewH = screenSize.width / screenSize.height * screenSize.width;
-    _playerView.frame = CGRectMake(0, 0, screenSize.width, playerViewH);
+    CGFloat topViewH = screenSize.width / screenSize.height * screenSize.width;
+    self.topView.frame = CGRectMake(0, 0, screenSize.width, topViewH);
     
-    _statusBarBackground.frame = CGRectMake(0, 0, _playerView.ayl_width, [[UIApplication sharedApplication] statusBarFrame].size.height);
+    CGFloat backButtonX = AYLViewsMargin;
+    self.backButton.ayl_orign = CGPointMake(backButtonX, AYLStatusBarHeight + backButtonX);
+    self.backButton.ayl_size = self.backButton.currentBackgroundImage.size;
     
-    _player.view.frame = CGRectMake(0, _statusBarBackground.ayl_bottom, _statusBarBackground.ayl_width, _playerView.ayl_height - _statusBarBackground.ayl_height);
+    self.tableView.contentInset = UIEdgeInsetsMake(self.topView.ayl_bottom, 0, 0, 0);
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
     
-    CGFloat backButtonX = kUIViewAYLExtensionViewMargin;
-    _backButton.ayl_orign = CGPointMake(backButtonX, _statusBarBackground.ayl_bottom + backButtonX);
-    _backButton.ayl_size = _backButton.currentBackgroundImage.size;
-    
-    self.tableView.contentInset = UIEdgeInsetsMake(_playerView.ayl_bottom, 0, 0, 0);
+    [self.player stop];
 }
 
 #pragma mark - UITableViewDelegate
@@ -80,7 +80,7 @@ extern const CGFloat kUIViewAYLExtensionViewMargin;
     
     // top views
     [self.navigationController.view addSubview:self.backButton];
-    [self.navigationController.view addSubview:self.playerView];
+    [self.navigationController.view insertSubview:self.topView belowSubview:self.backButton];
     
     // navigationBar
     self.navigationController.navigationBar.hidden = YES;
@@ -98,14 +98,10 @@ extern const CGFloat kUIViewAYLExtensionViewMargin;
             if ([_course.rid isEqualToString:videoDict[@"mid"]]) {
                 m3u8SdUrl = videoDict[@"m3u8SdUrl"];
             }
+            
+            self.player.media = [VLCMedia mediaWithURL:[NSURL URLWithString:m3u8SdUrl]];
+            [self.player play];
         }
-        
-        IJKFFOptions *options = [IJKFFOptions optionsByDefault];
-        self.player = [[IJKFFMoviePlayerController alloc] initWithContentURLString:m3u8SdUrl withOptions:options];
-        [self.playerView addSubview:_player.view];
-        [self.player prepareToPlay];
-        
-        [self viewWillAppear:YES];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         AYLLog(@"%@", error);
     }];
@@ -113,9 +109,8 @@ extern const CGFloat kUIViewAYLExtensionViewMargin;
 
 #pragma mark - event response
 - (void)backButtonDidClicked {
-    [_player shutdown];
     [self.backButton removeFromSuperview];
-    [self.playerView removeFromSuperview];
+    [self.topView removeFromSuperview];
     
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
@@ -130,21 +125,19 @@ extern const CGFloat kUIViewAYLExtensionViewMargin;
     return _backButton;
 }
 
-- (UIView *)playerView {
-    if (!_playerView) {
-        _playerView = [[UIView alloc] init];
-        [_playerView addSubview:self.statusBarBackground];
+- (UIView *)topView {
+    if (!_topView) {
+        _topView = [[OCEPlayTopView alloc] init];
     }
-    return _playerView;
+    return _topView;
 }
 
-- (UIView *)statusBarBackground {
-    if (!_statusBarBackground) {
-        _statusBarBackground = [[UIView alloc] init];
-        _statusBarBackground.backgroundColor = [UIColor blackColor];
+- (VLCMediaPlayer *)player {
+    if (!_player) {
+        _player = [[VLCMediaPlayer alloc] init];
+        _player.drawable = self.topView.playView;
     }
-    return _statusBarBackground;
+    return _player;
 }
-
 
 @end

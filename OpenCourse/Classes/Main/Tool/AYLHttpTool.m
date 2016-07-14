@@ -6,8 +6,6 @@
 //
 
 #import "AYLHttpTool.h"
-// framework
-#import <AFNetworking.h>
 
 @implementation AYLHttpTool
 

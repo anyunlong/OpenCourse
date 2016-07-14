@@ -6,11 +6,9 @@
 //
 
 #import "UITableViewController+AYLExtension.h"
-// category
-#import "UIImage+AYLExtension.h"
 
+extern const CGFloat AYLNavigationBarHeight;
 extern const CGFloat kOCECourseCellOthersFontSize;
-extern const CGFloat kUINavigationBarAYLExtensionSystemNavBarHeight;
 
 @implementation UITableViewController (AYLExtension)
 
@@ -28,8 +26,8 @@ extern const CGFloat kUINavigationBarAYLExtensionSystemNavBarHeight;
     
     CGFloat btnX = 0;
     CGFloat btnH = 30;
-    CGFloat btnY = [UIApplication sharedApplication].statusBarFrame.size.height + kUINavigationBarAYLExtensionSystemNavBarHeight  - btnH;
-    CGFloat btnW = AYLMainScreenBounds.size.width;
+    CGFloat btnY = AYLStatusBarHeight + AYLNavigationBarHeight  - btnH;
+    CGFloat btnW = SCREEN_WIDTH;
     btn.frame = CGRectMake(btnX, btnY, btnW, btnH);
     
     [UIView animateWithDuration:0.5 animations:^{

@@ -21,8 +21,7 @@
     return [UIColor ayl_colorWithR:239 G:239 B:244];
 }
 
-+ (UIColor *)ayl_colorWithHexString:(NSString *)hexString
-{
++ (UIColor *)ayl_colorWithHexString:(NSString *)hexString {
     NSString *cString = [[hexString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
     
     // String should be 6 or 8 characters
@@ -61,6 +60,10 @@
     [[NSScanner scannerWithString:bString] scanHexInt:&b];
     
     return [self ayl_colorWithR:(float) r G:(float) g B:(float) b];
+}
+
++ (UIColor *)ayl_randomColor {
+    return [self ayl_colorWithR:arc4random_uniform(256) G:arc4random_uniform(256) B:arc4random_uniform(256)];
 }
 
 @end

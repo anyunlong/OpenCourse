@@ -8,18 +8,53 @@
 #ifndef AYLCommon_pch
 #define AYLCommon_pch
 
-// 核心框架
+/**
+ *  framework
+ */
+/* iOS */
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
+/* other */
+#import <AFNetworking.h>
+#import <Masonry.h>
+#import <MJExtension.h>
+#import <MJRefresh.h>
 
-// AYLLog
+/**************************************************/
+
+/**
+ *  head file
+ */
+#import "AYLConst.h"
+
+/**************************************************/
+
+/**
+ *  category
+ */
+#import "UIView+AYLExtension.h"
+#import "UITableViewController+AYLExtension.h"
+#import "UIColor+AYLExtension.h"
+#import "UIImage+AYLExtension.h"
+
+/**************************************************/
+
+/**
+ *  macro
+ */
+/* log */
 #ifdef DEBUG
 #define AYLLog(...) NSLog(__VA_ARGS__)
 #else
 #define AYLLog(...)
 #endif
-
-// 主屏幕bounds
-#define AYLMainScreenBounds [UIScreen mainScreen].bounds
+/* device */
+#define AYLStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
+#define SCREEN_BOUNDS      [UIScreen mainScreen].bounds
+#define SCREEN_SIZE        SCREEN_BOUNDS.size
+#define SCREEN_WIDTH       SCREEN_SIZE.width
+#define SCREEN_HEIGHT      SCREEN_SIZE.height
+/* shareInstance */
+#define AYLNotificationCenter [NSNotificationCenter defaultCenter]
 
 #endif /* AYLCommon_pch */
