@@ -7,11 +7,8 @@
 //
 
 #import "OCEPlayTopView.h"
-#import "OCEMediaControl.h"
 
 @interface OCEPlayTopView()
-
-@property (nonatomic, weak) OCEMediaControl *mediaControl;
 
 @end
 
@@ -26,10 +23,6 @@
         
         self.playView = [[UIView alloc] init];
         [self addSubview:self.playView];
-        
-        OCEMediaControl *mediaControl = [[OCEMediaControl alloc] init];
-        [self.playView addSubview:mediaControl];
-        self.mediaControl = mediaControl;
     }
     return self;
 }
@@ -41,13 +34,6 @@
     self.statusBarBackground.frame = CGRectMake(0, 0, self.ayl_width, AYLStatusBarHeight);
     
     self.playView.frame = CGRectMake(0, statusBarBackgroundHeight, self.statusBarBackground.ayl_width, self.ayl_height - statusBarBackgroundHeight);
-    
-    [self.mediaControl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading .equalTo(self.playView.mas_leading );
-        make.trailing.equalTo(self.playView.mas_trailing);
-        make.top     .equalTo(self.playView.mas_top     );
-        make.bottom  .equalTo(self.playView.mas_bottom  );
-    }];
 }
 
 @end

@@ -8,7 +8,7 @@
 
 @interface OCEPlayTopView : UIView
 
-@property (nonatomic, strong) UIView *playView;
 @property (nonatomic, strong) UIView *statusBarBackground;
+@property (nonatomic, strong) UIView *playView;
 
 @end

@@ -8,13 +8,15 @@
 #ifndef AYLCommon_pch
 #define AYLCommon_pch
 
+/**************************************************/
+
 /**
  *  framework
  */
-/* iOS */
+   /* Apple */
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
-/* other */
+   /* Other */
 #import <AFNetworking.h>
 #import <Masonry.h>
 #import <MJExtension.h>
@@ -23,7 +25,7 @@
 /**************************************************/
 
 /**
- *  head file
+ *  const
  */
 #import "AYLConst.h"
 
@@ -32,29 +34,14 @@
 /**
  *  category
  */
-#import "UIView+AYLExtension.h"
-#import "UITableViewController+AYLExtension.h"
-#import "UIColor+AYLExtension.h"
-#import "UIImage+AYLExtension.h"
+#import "AYLCategory.h"
 
 /**************************************************/
 
 /**
  *  macro
  */
-/* log */
-#ifdef DEBUG
-#define AYLLog(...) NSLog(__VA_ARGS__)
-#else
-#define AYLLog(...)
-#endif
-/* device */
-#define AYLStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
-#define SCREEN_BOUNDS      [UIScreen mainScreen].bounds
-#define SCREEN_SIZE        SCREEN_BOUNDS.size
-#define SCREEN_WIDTH       SCREEN_SIZE.width
-#define SCREEN_HEIGHT      SCREEN_SIZE.height
-/* shareInstance */
-#define AYLNotificationCenter [NSNotificationCenter defaultCenter]
+#import "AYLMacro.h"
+/**************************************************/
 
 #endif /* AYLCommon_pch */

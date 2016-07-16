@@ -11,8 +11,7 @@
 #import "OCECourse.h"
 // v
 #import "OCEPlayTopView.h"
-// framework
-#import <MobileVLCKit/MobileVLCKit.h>
+#import "OCEMediaControl.h"
 
 @interface OCEPlayVideoViewController ()
 
@@ -20,6 +19,7 @@
 @property (nonatomic, strong) OCEPlayTopView *topView;
 
 @property (nonatomic, strong) VLCMediaPlayer *player;
+@property (nonatomic, strong) IBOutlet OCEMediaControl *mediaControl;
 
 @end
 
@@ -44,11 +44,21 @@ extern const CGFloat AYLViewsMargin;
     CGFloat topViewH = screenSize.width / screenSize.height * screenSize.width;
     self.topView.frame = CGRectMake(0, 0, screenSize.width, topViewH);
     
+    self.mediaControl.frame = CGRectMake(0, AYLStatusBarHeight, _topView.ayl_width, topViewH - AYLStatusBarHeight);
+    
     CGFloat backButtonX = AYLViewsMargin;
     self.backButton.ayl_orign = CGPointMake(backButtonX, AYLStatusBarHeight + backButtonX);
     self.backButton.ayl_size = self.backButton.currentBackgroundImage.size;
     
     self.tableView.contentInset = UIEdgeInsetsMake(self.topView.ayl_bottom, 0, 0, 0);
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [self.backButton removeFromSuperview];
+    [self.topView removeFromSuperview];
+    [self.mediaControl removeFromSuperview];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -81,6 +91,9 @@ extern const CGFloat AYLViewsMargin;
     // top views
     [self.navigationController.view addSubview:self.backButton];
     [self.navigationController.view insertSubview:self.topView belowSubview:self.backButton];
+    OCEMediaControl *mediaControl = self.mediaControl;
+    mediaControl.player = self.player;
+    [self.navigationController.view insertSubview:mediaControl belowSubview:self.backButton];
     
     // navigationBar
     self.navigationController.navigationBar.hidden = YES;
@@ -101,6 +114,7 @@ extern const CGFloat AYLViewsMargin;
             
             self.player.media = [VLCMedia mediaWithURL:[NSURL URLWithString:m3u8SdUrl]];
             [self.player play];
+            
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         AYLLog(@"%@", error);
@@ -109,10 +123,23 @@ extern const CGFloat AYLViewsMargin;
 
 #pragma mark - event response
 - (void)backButtonDidClicked {
-    [self.backButton removeFromSuperview];
-    [self.topView removeFromSuperview];
-    
     [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (IBAction)onClickMediaControl {
+    [self.mediaControl show];
+}
+
+- (IBAction)onClickOverlay {
+    [self.mediaControl hide];
+}
+
+- (IBAction)onClickPlay:(id)sender {
+    [self.mediaControl play];
+}
+
+- (IBAction)onClickPause:(id)sender {
+    [self.mediaControl pause];
 }
 
 #pragma mark - getters and setters
@@ -138,6 +165,13 @@ extern const CGFloat AYLViewsMargin;
         _player.drawable = self.topView.playView;
     }
     return _player;
+}
+
+- (OCEMediaControl *)mediaControl {
+    if (!_mediaControl) {
+        _mediaControl = [[OCEMediaControl alloc] init];
+    }
+    return _mediaControl;
 }
 
 @end
