@@ -9,7 +9,7 @@
 // framework
 #import <MobileVLCKit/MobileVLCKit.h>
 
-@interface OCEMediaControl : UIControl
+@interface OCEMediaControl : UIControl <VLCMediaPlayerDelegate>
 
 @property (nonatomic, weak) VLCMediaPlayer *player;
 
@@ -19,5 +19,6 @@
 - (void)show;
 - (void)pause;
 - (void)play;
+- (void)changeCurrentPlayTime;
 
 @end

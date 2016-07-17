@@ -34,6 +34,16 @@ extern const CGFloat AYLViewsMargin;
     [self setupViews];
     
     [self loadNetworkData];
+    
+    UIButton *testButton = [[UIButton alloc] init];
+    testButton.backgroundColor = [UIColor orangeColor];
+    [testButton addTarget:self action:@selector(onClickTestButton) forControlEvents:UIControlEventTouchUpInside];
+    testButton.frame = CGRectMake(0, 0, 100, 100);
+    [self.tableView addSubview:testButton];
+}
+
+- (void)onClickTestButton {
+    AYLLog(@"%d", self.player.time);
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -93,6 +103,7 @@ extern const CGFloat AYLViewsMargin;
     [self.navigationController.view insertSubview:self.topView belowSubview:self.backButton];
     OCEMediaControl *mediaControl = self.mediaControl;
     mediaControl.player = self.player;
+    self.mediaControl.player.delegate = mediaControl;
     [self.navigationController.view insertSubview:mediaControl belowSubview:self.backButton];
     
     // navigationBar
@@ -140,6 +151,9 @@ extern const CGFloat AYLViewsMargin;
 
 - (IBAction)onClickPause:(id)sender {
     [self.mediaControl pause];
+}
+- (IBAction)didSliderTouchUpInside:(id)sender {
+    [self.mediaControl changeCurrentPlayTime];
 }
 
 #pragma mark - getters and setters

@@ -14,7 +14,7 @@
 @property (strong, nonatomic) IBOutlet UIView   *topPanel;
 @property (strong, nonatomic) IBOutlet UIButton *playButton;
 @property (strong, nonatomic) IBOutlet UIButton *pauseButton;
-@property (strong, nonatomic) IBOutlet UIProgressView *mediaProgressSlider;
+@property (strong, nonatomic) IBOutlet UISlider *mediaProgressSlider;
 @property (strong, nonatomic) IBOutlet UILabel  *currentTimeLabel;
 @property (strong, nonatomic) IBOutlet UILabel  *totalDurationLabel;
 @property (strong, nonatomic) IBOutlet UIButton *fullButton;
@@ -22,16 +22,24 @@
 
 @end
 
-@implementation OCEMediaControl
+@implementation OCEMediaControl {
+    BOOL _isTimeFirstChanged;
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
+    _isTimeFirstChanged = YES;
     
     UIImage *topPanelBgImg = [UIImage imageNamed:@"player_control_top"];
     self.topPanel.layer.contents = (id)topPanelBgImg.CGImage;
     
     UIImage *buttonPanelBgImg = [UIImage imageNamed:@"player_control_bottom"];
     self.bottomPanel.layer.contents = (id)buttonPanelBgImg.CGImage;
+    
+    UIImage *mediaProgressSliderThumImage = [UIImage imageNamed:@"player_block"];
+    [self.mediaProgressSlider setThumbImage:mediaProgressSliderThumImage forState:UIControlStateNormal];
+    [self.mediaProgressSlider setThumbImage:mediaProgressSliderThumImage forState:UIControlStateNormal];
 }
 
 - (void)layoutSubviews {
@@ -73,6 +81,18 @@
     BOOL isPlaying = _player.isPlaying;
     self.pauseButton.hidden = isPlaying;
     self.playButton.hidden = !isPlaying;
+}
+
+- (void)changeCurrentPlayTime {
+}
+
+- (void)mediaPlayerTimeChanged:(NSNotification *)aNotification {
+    self.currentTimeLabel.text = _player.time.stringValue;
+    
+    if (_isTimeFirstChanged) {
+        self.totalDurationLabel.text = _player.media.length.stringValue;
+        _isTimeFirstChanged = NO;
+    }
 }
 
 @end
