@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		67A3B923D1F62B4326189A3A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A2CF9E20CA3ED5C01500A41 /* libPods.a */; };
 		A10CBDDE1D290F110022DCDB /* OCESearchResultTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A10CBDDD1D290F110022DCDB /* OCESearchResultTableHeaderView.m */; };
 		A10CBDE01D290F300022DCDB /* OCESearchResultTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A10CBDDF1D290F300022DCDB /* OCESearchResultTableHeaderView.xib */; };
 		A10CBDE41D2937240022DCDB /* OCESearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A10CBDE21D2937240022DCDB /* OCESearchResultCell.m */; };
@@ -32,6 +33,13 @@
 		A1953CAB1D2A3FD600B36403 /* OCESearchResultCellLablesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1953CAA1D2A3FD600B36403 /* OCESearchResultCellLablesView.xib */; };
 		A1953CAE1D2A474B00B36403 /* OCESearchResultCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = A1953CAD1D2A474B00B36403 /* OCESearchResultCourse.m */; };
 		A1AD95261D0D826800797049 /* OCESearchTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1AD95251D0D826800797049 /* OCESearchTableHeaderView.m */; };
+		A1AEBF0A1D3DFF85008B2240 /* OCEBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1AEBF091D3DFF85008B2240 /* OCEBaseTableViewCell.m */; };
+		A1AEBF0D1D3E0A27008B2240 /* OCEClassifySectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1AEBF0C1D3E0A27008B2240 /* OCEClassifySectionCell.m */; };
+		A1AEBF191D3E27E5008B2240 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1AEBF181D3E27E5008B2240 /* Storyboard.storyboard */; };
+		A1AEBF1C1D3E2B1D008B2240 /* OCEMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1AEBF1B1D3E2B1D008B2240 /* OCEMeViewController.m */; };
+		A1AEBF1F1D3E2DB1008B2240 /* OCEOfflineCacheViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1AEBF1E1D3E2DB1008B2240 /* OCEOfflineCacheViewController.m */; };
+		A1AEBF241D3E2F19008B2240 /* OCECacheCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1AEBF221D3E2F19008B2240 /* OCECacheCell.m */; };
+		A1AEBF251D3E2F19008B2240 /* OCECacheCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1AEBF231D3E2F19008B2240 /* OCECacheCell.xib */; };
 		A1C578341D2FC7EC000DA4F7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C578331D2FC7EC000DA4F7 /* AudioToolbox.framework */; };
 		A1C578361D2FC7F1000DA4F7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C578351D2FC7F1000DA4F7 /* AVFoundation.framework */; };
 		A1C5783B1D2FC805000DA4F7 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C578391D2FC805000DA4F7 /* CoreMedia.framework */; };
@@ -53,7 +61,6 @@
 		A1CF9E4D1CFD97760042BCD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1CF9E491CFD97760042BCD7 /* Assets.xcassets */; };
 		A1CF9E5F1CFD9C360042BCD7 /* OCEHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CF9E5E1CFD9C360042BCD7 /* OCEHomeViewController.m */; };
 		A1CF9E661CFD9D7A0042BCD7 /* OCECategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CF9E651CFD9D7A0042BCD7 /* OCECategoryViewController.m */; };
-		A1CF9E6D1CFD9DA40042BCD7 /* OCEMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CF9E6C1CFD9DA40042BCD7 /* OCEMeViewController.m */; };
 		A1CF9E861CFE78040042BCD7 /* OCEButtonsView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CF9E851CFE78040042BCD7 /* OCEButtonsView.m */; };
 		A1CF9E891CFEC9D10042BCD7 /* OCECourse.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CF9E881CFEC9D10042BCD7 /* OCECourse.m */; };
 		A1CF9E8C1CFEE31F0042BCD7 /* OCECourseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CF9E8B1CFEE31F0042BCD7 /* OCECourseCell.m */; };
@@ -66,6 +73,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A2CF9E20CA3ED5C01500A41 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		774C43ACFD70BBC892E55A4E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		A10CBDDC1D290F110022DCDB /* OCESearchResultTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCESearchResultTableHeaderView.h; sourceTree = "<group>"; };
 		A10CBDDD1D290F110022DCDB /* OCESearchResultTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCESearchResultTableHeaderView.m; sourceTree = "<group>"; };
@@ -107,6 +115,18 @@
 		A1953CAD1D2A474B00B36403 /* OCESearchResultCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCESearchResultCourse.m; sourceTree = "<group>"; };
 		A1AD95241D0D826800797049 /* OCESearchTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCESearchTableHeaderView.h; sourceTree = "<group>"; };
 		A1AD95251D0D826800797049 /* OCESearchTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCESearchTableHeaderView.m; sourceTree = "<group>"; };
+		A1AEBF081D3DFF85008B2240 /* OCEBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCEBaseTableViewCell.h; path = OpenCourse/Classes/Category/View/OCEBaseTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		A1AEBF091D3DFF85008B2240 /* OCEBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCEBaseTableViewCell.m; path = OpenCourse/Classes/Category/View/OCEBaseTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		A1AEBF0B1D3E0A27008B2240 /* OCEClassifySectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCEClassifySectionCell.h; sourceTree = "<group>"; };
+		A1AEBF0C1D3E0A27008B2240 /* OCEClassifySectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCEClassifySectionCell.m; sourceTree = "<group>"; };
+		A1AEBF181D3E27E5008B2240 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		A1AEBF1A1D3E2B1D008B2240 /* OCEMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCEMeViewController.h; sourceTree = "<group>"; };
+		A1AEBF1B1D3E2B1D008B2240 /* OCEMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCEMeViewController.m; sourceTree = "<group>"; };
+		A1AEBF1D1D3E2DB1008B2240 /* OCEOfflineCacheViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCEOfflineCacheViewController.h; sourceTree = "<group>"; };
+		A1AEBF1E1D3E2DB1008B2240 /* OCEOfflineCacheViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCEOfflineCacheViewController.m; sourceTree = "<group>"; };
+		A1AEBF211D3E2F19008B2240 /* OCECacheCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCECacheCell.h; sourceTree = "<group>"; };
+		A1AEBF221D3E2F19008B2240 /* OCECacheCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCECacheCell.m; sourceTree = "<group>"; };
+		A1AEBF231D3E2F19008B2240 /* OCECacheCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OCECacheCell.xib; sourceTree = "<group>"; };
 		A1B89C6D1CFD8D34006B91D6 /* OpenCourse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenCourse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1C578331D2FC7EC000DA4F7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A1C578351D2FC7F1000DA4F7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -144,8 +164,6 @@
 		A1CF9E5E1CFD9C360042BCD7 /* OCEHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCEHomeViewController.m; sourceTree = "<group>"; };
 		A1CF9E641CFD9D7A0042BCD7 /* OCECategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCECategoryViewController.h; sourceTree = "<group>"; };
 		A1CF9E651CFD9D7A0042BCD7 /* OCECategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCECategoryViewController.m; sourceTree = "<group>"; };
-		A1CF9E6B1CFD9DA40042BCD7 /* OCEMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCEMeViewController.h; sourceTree = "<group>"; };
-		A1CF9E6C1CFD9DA40042BCD7 /* OCEMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCEMeViewController.m; sourceTree = "<group>"; };
 		A1CF9E841CFE78040042BCD7 /* OCEButtonsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCEButtonsView.h; sourceTree = "<group>"; };
 		A1CF9E851CFE78040042BCD7 /* OCEButtonsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCEButtonsView.m; sourceTree = "<group>"; };
 		A1CF9E871CFEC9D10042BCD7 /* OCECourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCECourse.h; sourceTree = "<group>"; };
@@ -186,6 +204,7 @@
 				A187962E1D36635000D015DA /* libc++.1.tbd in Frameworks */,
 				A187962C1D36634400D015DA /* libz.1.tbd in Frameworks */,
 				A187962A1D36633500D015DA /* libbz2.1.0.tbd in Frameworks */,
+				67A3B923D1F62B4326189A3A /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +227,7 @@
 				A1C5783D1D2FC81C000DA4F7 /* MediaPlayer.framework */,
 				A1C578351D2FC7F1000DA4F7 /* AVFoundation.framework */,
 				A18796331D36638F00D015DA /* MobileVLCKit.framework */,
+				0A2CF9E20CA3ED5C01500A41 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -321,6 +341,27 @@
 		A1953CA31D2A315C00B36403 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A1AEBF081D3DFF85008B2240 /* OCEBaseTableViewCell.h */,
+				A1AEBF091D3DFF85008B2240 /* OCEBaseTableViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A1AEBF021D3DBA2F008B2240 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A1AEBF0B1D3E0A27008B2240 /* OCEClassifySectionCell.h */,
+				A1AEBF0C1D3E0A27008B2240 /* OCEClassifySectionCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A1AEBF201D3E2EA6008B2240 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A1AEBF211D3E2F19008B2240 /* OCECacheCell.h */,
+				A1AEBF221D3E2F19008B2240 /* OCECacheCell.m */,
+				A1AEBF231D3E2F19008B2240 /* OCECacheCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -443,6 +484,7 @@
 			children = (
 				A1CF9E491CFD97760042BCD7 /* Assets.xcassets */,
 				A1CF9E4A1CFD97760042BCD7 /* Info.plist */,
+				A1AEBF181D3E27E5008B2240 /* Storyboard.storyboard */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -498,6 +540,7 @@
 		A1CF9E601CFD9D370042BCD7 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				A1AEBF021D3DBA2F008B2240 /* View */,
 				A1CF9E611CFD9D370042BCD7 /* Controller */,
 			);
 			path = Category;
@@ -515,6 +558,7 @@
 		A1CF9E671CFD9D950042BCD7 /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				A1AEBF201D3E2EA6008B2240 /* View */,
 				A1CF9E681CFD9D950042BCD7 /* Controller */,
 			);
 			path = Me;
@@ -523,8 +567,10 @@
 		A1CF9E681CFD9D950042BCD7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				A1CF9E6B1CFD9DA40042BCD7 /* OCEMeViewController.h */,
-				A1CF9E6C1CFD9DA40042BCD7 /* OCEMeViewController.m */,
+				A1AEBF1A1D3E2B1D008B2240 /* OCEMeViewController.h */,
+				A1AEBF1B1D3E2B1D008B2240 /* OCEMeViewController.m */,
+				A1AEBF1D1D3E2DB1008B2240 /* OCEOfflineCacheViewController.h */,
+				A1AEBF1E1D3E2DB1008B2240 /* OCEOfflineCacheViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -602,8 +648,10 @@
 				A1E514791D3A620E00C5B905 /* OCEPlayVideoViewController.xib in Resources */,
 				A182F8481D312D680083A274 /* OCEPlayerToolBar.xib in Resources */,
 				A1CF9E4D1CFD97760042BCD7 /* Assets.xcassets in Resources */,
+				A1AEBF251D3E2F19008B2240 /* OCECacheCell.xib in Resources */,
 				A10CBDE01D290F300022DCDB /* OCESearchResultTableHeaderView.xib in Resources */,
 				A1953CAB1D2A3FD600B36403 /* OCESearchResultCellLablesView.xib in Resources */,
+				A1AEBF191D3E27E5008B2240 /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -669,6 +717,7 @@
 				A1CEF9FB1D042E4500496A8F /* UIView+AYLExtension.m in Sources */,
 				A1CF9E891CFEC9D10042BCD7 /* OCECourse.m in Sources */,
 				A10CBDDE1D290F110022DCDB /* OCESearchResultTableHeaderView.m in Sources */,
+				A1AEBF1F1D3E2DB1008B2240 /* OCEOfflineCacheViewController.m in Sources */,
 				A1CEF9FD1D042E4500496A8F /* AYLTabBarController.m in Sources */,
 				A1CEF9FC1D042E4500496A8F /* AYLNavigationController.m in Sources */,
 				A1385F7A1D2112B6006A2424 /* OCESearchResultViewController.m in Sources */,
@@ -678,18 +727,20 @@
 				A184E5281D0D3A4B009A0383 /* OCESearchView.m in Sources */,
 				A1953CAE1D2A474B00B36403 /* OCESearchResultCourse.m in Sources */,
 				A1D37E441D091943007613C8 /* UITableViewController+AYLExtension.m in Sources */,
-				A1CF9E6D1CFD9DA40042BCD7 /* OCEMeViewController.m in Sources */,
+				A1AEBF1C1D3E2B1D008B2240 /* OCEMeViewController.m in Sources */,
 				A1CF9E661CFD9D7A0042BCD7 /* OCECategoryViewController.m in Sources */,
 				A182F8471D312D680083A274 /* OCEPlayerToolBar.m in Sources */,
 				A184E53A1D0D5E3B009A0383 /* OCESearchHotCell.m in Sources */,
 				A10CBDE41D2937240022DCDB /* OCESearchResultCell.m in Sources */,
 				A1CEF9F81D042E4500496A8F /* UIColor+AYLExtension.m in Sources */,
+				A1AEBF0A1D3DFF85008B2240 /* OCEBaseTableViewCell.m in Sources */,
 				A1CEFA041D042FF200496A8F /* AYLHttpTool.m in Sources */,
 				A1CEF9F91D042E4500496A8F /* UIImage+AYLExtension.m in Sources */,
 				A1D5A5421D375FB800C5E96A /* AYLConst.m in Sources */,
 				A16491C51D0EA41200D7B529 /* OCEHotKeyword.m in Sources */,
 				A1D5A5331D36775000C5E96A /* OCEMediaControl.m in Sources */,
 				A1CEF9FF1D042E4500496A8F /* AppDelegate.m in Sources */,
+				A1AEBF0D1D3E0A27008B2240 /* OCEClassifySectionCell.m in Sources */,
 				A1CEFA0E1D04436400496A8F /* OCECourseToolResult.m in Sources */,
 				A1D5A52F1D366AE400C5E96A /* OCEPlayTopView.m in Sources */,
 				A16491C81D0EA44500D7B529 /* OCESearchDataToolResult.m in Sources */,
@@ -697,6 +748,7 @@
 				A182F8461D312D680083A274 /* OCEPlayVideoViewController.m in Sources */,
 				A1CEF9FE1D042E4500496A8F /* AYLTableViewController.m in Sources */,
 				A1CEFA001D042E4500496A8F /* main.m in Sources */,
+				A1AEBF241D3E2F19008B2240 /* OCECacheCell.m in Sources */,
 				A1953CA91D2A3F5E00B36403 /* OCESearchResultCellLablesView.m in Sources */,
 				A1CF9E8C1CFEE31F0042BCD7 /* OCECourseCell.m in Sources */,
 				A16491CB1D0EA45000D7B529 /* OCESearchDataTool.m in Sources */,

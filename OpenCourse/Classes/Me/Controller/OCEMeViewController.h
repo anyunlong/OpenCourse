@@ -2,12 +2,10 @@
 //  OCEMeViewController.h
 //  OpenCourse
 //
-//  Created by Oneself on 16/5/31.
+//  Created by Oneself on 16/7/19.
 //  Copyright © 2016年 CCUT. All rights reserved.
 //
 
-#import "AYLTableViewController.h"
-
-@interface OCEMeViewController : AYLTableViewController
+@interface OCEMeViewController : UITableViewController
 
 @end

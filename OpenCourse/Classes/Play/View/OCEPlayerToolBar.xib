@@ -8,7 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="G9E-Kc-wum">
+        <view contentMode="scaleToFill" id="G9E-Kc-wum" customClass="OCEPlayerToolBar">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
@@ -18,15 +18,43 @@
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YYU-g1-iBX">
+                    <rect key="frame" x="425" y="336" width="46" height="30"/>
+                    <state key="normal" backgroundImage="player_detail_collect_no"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tva-S9-Toy">
+                    <rect key="frame" x="371" y="312" width="46" height="30"/>
+                    <state key="normal" backgroundImage="player_detail_share"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4gb-Xk-j5x">
+                    <rect key="frame" x="493" y="318" width="46" height="30"/>
+                    <state key="normal" backgroundImage="player_detail_download"/>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="4gb-Xk-j5x" firstAttribute="top" secondItem="G9E-Kc-wum" secondAttribute="top" constant="5" id="2JT-vt-ZiR"/>
+                <constraint firstAttribute="trailing" secondItem="4gb-Xk-j5x" secondAttribute="trailing" constant="10" id="3Ro-1b-bKY"/>
+                <constraint firstItem="YYU-g1-iBX" firstAttribute="top" secondItem="4gb-Xk-j5x" secondAttribute="top" id="45C-SY-zyk"/>
+                <constraint firstItem="Tva-S9-Toy" firstAttribute="top" secondItem="4gb-Xk-j5x" secondAttribute="top" id="ER8-Iy-upg"/>
                 <constraint firstAttribute="bottom" secondItem="Asi-9I-fTQ" secondAttribute="bottom" id="G60-BL-hPP"/>
+                <constraint firstItem="YYU-g1-iBX" firstAttribute="trailing" secondItem="4gb-Xk-j5x" secondAttribute="leading" constant="-10" id="IYt-xi-lNh"/>
                 <constraint firstItem="Asi-9I-fTQ" firstAttribute="top" secondItem="G9E-Kc-wum" secondAttribute="top" id="h7h-61-ulY"/>
                 <constraint firstItem="Asi-9I-fTQ" firstAttribute="width" secondItem="G9E-Kc-wum" secondAttribute="width" multiplier="1:2" id="r2f-j5-Boo"/>
+                <constraint firstItem="Tva-S9-Toy" firstAttribute="trailing" secondItem="YYU-g1-iBX" secondAttribute="leading" constant="-10" id="xIC-6o-XhS"/>
                 <constraint firstItem="Asi-9I-fTQ" firstAttribute="leading" secondItem="G9E-Kc-wum" secondAttribute="leading" constant="10" id="yTO-Fq-soU"/>
             </constraints>
+            <connections>
+                <outlet property="downloadView" destination="4gb-Xk-j5x" id="5Yp-ls-BcR"/>
+                <outlet property="likeView" destination="YYU-g1-iBX" id="y92-7C-6V7"/>
+                <outlet property="shareView" destination="Tva-S9-Toy" id="Mnb-vx-ddv"/>
+            </connections>
             <point key="canvasLocation" x="546" y="441"/>
         </view>
     </objects>
+    <resources>
+        <image name="player_detail_collect_no" width="20" height="20"/>
+        <image name="player_detail_download" width="20" height="20"/>
+        <image name="player_detail_share" width="20" height="20"/>
+    </resources>
 </document>

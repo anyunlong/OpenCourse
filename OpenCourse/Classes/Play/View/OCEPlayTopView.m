@@ -36,7 +36,7 @@
         CGFloat playViewH = SCREEN_WIDTH / SCREEN_HEIGHT * SCREEN_WIDTH;
         self.playView.frame = CGRectMake(0, _statusBarBackground.ayl_bottom, _statusBarBackground.ayl_width, playViewH);
         
-        self.toolBar.frame = CGRectMake(0, _playView.ayl_bottom, _playView.ayl_width, 20);
+        self.toolBar.frame = CGRectMake(0, _playView.ayl_bottom, _playView.ayl_width, _toolBar.height);
         
         self.ayl_size = CGSizeMake(_statusBarBackground.ayl_width, _toolBar.ayl_bottom);
     }

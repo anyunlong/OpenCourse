@@ -11,14 +11,10 @@
 #import "OCECourseFrame.h"
 #import "OCECourse.h"
 // framework
-#import <UIImageView+WebCache.h>
+#import <UIButton+WebCache.h>
 
 @interface OCECourseCell()
 
-// 占据整个cell的button
-@property (nonatomic, weak) UIButton *listBtn;
-// 图片view
-@property (nonatomic, weak) UIImageView *picView;
 // 原文件类型view
 @property (nonatomic, weak) UIButton *rtypeView;
 // 课程类型view
@@ -40,6 +36,7 @@
 
 @end
 
+static NSString *kCourseCellIdentifier = @"course";
 const CGFloat kOCECourseCellTitleFontSize = 17;
 const CGFloat kOCECourseCellDescFontSize = 13;
 const CGFloat kOCECourseCellOthersFontSize = 11; // 类型、创建时间、观看数、vedioView
@@ -47,38 +44,19 @@ extern const CGFloat AYLViewsMargin;
 
 @implementation OCECourseCell
 
-+ (OCECourseCell *)cellWithTableView:(UITableView *)tableView {
-    // cell标识
-    static NSString *ID = @"course";
-    // 从缓存池中取可用cell
-    OCECourseCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (!cell) {
-        cell = [[self alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:ID];
-    }
-    
-    return cell;
++ (instancetype)cellWithTableView:(UITableView *)tableView {
+    return [super cellWithTableView:tableView identifier:kCourseCellIdentifier];
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        self.contentView.backgroundColor = [UIColor ayl_systemTableViewBackgroundColor];
-        
-        UIButton *listBtn = [[UIButton alloc] init];
-        [listBtn setBackgroundImage:[UIImage ayl_resizedImageWithName:@"course_grid_bg"] forState:UIControlStateNormal];
-        [listBtn setBackgroundImage:[UIImage ayl_resizedImageWithName:@"course_grid_bg_pressed"] forState:UIControlStateHighlighted];
-        [listBtn addTarget:self action:@selector(listBtnDidClicked) forControlEvents:UIControlEventTouchUpInside];
-        [self.contentView addSubview:listBtn];
-        _listBtn = listBtn;
-        
-        UIImageView *picView = [[UIImageView alloc] init];
-        [listBtn addSubview:picView];
-        _picView = picView;
+        [self.listBtn addTarget:self action:@selector(listBtnDidClicked) forControlEvents:UIControlEventTouchUpInside];
         
         UIButton *rtypeView = [[UIButton alloc] init];
         rtypeView.userInteractionEnabled = NO;
         rtypeView.titleEdgeInsets = UIEdgeInsetsMake(0, AYLViewsMargin / 2, 0, 0);
         rtypeView.titleLabel.font = [UIFont systemFontOfSize:kOCECourseCellOthersFontSize];
-        [listBtn addSubview:rtypeView];
+        [self.listBtn addSubview:rtypeView];
         _rtypeView = rtypeView;
         
         UILabel *courseTypeView = [[UILabel alloc] init];
@@ -87,45 +65,45 @@ extern const CGFloat AYLViewsMargin;
         courseTypeView.font = [UIFont systemFontOfSize:kOCECourseCellOthersFontSize];
         [courseTypeView.layer setMasksToBounds:YES];
         [courseTypeView.layer setCornerRadius:5];
-        [listBtn addSubview:courseTypeView];
+        [self.listBtn addSubview:courseTypeView];
         _courseTypeView = courseTypeView;
         
         UILabel *createTimeView = [[UILabel alloc] init];
         createTimeView.textColor = [UIColor lightGrayColor];
         createTimeView.font = [UIFont systemFontOfSize:kOCECourseCellOthersFontSize];
-        [listBtn addSubview:createTimeView];
+        [self.listBtn addSubview:createTimeView];
         _createTimeView = createTimeView;
         
         UILabel *titleView = [[UILabel alloc] init];
         titleView.font = [UIFont systemFontOfSize:kOCECourseCellTitleFontSize];
-        [listBtn addSubview:titleView];
+        [self.listBtn addSubview:titleView];
         _titleView = titleView;
         
         UILabel *descView = [[UILabel alloc] init];
         descView.textColor = [UIColor grayColor];
         descView.font = [UIFont systemFontOfSize:kOCECourseCellDescFontSize];
         descView.numberOfLines = 0;
-        [listBtn addSubview:descView];
+        [self.listBtn addSubview:descView];
         _descView = descView;
         
         UILabel *viewcountView = [[UILabel alloc] init];
         viewcountView.textColor = [UIColor lightGrayColor];
         viewcountView.font = [UIFont systemFontOfSize:kOCECourseCellOthersFontSize];
-        [listBtn addSubview:viewcountView];
+        [self.listBtn addSubview:viewcountView];
         _viewcountView = viewcountView;
         
         UIButton *shareView = [[UIButton alloc] init];
         [shareView setBackgroundImage:[UIImage imageNamed:@"home_shared"] forState:UIControlStateNormal];
-        [listBtn addSubview:shareView];
+        [self.listBtn addSubview:shareView];
         _shareView = shareView;
         
         AYLDivider *divider = [AYLDivider ayl_divider];
-        [listBtn addSubview:divider];
+        [self.listBtn addSubview:divider];
         _divider = divider;
         
         UIButton *likeView = [[UIButton alloc] init];
         [likeView setBackgroundImage:[UIImage imageNamed:@"home_tolike"] forState:UIControlStateNormal];
-        [listBtn addSubview:likeView];
+        [self.listBtn addSubview:likeView];
         _likeView = likeView;
     }
     
@@ -137,10 +115,10 @@ extern const CGFloat AYLViewsMargin;
     OCECourse *course = courseFrame.course;
     
     // 占据整个cell的button
-    _listBtn.frame = courseFrame.listBtnF;
+    self.listBtn.frame = courseFrame.listBtnF;
     // 图片view
-    [_picView sd_setImageWithURL:[NSURL URLWithString:course.picUrl] placeholderImage:nil];
-    _picView.frame = courseFrame.picViewF;
+    [self.picView sd_setImageWithURL:[NSURL URLWithString:course.picUrl] forState:UIControlStateNormal];
+    self.picView.frame = courseFrame.picViewF;
     // rtypeView
     NSString *imgName;
     NSString *bgImgName;

@@ -7,6 +7,7 @@
 //
 
 #import "OCECategoryViewController.h"
+#import "OCEClassifySectionCell.h"
 
 @interface OCECategoryViewController ()
 

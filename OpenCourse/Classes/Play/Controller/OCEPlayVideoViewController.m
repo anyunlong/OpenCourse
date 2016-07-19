@@ -41,16 +41,31 @@ extern const CGFloat AYLViewsMargin;
     
     [self loadNetworkData];
     
-//    UIButton *testButton = [[UIButton alloc] init];
-//    testButton.backgroundColor = [UIColor orangeColor];
-//    [testButton addTarget:self action:@selector(onClickTestButton) forControlEvents:UIControlEventTouchUpInside];
-//    testButton.frame = CGRectMake(0, 0, 100, 100);
-//    [self.tableView addSubview:testButton];
+    UIButton *testButton = [[UIButton alloc] init];
+    testButton.backgroundColor = [UIColor orangeColor];
+    [testButton addTarget:self action:@selector(onClickTestButton) forControlEvents:UIControlEventTouchUpInside];
+    testButton.frame = CGRectMake(0, 0, 100, 100);
+    [self.tableView addSubview:testButton];
 }
 
-//- (void)onClickTestButton {
-//    AYLLog(@"%@", _mediaControl);
-//}
+- (void)onClickTestButton {
+//    NSURL *url = [NSURL URLWithString:@"http://mov.bn.netease.com/open-movie/nos/mp4/2016/07/19/SBRDPMSEP_sd.mp4"];
+//    NSURLSession *session = [NSURLSession sharedSession];
+//    NSURLSessionDownloadTask *downloadTask = [session downloadTaskWithURL:url completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+//        NSString *caches = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+//        NSString *file = [caches stringByAppendingPathComponent:response.suggestedFilename];
+//        
+//        NSFileManager *mgr = [NSFileManager defaultManager];
+//        [mgr moveItemAtPath:location.path toPath:file error:nil];
+//        
+//        AYLLog(@"%@", file);
+//    }];
+//    
+//    [downloadTask resume];
+    NSString *url = @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=536226604";
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];

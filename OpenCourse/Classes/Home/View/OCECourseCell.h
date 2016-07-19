@@ -6,6 +6,8 @@
 //  Copyright © 2016年 CCUT. All rights reserved.
 //
 
+#import "OCEBaseTableViewCell.h"
+
 @class OCECourseFrame, OCECourseCell;
 
 @protocol OCECourseCellDelegate <NSObject>
@@ -15,11 +17,11 @@
 
 @end
 
-@interface OCECourseCell : UITableViewCell
+@interface OCECourseCell : OCEBaseTableViewCell
 
 @property (nonatomic, weak) id<OCECourseCellDelegate> delegate;
 @property (nonatomic, strong) OCECourseFrame *courseFrame;
 
-+ (OCECourseCell *)cellWithTableView:(UITableView *)tableView;
++ (instancetype)cellWithTableView:(UITableView *)tableView;
 
 @end
