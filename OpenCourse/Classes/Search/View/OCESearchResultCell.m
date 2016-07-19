@@ -19,7 +19,6 @@
 #define kOCESearchResultCellHeight   (kOCESearchResultCellpicViewH + 2 * kOCESearchResultCellpicViewX)
 
 @interface OCESearchResultCell()
-
 // left views
 @property (nonatomic, weak) UIImageView *picView;
 // right views
@@ -45,22 +44,21 @@ extern const CGFloat AYLViewsMargin;
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        UIView *contentView = self.contentView;
-        
         // left views
         UIImageView *picView = [[UIImageView alloc] init];
-        [contentView addSubview:picView];
+        [self.contentView addSubview:picView];
         _picView = picView;
         
         // right views
         OCESearchResultCellLablesView *lablesView = [[OCESearchResultCellLablesView alloc] init];
-        [contentView addSubview:lablesView];
+        [self.contentView addSubview:lablesView];
         _lablesView = lablesView;
         
         // bottom views
         AYLDivider *cellDivider = [AYLDivider ayl_divider];
-        [contentView addSubview:cellDivider];
-        _cellDivider = cellDivider; 
+        cellDivider.backgroundColor = [UIColor lightGrayColor];
+        [self.contentView addSubview:cellDivider];
+        _cellDivider = cellDivider;
     }
     
     return self;
@@ -82,7 +80,7 @@ extern const CGFloat AYLViewsMargin;
     CGFloat picViewH = kOCESearchResultCellpicViewH;
     _picView.ayl_size = CGSizeMake(picViewW, picViewH);
     
-    CGFloat cellDividerW = self.contentView.ayl_width;
+    CGFloat cellDividerW = SCREEN_WIDTH;
     CGFloat cellDividerH = 0.5;
     CGFloat cellDividerY = kOCESearchResultCellHeight - cellDividerH;
     _cellDivider.frame = CGRectMake(0, cellDividerY, cellDividerW, cellDividerH);

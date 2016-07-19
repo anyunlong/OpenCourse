@@ -9,17 +9,23 @@
 #import "OCEPlayVideoViewController.h"
 // m
 #import "OCECourse.h"
+#import "OCECourseFrame.h"
 // v
 #import "OCEPlayTopView.h"
 #import "OCEMediaControl.h"
-
-@interface OCEPlayVideoViewController ()
+#import "OCECourseCell.h"
+// c
+#import "OCEWebViewController.h"
+#import "AYLNavigationController.h"
+@interface OCEPlayVideoViewController () <OCECourseCellDelegate>
 
 @property (nonatomic, strong) UIButton *backButton;
 @property (nonatomic, strong) OCEPlayTopView *topView;
 
 @property (nonatomic, strong) VLCMediaPlayer *player;
 @property (nonatomic, strong) IBOutlet OCEMediaControl *mediaControl;
+
+@property (nonatomic, strong) NSMutableArray *courseFrames;
 
 @end
 
@@ -35,37 +41,33 @@ extern const CGFloat AYLViewsMargin;
     
     [self loadNetworkData];
     
-    UIButton *testButton = [[UIButton alloc] init];
-    testButton.backgroundColor = [UIColor orangeColor];
-    [testButton addTarget:self action:@selector(onClickTestButton) forControlEvents:UIControlEventTouchUpInside];
-    testButton.frame = CGRectMake(0, 0, 100, 100);
-    [self.tableView addSubview:testButton];
+//    UIButton *testButton = [[UIButton alloc] init];
+//    testButton.backgroundColor = [UIColor orangeColor];
+//    [testButton addTarget:self action:@selector(onClickTestButton) forControlEvents:UIControlEventTouchUpInside];
+//    testButton.frame = CGRectMake(0, 0, 100, 100);
+//    [self.tableView addSubview:testButton];
 }
 
-- (void)onClickTestButton {
-    AYLLog(@"%d", self.player.time);
-}
+//- (void)onClickTestButton {
+//    AYLLog(@"%@", _mediaControl);
+//}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    CGSize screenSize = SCREEN_SIZE;
-    
-    CGFloat topViewH = screenSize.width / screenSize.height * screenSize.width;
-    self.topView.frame = CGRectMake(0, 0, screenSize.width, topViewH);
-    
-    self.mediaControl.frame = CGRectMake(0, AYLStatusBarHeight, _topView.ayl_width, topViewH - AYLStatusBarHeight);
+    self.mediaControl.frame = CGRectMake(0, AYLStatusBarHeight, _topView.ayl_width, _topView.playView.ayl_height);
     
     CGFloat backButtonX = AYLViewsMargin;
     self.backButton.ayl_orign = CGPointMake(backButtonX, AYLStatusBarHeight + backButtonX);
     self.backButton.ayl_size = self.backButton.currentBackgroundImage.size;
     
-    self.tableView.contentInset = UIEdgeInsetsMake(self.topView.ayl_bottom, 0, 0, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(_topView.ayl_height, 0, 0, 0);
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
+    self.navigationController.navigationBar.hidden = NO;
     [self.backButton removeFromSuperview];
     [self.topView removeFromSuperview];
     [self.mediaControl removeFromSuperview];
@@ -79,19 +81,39 @@ extern const CGFloat AYLViewsMargin;
 
 #pragma mark - UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 100;
+    return self.courseFrames.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *ID = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:ID];
+    OCECourseCell *courseCell = [OCECourseCell cellWithTableView:tableView];
+    courseCell.delegate = self;
+    
+    NSInteger row = indexPath.row;
+    courseCell.courseFrame = _courseFrames[row];
+    courseCell.tag = row;
+    
+    return courseCell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [_courseFrames[indexPath.row] cellHeight];
+}
+
+#pragma mark - CustomDelegate
+- (void)courseCell:(OCECourseCell *)courseCell didClickedButtonAtIndex:(NSInteger)index {
+    OCECourse *course = [_courseFrames[index] course];
+    if (course.rtype == OCECourseRtypeH5) {
+        OCEWebViewController *webViewController = [[OCEWebViewController alloc] init];
+        webViewController.course = course;
+        
+        AYLNavigationController *nc = [[AYLNavigationController alloc] initWithRootViewController:webViewController];
+        [self presentViewController:nc animated:YES completion:nil];
+    } else if (course.rtype == OCECourseRtypeVideo) {
+        OCEPlayVideoViewController *playVideoViewController = [[OCEPlayVideoViewController alloc] init];
+        playVideoViewController.course = course;
+        
+        [self.navigationController pushViewController:playVideoViewController animated:YES];
     }
-    
-    cell.textLabel.text = @"haha";
-    
-    return cell;
 }
 
 #pragma mark - private methods
@@ -116,17 +138,31 @@ extern const CGFloat AYLViewsMargin;
     
     NSString *urlString = [NSString stringWithFormat:@"http://c.open.163.com/mob/%@/getMoviesForIpad.do", _course.plid];
     [magager GET:urlString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSArray *videoDicts = responseObject[@"data"][@"videoList"];
+        NSDictionary *data = responseObject[@"data"];
         NSString *m3u8SdUrl;
-        for (NSDictionary *videoDict in videoDicts) {
-            if ([_course.rid isEqualToString:videoDict[@"mid"]]) {
+        for (NSDictionary *videoDict in data[@"videoList"]) {
+            if (_course.rid == nil) {
                 m3u8SdUrl = videoDict[@"m3u8SdUrl"];
+                self.player.media = [VLCMedia mediaWithURL:[NSURL URLWithString:m3u8SdUrl]];
+                
+                break;
+            } else {
+                if ([_course.rid isEqualToString:videoDict[@"mid"]]) {
+                    m3u8SdUrl = videoDict[@"m3u8SdUrl"];
+                    self.player.media = [VLCMedia mediaWithURL:[NSURL URLWithString:m3u8SdUrl]];
+                    
+                    break;
+                }
             }
-            
-            self.player.media = [VLCMedia mediaWithURL:[NSURL URLWithString:m3u8SdUrl]];
-            [self.player play];
-            
         }
+        [self.player play];
+        
+        for (NSDictionary *courseDict in data[@"recommendList"]) {
+            OCECourseFrame *courseFrame = [[OCECourseFrame alloc] init];
+            courseFrame.course = [OCECourse mj_objectWithKeyValues:courseDict];
+            [self.courseFrames addObject:courseFrame];
+        }
+        [self.tableView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         AYLLog(@"%@", error);
     }];
@@ -134,7 +170,11 @@ extern const CGFloat AYLViewsMargin;
 
 #pragma mark - event response
 - (void)backButtonDidClicked {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    if (_course.rid == nil) {
+        [self.navigationController popViewControllerAnimated:YES];
+    } else {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
 }
 
 - (IBAction)onClickMediaControl {
@@ -186,6 +226,13 @@ extern const CGFloat AYLViewsMargin;
         _mediaControl = [[OCEMediaControl alloc] init];
     }
     return _mediaControl;
+}
+
+- (NSMutableArray *)courseFrames {
+    if (!_courseFrames) {
+        _courseFrames = [NSMutableArray array];
+    }
+    return _courseFrames;
 }
 
 @end

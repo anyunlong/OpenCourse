@@ -6,10 +6,12 @@
 //  Copyright © 2016年 CCUT. All rights reserved.
 //
 
-@interface OCESearchResultCourse : NSObject
+#import "OCECourse.h"
 
-@property (nonatomic, copy) NSString *picUrl;
-@property (nonatomic, copy) NSString *title;
+@interface OCESearchResultCourse : OCECourse
+
+/* @property (nonatomic, copy) NSString *picUrl; */
+/* @property (nonatomic, copy) NSString *title;  */
 @property (nonatomic, strong) NSMutableAttributedString *workedTitle;
 @property (nonatomic, copy) NSString *tags;
 @property (nonatomic, strong) NSMutableAttributedString *workedTags;

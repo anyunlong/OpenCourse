@@ -34,8 +34,8 @@
     UIImage *topPanelBgImg = [UIImage imageNamed:@"player_control_top"];
     self.topPanel.layer.contents = (id)topPanelBgImg.CGImage;
     
-    UIImage *buttonPanelBgImg = [UIImage imageNamed:@"player_control_bottom"];
-    self.bottomPanel.layer.contents = (id)buttonPanelBgImg.CGImage;
+    UIImage *bottomPanelBgImg = [UIImage imageNamed:@"player_control_bottom"];
+    self.bottomPanel.layer.contents = (id)bottomPanelBgImg.CGImage;
     
     UIImage *mediaProgressSliderThumImage = [UIImage imageNamed:@"player_block"];
     [self.mediaProgressSlider setThumbImage:mediaProgressSliderThumImage forState:UIControlStateNormal];

@@ -30,7 +30,6 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="TIk-VS-cra" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="0ne-6s-yUj"/>
                 <constraint firstItem="BZ8-AA-46d" firstAttribute="height" secondItem="qHh-tI-6Ql" secondAttribute="height" id="AUt-tu-awJ"/>

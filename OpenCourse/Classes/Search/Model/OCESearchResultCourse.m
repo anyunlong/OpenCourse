@@ -11,7 +11,7 @@
 @implementation OCESearchResultCourse
 
 - (NSMutableAttributedString *)workedTitle {
-    return [self attributedStringWithText:_title];
+    return [self attributedStringWithText:self.title];
 }
 
 - (NSMutableAttributedString *)workedTags {

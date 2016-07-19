@@ -7,8 +7,11 @@
 //
 
 #import "OCEPlayTopView.h"
+#import "OCEPlayerToolBar.h"
 
 @interface OCEPlayTopView()
+
+@property (nonatomic, strong) OCEPlayerToolBar *toolBar;
 
 @end
 
@@ -22,18 +25,23 @@
         [self addSubview:statusBarBackground];
         
         self.playView = [[UIView alloc] init];
-        [self addSubview:self.playView];
+        [self addSubview:_playView];
+        
+        self.toolBar = [[OCEPlayerToolBar alloc] init];
+        [self addSubview:_toolBar];
+        
+        
+        self.statusBarBackground.frame = CGRectMake(0, 0, SCREEN_WIDTH, AYLStatusBarHeight);
+        
+        CGFloat playViewH = SCREEN_WIDTH / SCREEN_HEIGHT * SCREEN_WIDTH;
+        self.playView.frame = CGRectMake(0, _statusBarBackground.ayl_bottom, _statusBarBackground.ayl_width, playViewH);
+        
+        self.toolBar.frame = CGRectMake(0, _playView.ayl_bottom, _playView.ayl_width, 20);
+        
+        self.ayl_size = CGSizeMake(_statusBarBackground.ayl_width, _toolBar.ayl_bottom);
     }
+    
     return self;
-}
-
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    
-    CGFloat statusBarBackgroundHeight = AYLStatusBarHeight;
-    self.statusBarBackground.frame = CGRectMake(0, 0, self.ayl_width, AYLStatusBarHeight);
-    
-    self.playView.frame = CGRectMake(0, statusBarBackgroundHeight, self.statusBarBackground.ayl_width, self.ayl_height - statusBarBackgroundHeight);
 }
 
 @end

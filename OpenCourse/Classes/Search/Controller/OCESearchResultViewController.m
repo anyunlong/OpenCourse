@@ -7,6 +7,7 @@
 //
 
 #import "OCESearchResultViewController.h"
+#import "OCEPlayVideoViewController.h"
 // m
 #import "OCESearchResultCourse.h"
 // v
@@ -58,6 +59,13 @@ extern const CGFloat kOCESearchResultTableHeaderViewHeight;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [OCESearchResultCell cellHeight];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    OCEPlayVideoViewController *playVideoViewController = [[OCEPlayVideoViewController alloc] init];
+    playVideoViewController.course = self.searchResultCourses[indexPath.row];
+    
+    [self.navigationController pushViewController:playVideoViewController animated:YES];
 }
 
 #pragma mark - private methods
