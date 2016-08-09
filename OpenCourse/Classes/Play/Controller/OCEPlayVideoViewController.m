@@ -62,9 +62,6 @@ extern const CGFloat AYLViewsMargin;
 //    }];
 //    
 //    [downloadTask resume];
-    NSString *url = @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=536226604";
-    
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
