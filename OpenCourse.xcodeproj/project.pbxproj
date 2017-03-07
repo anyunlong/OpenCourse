@@ -27,7 +27,6 @@
 		A187962E1D36635000D015DA /* libc++.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A187962D1D36635000D015DA /* libc++.1.tbd */; };
 		A18796301D36636200D015DA /* libiconv.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A187962F1D36636200D015DA /* libiconv.2.tbd */; };
 		A18796321D36637800D015DA /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A18796311D36637800D015DA /* libstdc++.6.0.9.tbd */; };
-		A18796341D36638F00D015DA /* MobileVLCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A18796331D36638F00D015DA /* MobileVLCKit.framework */; };
 		A18796361D3663B100D015DA /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A18796351D3663B100D015DA /* CoreAudio.framework */; };
 		A1953CA91D2A3F5E00B36403 /* OCESearchResultCellLablesView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1953CA81D2A3F5E00B36403 /* OCESearchResultCellLablesView.m */; };
 		A1953CAB1D2A3FD600B36403 /* OCESearchResultCellLablesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1953CAA1D2A3FD600B36403 /* OCESearchResultCellLablesView.xib */; };
@@ -70,6 +69,7 @@
 		A1D5A5331D36775000C5E96A /* OCEMediaControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D5A5321D36775000C5E96A /* OCEMediaControl.m */; };
 		A1D5A5421D375FB800C5E96A /* AYLConst.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D5A5411D375FB800C5E96A /* AYLConst.m */; };
 		A1E514791D3A620E00C5B905 /* OCEPlayVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E514781D3A620E00C5B905 /* OCEPlayVideoViewController.xib */; };
+		E100C79B1E6E80ED00ECB5DF /* MobileVLCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E100C79A1E6E80ED00ECB5DF /* MobileVLCKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,7 +106,6 @@
 		A187962D1D36635000D015DA /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "usr/lib/libc++.1.tbd"; sourceTree = SDKROOT; };
 		A187962F1D36636200D015DA /* libiconv.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.2.tbd; path = usr/lib/libiconv.2.tbd; sourceTree = SDKROOT; };
 		A18796311D36637800D015DA /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
-		A18796331D36638F00D015DA /* MobileVLCKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileVLCKit.framework; path = "../../Software/Xcode/MobileVLCKit-binary/MobileVLCKit.framework"; sourceTree = "<group>"; };
 		A18796351D3663B100D015DA /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		A1953CA71D2A3F5E00B36403 /* OCESearchResultCellLablesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCESearchResultCellLablesView.h; sourceTree = "<group>"; };
 		A1953CA81D2A3F5E00B36403 /* OCESearchResultCellLablesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCESearchResultCellLablesView.m; sourceTree = "<group>"; };
@@ -184,6 +183,7 @@
 		A1D5A5451D377D8800C5E96A /* AYLMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYLMacro.h; sourceTree = "<group>"; };
 		A1E514781D3A620E00C5B905 /* OCEPlayVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OCEPlayVideoViewController.xib; sourceTree = "<group>"; };
 		AAFDD98DB4FED8729DE13A6F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		E100C79A1E6E80ED00ECB5DF /* MobileVLCKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileVLCKit.framework; path = "../MobileVLCKit-binary/MobileVLCKit.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +191,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E100C79B1E6E80ED00ECB5DF /* MobileVLCKit.framework in Frameworks */,
 				A1C578461D2FC844000DA4F7 /* VideoToolbox.framework in Frameworks */,
 				A1C578341D2FC7EC000DA4F7 /* AudioToolbox.framework in Frameworks */,
 				A18796361D3663B100D015DA /* CoreAudio.framework in Frameworks */,
@@ -198,7 +199,6 @@
 				A1C5783C1D2FC805000DA4F7 /* CoreVideo.framework in Frameworks */,
 				A1C578361D2FC7F1000DA4F7 /* AVFoundation.framework in Frameworks */,
 				A1C5783E1D2FC81C000DA4F7 /* MediaPlayer.framework in Frameworks */,
-				A18796341D36638F00D015DA /* MobileVLCKit.framework in Frameworks */,
 				A18796321D36637800D015DA /* libstdc++.6.0.9.tbd in Frameworks */,
 				A18796301D36636200D015DA /* libiconv.2.tbd in Frameworks */,
 				A187962E1D36635000D015DA /* libc++.1.tbd in Frameworks */,
@@ -214,6 +214,7 @@
 		997D72DED4BFD6D928ED8B8E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E100C79A1E6E80ED00ECB5DF /* MobileVLCKit.framework */,
 				A18796351D3663B100D015DA /* CoreAudio.framework */,
 				A1C578451D2FC844000DA4F7 /* VideoToolbox.framework */,
 				A1C578331D2FC7EC000DA4F7 /* AudioToolbox.framework */,
@@ -226,7 +227,6 @@
 				A18796311D36637800D015DA /* libstdc++.6.0.9.tbd */,
 				A1C5783D1D2FC81C000DA4F7 /* MediaPlayer.framework */,
 				A1C578351D2FC7F1000DA4F7 /* AVFoundation.framework */,
-				A18796331D36638F00D015DA /* MobileVLCKit.framework */,
 				0A2CF9E20CA3ED5C01500A41 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -849,8 +849,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LIBRARY = "libstdc++";
-				FRAMEWORK_SEARCH_PATHS = "/Users/Oneself/Documents/Software/Xcode/MobileVLCKit-binary";
-				GCC_PREFIX_HEADER = /Users/Oneself/Documents/iOSProjects/OpenCourse/OpenCourse/Classes/Main/Other/AYLCommon.pch;
+				FRAMEWORK_SEARCH_PATHS = "/Users/oneselfly/Desktop/MobileVLCKit-binary";
+				GCC_PREFIX_HEADER = /Users/oneselfly/Desktop/OpenCourse/OpenCourse/Classes/Main/Other/AYLCommon.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/CYLTabBarController\"",
+					"\"${PODS_ROOT}/Headers/Public/MJExtension\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+				);
 				INFOPLIST_FILE = "OpenCourse/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.edu.ccut.OpenCourse;
@@ -866,8 +876,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LIBRARY = "libstdc++";
-				FRAMEWORK_SEARCH_PATHS = "/Users/Oneself/Documents/Software/Xcode/MobileVLCKit-binary";
-				GCC_PREFIX_HEADER = /Users/Oneself/Documents/iOSProjects/OpenCourse/OpenCourse/Classes/Main/Other/AYLCommon.pch;
+				FRAMEWORK_SEARCH_PATHS = "/Users/oneselfly/Desktop/MobileVLCKit-binary";
+				GCC_PREFIX_HEADER = /Users/oneselfly/Desktop/OpenCourse/OpenCourse/Classes/Main/Other/AYLCommon.pch;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/CYLTabBarController\"",
+					"\"${PODS_ROOT}/Headers/Public/MJExtension\"",
+					"\"${PODS_ROOT}/Headers/Public/MJRefresh\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+				);
 				INFOPLIST_FILE = "OpenCourse/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.edu.ccut.OpenCourse;
