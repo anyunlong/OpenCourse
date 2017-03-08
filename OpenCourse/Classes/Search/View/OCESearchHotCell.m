@@ -99,7 +99,7 @@ extern const CGFloat AYLViewsMargin;
     
     CGFloat numberViewX = AYLViewsMargin;
     _numberView.ayl_x = numberViewX;
-    _numberView.ayl_centerY = viewHeight / 2;
+    _numberView.ayl_centerY = 12;
     _numberView.ayl_size = CGSizeMake(20, 20);
     
     CGRect titleViewRect = [_titleView.text boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:searchHotCellTitleFontAttr context:nil];

@@ -41,11 +41,11 @@ extern const CGFloat AYLViewsMargin;
     
     [self loadNetworkData];
     
-    UIButton *testButton = [[UIButton alloc] init];
-    testButton.backgroundColor = [UIColor orangeColor];
-    [testButton addTarget:self action:@selector(onClickTestButton) forControlEvents:UIControlEventTouchUpInside];
-    testButton.frame = CGRectMake(0, 0, 100, 100);
-    [self.tableView addSubview:testButton];
+//    UIButton *testButton = [[UIButton alloc] init];
+//    testButton.backgroundColor = [UIColor orangeColor];
+//    [testButton addTarget:self action:@selector(onClickTestButton) forControlEvents:UIControlEventTouchUpInside];
+//    testButton.frame = CGRectMake(0, 0, 100, 100);
+//    [self.tableView addSubview:testButton];
 }
 
 - (void)onClickTestButton {
